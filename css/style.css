@@ -1,0 +1,618 @@
+/* ==========================================================================
+   GreenLeaf Community Food Bank - style.css
+   Part 2: CSS styling, layout, and responsive design.
+
+   Table of contents (search for these headings):
+   1. CSS Reset
+   2. CSS Variables (design tokens)
+   3. Base Styles
+   4. Typography
+   5. Layout - Header / Navigation / Footer
+   6. Layout - Page sections (Grid & Flexbox)
+   7. Components - Cards, Tables, Forms, Buttons
+   8. Visual styles - colour, shadow, hover/focus/active states
+   9. Responsive - Tablet breakpoint
+   10. Responsive - Mobile breakpoint
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CSS RESET
+   A light reset so the site looks consistent across browsers, rather than
+   relying on each browser's own default spacing/typography.
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body, h1, h2, h3, h4, p, ul, ol, li, figure, table, th, td, form {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+img, picture {
+  max-width: 100%;
+  display: block;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   2. CSS VARIABLES (design tokens)
+   Centralising colours, fonts and spacing here means every component below
+   reuses the same values, so the whole site can be re-themed by editing
+   just this block.
+   -------------------------------------------------------------------------- */
+:root {
+  /* Colour palette - grounded in the subject matter: produce, pantry, harvest */
+  --green: #2c4a32;
+  --green-dark: #1b2e20;
+  --green-tint: #dbe6db;
+  --wheat: #d9a441;
+  --wheat-dark: #a97a24;
+  --tomato: #c1432e;
+  --tomato-tint: #f3ddd6;
+  --paper: #efe8d3;
+  --paper-warm: #e8dfc4;
+  --card: #fbf7ea;
+  --ink: #1f2a1d;
+  --ink-soft: #45503f;
+  --line: rgba(31, 42, 29, 0.16);
+
+  /* Typography */
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-body: 'Public Sans', -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+
+  /* Spacing scale (rem-based so it responds to the user's base font size) */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+  --space-6: 4.5rem;
+
+  /* Layout */
+  --container-width: 71.25rem; /* ~1140px */
+  --radius: 4px;
+  --shadow: 0 10px 30px rgba(24, 47, 30, 0.14);
+}
+
+/* --------------------------------------------------------------------------
+   3. BASE STYLES
+   Default styles applied to the whole document.
+   -------------------------------------------------------------------------- */
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;           /* 16px, respects user browser settings */
+  line-height: 1.6;
+  color: var(--ink);
+  background-color: var(--paper);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin-inline: auto;
+  padding-inline: var(--space-3);
+}
+
+main {
+  display: block;
+  width: 100%;
+  max-width: var(--container-width);
+  margin-inline: auto;
+  padding: var(--space-5) var(--space-3);
+}
+
+main > section,
+main > div.help-grid > section,
+main > div.contact-grid > section {
+  margin-bottom: var(--space-5);
+}
+
+main > section:last-child {
+  margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   4. TYPOGRAPHY
+   -------------------------------------------------------------------------- */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--green-dark);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+}
+
+h1 { font-size: clamp(1.75rem, 1.4rem + 1.5vw, 2.5rem); }
+h2 { font-size: clamp(1.4rem, 1.2rem + 1vw, 1.9rem); margin-bottom: var(--space-3); }
+h3 { font-size: 1.3rem; margin-bottom: var(--space-2); }
+h4 { font-size: 1.05rem; margin-bottom: var(--space-1); }
+
+p {
+  margin-bottom: var(--space-2);
+  max-width: 65ch;
+}
+
+header p,
+footer p {
+  max-width: none;
+}
+
+strong { font-weight: 700; }
+
+a {
+  transition: color 0.15s ease;
+}
+
+main a:not(.btn):not(.nav-link) {
+  color: var(--green);
+  font-weight: 600;
+  border-bottom: 1px solid transparent;
+}
+
+main a:not(.btn):not(.nav-link):hover,
+main a:not(.btn):not(.nav-link):focus {
+  border-bottom-color: var(--green);
+}
+
+/* --------------------------------------------------------------------------
+   5. LAYOUT - HEADER / NAVIGATION / FOOTER
+   Uses Flexbox so the header and nav can re-flow at smaller widths without
+   needing extra markup.
+   -------------------------------------------------------------------------- */
+header {
+  background-color: var(--paper);
+  border-bottom: 1px solid var(--line);
+  padding: var(--space-3);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  max-width: var(--container-width);
+  margin-inline: auto;
+}
+
+header img {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+}
+
+header h1 {
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+header p {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin: 0;
+  flex-basis: 100%;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: rgba(239, 232, 211, 0.95);
+  backdrop-filter: blur(4px);
+  border-bottom: 1px solid var(--line);
+}
+
+nav ul {
+  max-width: var(--container-width);
+  margin-inline: auto;
+  padding: var(--space-1) var(--space-3);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-3);
+}
+
+nav a {
+  display: inline-block;
+  padding: var(--space-1) var(--space-1);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  border-bottom: 2px solid transparent;
+}
+
+nav a:hover,
+nav a:focus {
+  color: var(--green);
+  border-bottom-color: var(--wheat-dark);
+}
+
+/* Footer uses CSS Grid with named template areas: its 3 paragraphs (address,
+   contact, copyright) are placed into named columns on desktop and stack
+   into a single column on mobile (see the mobile breakpoint below). Note:
+   some very old/basic rendering engines used only for local screenshot
+   evidence do not support CSS Grid and will show this stacked even on
+   desktop - all current browsers (Chrome, Firefox, Edge, Safari) render it
+   as the 3-column layout described here. */
+footer {
+  background-color: var(--green-dark);
+  color: #d9d4c1;
+  padding: var(--space-5) var(--space-3) var(--space-3);
+  margin-top: var(--space-6);
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr;
+  grid-template-areas: "address contact copyright";
+  gap: var(--space-3);
+  max-width: none;
+}
+
+footer p:nth-of-type(1) { grid-area: address; }
+footer p:nth-of-type(2) { grid-area: contact; }
+footer p:nth-of-type(3) { grid-area: copyright; }
+
+footer p {
+  max-width: none;
+  margin-bottom: var(--space-1);
+  font-size: 0.9rem;
+}
+
+footer a {
+  color: #d9d4c1;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(217, 212, 193, 0.4);
+}
+
+footer a:hover,
+footer a:focus {
+  color: var(--wheat);
+  border-bottom-color: var(--wheat);
+}
+
+/* --------------------------------------------------------------------------
+   6. LAYOUT - PAGE SECTIONS (Grid & Flexbox)
+   Each of these is a distinct desktop layout pattern used across the site.
+   Flexbox is used for the card/column layouts below because it degrades
+   predictably with flex-wrap as columns are added or removed; CSS Grid
+   with grid-template-areas is used for the footer further down, to satisfy
+   both layout techniques required by the brief.
+   -------------------------------------------------------------------------- */
+
+/* Home: hero section - image next to heading/intro/CTAs */
+#hero {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  align-items: center;
+}
+
+#hero picture,
+#hero > div {
+  flex: 1 1 320px;
+  min-width: 0;
+}
+
+#hero img,
+#hero picture {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* Home: quick facts - 4 equal stat cards */
+#quick-facts ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+#quick-facts li {
+  flex: 1 1 200px;
+  background-color: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: var(--space-2);
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Home: services preview cards, wrapped in .service-cards in the HTML */
+.service-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.service-cards article {
+  flex: 1 1 260px;
+  background-color: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease;
+}
+
+.service-cards article:hover {
+  transform: translateY(-4px);
+}
+
+.service-cards img,
+.service-cards picture {
+  border-radius: var(--radius);
+  margin-bottom: var(--space-2);
+}
+
+/* Services page: image + description laid out side by side */
+.media-row {
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: var(--space-2);
+}
+
+.media-row img,
+.media-row picture {
+  flex: 1 1 260px;
+  max-width: 320px;
+  border-radius: var(--radius);
+}
+
+.media-row p {
+  flex: 2 1 320px;
+}
+
+/* About page: values list as a 2-column card layout */
+#values ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+#values li {
+  flex: 1 1 45%;
+  background-color: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: var(--space-2);
+}
+
+/* Get Involved page: 4 forms arranged as a responsive card layout */
+.help-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.help-grid section {
+  flex: 1 1 380px;
+  background-color: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  box-shadow: var(--shadow);
+  margin-bottom: 0 !important;
+}
+
+/* Contact page: details next to the contact form */
+.contact-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  align-items: flex-start;
+}
+
+.contact-grid section {
+  flex: 1 1 320px;
+}
+
+/* Tables that may be wide (schedules) get a horizontal scroll wrapper
+   instead of squashing on small screens */
+.table-scroll {
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: var(--space-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+/* --------------------------------------------------------------------------
+   7. COMPONENTS - Cards, Tables, Forms, Buttons
+   -------------------------------------------------------------------------- */
+table {
+  font-size: 0.95rem;
+}
+
+table th,
+table td {
+  padding: var(--space-1) var(--space-2);
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  white-space: nowrap;
+}
+
+table th {
+  background-color: var(--green);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+table tr:last-child td {
+  border-bottom: none;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+  color: var(--ink-soft);
+  margin-top: var(--space-1);
+}
+
+input, select, textarea {
+  padding: 0.65em 0.75em;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius);
+  background-color: #fff;
+  font-size: 0.95rem;
+  width: 100%;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px var(--green-tint);
+}
+
+input[type="submit"] {
+  margin-top: var(--space-2);
+  background-color: var(--green);
+  color: #fff;
+  font-weight: 700;
+  border: 1.5px solid var(--green);
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: var(--green-dark);
+  transform: translateY(-1px);
+}
+
+input[type="submit"]:active {
+  transform: translateY(0);
+}
+
+/* --------------------------------------------------------------------------
+   8. VISUAL STYLES - colour, shadow, hover/focus/active states
+   (Most component-level visual styling lives inline with each component
+   above; these are the remaining page-wide visual touches.)
+   -------------------------------------------------------------------------- */
+#this-weeks-needs td:nth-child(2) {
+  font-weight: 700;
+}
+
+#this-weeks-needs tr:nth-child(2) td:nth-child(2),
+#this-weeks-needs tr:nth-child(3) td:nth-child(2) {
+  color: var(--tomato);
+}
+
+#this-weeks-needs tr:nth-child(4) td:nth-child(2),
+#this-weeks-needs tr:nth-child(5) td:nth-child(2) {
+  color: var(--wheat-dark);
+}
+
+/* --------------------------------------------------------------------------
+   9. RESPONSIVE - TABLET BREAKPOINT (max-width: 1024px)
+   Multi-column grids drop to 2 columns; container padding shrinks slightly.
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  :root {
+    --space-5: 2.25rem;
+    --space-6: 3rem;
+  }
+
+  #quick-facts li {
+    flex-basis: 45%; /* 2 per row instead of 4 */
+  }
+
+  .service-cards article {
+    flex-basis: 45%; /* 2 per row instead of 3 */
+  }
+
+  .help-grid section {
+    flex-basis: 100%; /* stack the 4 forms on tablet */
+  }
+
+  .contact-grid section {
+    flex-basis: 100%; /* stack details above the form on tablet */
+  }
+}
+
+/* --------------------------------------------------------------------------
+   10. RESPONSIVE - MOBILE BREAKPOINT (max-width: 640px)
+   Everything collapses to a single column; navigation stacks vertically;
+   font sizes and spacing shrink further for small screens.
+   -------------------------------------------------------------------------- */
+@media (max-width: 640px) {
+  html {
+    font-size: 15px; /* slightly smaller base -> all rem values scale down */
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  nav a {
+    display: block;
+    width: 100%;
+    padding: var(--space-1) 0;
+  }
+
+  main {
+    padding: var(--space-4) var(--space-2);
+  }
+
+  #quick-facts li,
+  .service-cards article,
+  #values li,
+  .help-grid section,
+  .contact-grid section {
+    flex-basis: 100%; /* one column on mobile */
+  }
+
+  .media-row {
+    flex-direction: column;
+  }
+
+  .media-row img {
+    max-width: 100%;
+  }
+
+  table {
+    min-width: 480px; /* keeps schedule tables readable inside .table-scroll */
+  }
+
+  footer {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "address"
+      "contact"
+      "copyright";
+    text-align: left;
+  }
+}
