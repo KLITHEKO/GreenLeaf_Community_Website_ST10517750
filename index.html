@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GreenLeaf Community Food Bank - Home</title>
+  <!-- No CSS yet: styling and responsiveness are added in Part 2 -->
+</head>
+<body>
+
+  <!-- ============================================================
+       HEADER
+       Appears at the top of every page: logo, org name, tagline.
+       ============================================================ -->
+  <header>
+    <img src="images/logo.png" alt="GreenLeaf Community Food Bank logo" width="80" height="80">
+    <h1>GreenLeaf Community Food Bank</h1>
+    <p>No one should go hungry in our neighbourhood.</p>
+  </header>
+
+  <!-- ============================================================
+       NAVIGATION
+       Main menu, identical on every page, so users always know
+       where they are and can reach any other page in one click.
+       ============================================================ -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="services.html">Our Services</a></li>
+      <li><a href="get-involved.html">Get Involved</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ============================================================
+       MAIN CONTENT
+       Everything unique to the Home page lives inside <main>.
+       ============================================================ -->
+  <main>
+
+    <!-- HERO / INTRO
+         First thing a visitor sees: what GreenLeaf does, plus
+         the three main "call to action" links. -->
+    <section id="hero">
+      <img src="images/hero-banner.jpg" alt="GreenLeaf volunteers packing food parcels" width="700">
+      <h2>Fighting food insecurity in our community</h2>
+      <p>
+        GreenLeaf Community Food Bank collects, sorts, and distributes food donations
+        to low-income families and individuals facing food insecurity in our local area.
+        We run a weekly food parcel service, a weekend soup kitchen, and a donation
+        drop-off and collection service for businesses and individuals.
+      </p>
+      <p>
+        <a href="get-involved.html">Donate food or funds</a> |
+        <a href="get-involved.html">Volunteer with us</a> |
+        <a href="get-involved.html">Request a food parcel</a>
+      </p>
+    </section>
+
+    <!-- QUICK FACTS
+         Short, scannable impact stats to build trust quickly. -->
+    <section id="quick-facts">
+      <h2>GreenLeaf at a glance</h2>
+      <ul>
+        <li>1,200+ food parcels distributed every month</li>
+        <li>18 business drop-off partners across the area</li>
+        <li>340 volunteer hours contributed every month</li>
+        <li>Donations reach a family within 72 hours on average</li>
+      </ul>
+    </section>
+
+    <!-- THIS WEEK'S SHELF (signature feature)
+         Solves the core problem in the brief: GreenLeaf previously
+         had no central place to publish urgent/low-stock items.
+         Volunteers update this table weekly. In Part 2/3 this could
+         become a live, editable list instead of static HTML. -->
+    <section id="this-weeks-needs">
+      <h2>This week's shelf</h2>
+      <p>Updated by volunteers every Monday, so a donation always lands where it's needed most.</p>
+      <table border="1">
+        <tr>
+          <th>Item</th>
+          <th>Status</th>
+        </tr>
+        <tr>
+          <td>Cooking oil (2L)</td>
+          <td>Critical</td>
+        </tr>
+        <tr>
+          <td>Baby formula</td>
+          <td>Critical</td>
+        </tr>
+        <tr>
+          <td>Rice, 2kg bags</td>
+          <td>Low</td>
+        </tr>
+        <tr>
+          <td>Canned vegetables</td>
+          <td>Low</td>
+        </tr>
+        <tr>
+          <td>Pasta</td>
+          <td>Stocked</td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- SERVICES PREVIEW
+         Short summary of the 3 core services, each with an image.
+         Full detail lives on services.html - this is just a teaser. -->
+    <section id="services-preview">
+      <h2>What we do</h2>
+
+      <!-- Service 1: Food parcels -->
+      <article>
+        <h3>Weekly food parcel distribution</h3>
+        <img src="images/food-parcels.jpg" alt="Packed food parcels ready for distribution" width="300">
+        <p>Pre-packed parcels of staples and seasonal produce, handed out every Tuesday and Thursday.</p>
+      </article>
+
+      <!-- Service 2: Soup kitchen -->
+      <article>
+        <h3>Weekend soup kitchen</h3>
+        <img src="images/soup-kitchen.jpg" alt="Volunteers serving soup at the weekend soup kitchen" width="300">
+        <p>A hot, sit-down meal open to anyone who needs one, every Saturday and Sunday.</p>
+      </article>
+
+      <!-- Service 3: Donation drop-off -->
+      <article>
+        <h3>Donation drop-off &amp; collection</h3>
+        <img src="images/donation-dropoff.jpg" alt="Donation boxes at the GreenLeaf depot" width="300">
+        <p>Drop food off at the depot or a partner bin, or arrange a recurring pickup.</p>
+      </article>
+
+      <p><a href="services.html">See all our services</a></p>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       Appears at the bottom of every page: contact info + legal line.
+       ============================================================ -->
+  <footer>
+    <p>GreenLeaf Depot, 14 Marlboro Drive, Randburg</p>
+    <p>Email: <a href="mailto:hello@greenleaffoodbank.org">hello@greenleaffoodbank.org</a> | Phone: <a href="tel:+27820000000">+27 82 000 0000</a></p>
+    <p>&copy; 2026 GreenLeaf Community Food Bank. This is a fictional organisation created for academic purposes (WEDE5020W).</p>
+  </footer>
+
+</body>
+</html>
