@@ -4,7 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GreenLeaf Community Food Bank - Home</title>
-  <!-- No CSS yet: styling and responsiveness are added in Part 2 -->
+
+  <!-- PART 2: external stylesheet + web fonts (previously: no CSS at all) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -41,21 +45,32 @@
 
     <!-- HERO / INTRO
          First thing a visitor sees: what GreenLeaf does, plus
-         the three main "call to action" links. -->
+         the three main "call to action" links.
+         PART 2: now uses <picture> + srcset so the browser can pick a
+         smaller image file on small screens instead of always downloading
+         the full-size banner. -->
     <section id="hero">
-      <img src="images/hero-banner.jpg" alt="GreenLeaf volunteers packing food parcels" width="700">
-      <h2>Fighting food insecurity in our community</h2>
-      <p>
-        GreenLeaf Community Food Bank collects, sorts, and distributes food donations
-        to low-income families and individuals facing food insecurity in our local area.
-        We run a weekly food parcel service, a weekend soup kitchen, and a donation
-        drop-off and collection service for businesses and individuals.
-      </p>
-      <p>
-        <a href="get-involved.html">Donate food or funds</a> |
-        <a href="get-involved.html">Volunteer with us</a> |
-        <a href="get-involved.html">Request a food parcel</a>
-      </p>
+      <picture>
+        <source media="(max-width: 640px)" srcset="images/hero-banner-400w.jpg">
+        <img src="images/hero-banner-800w.jpg"
+             srcset="images/hero-banner-400w.jpg 400w, images/hero-banner-800w.jpg 800w"
+             sizes="(max-width: 640px) 100vw, 700px"
+             alt="GreenLeaf volunteers packing food parcels" width="700">
+      </picture>
+      <div>
+        <h2>Fighting food insecurity in our community</h2>
+        <p>
+          GreenLeaf Community Food Bank collects, sorts, and distributes food donations
+          to low-income families and individuals facing food insecurity in our local area.
+          We run a weekly food parcel service, a weekend soup kitchen, and a donation
+          drop-off and collection service for businesses and individuals.
+        </p>
+        <p>
+          <a href="get-involved.html">Donate food or funds</a> |
+          <a href="get-involved.html">Volunteer with us</a> |
+          <a href="get-involved.html">Request a food parcel</a>
+        </p>
+      </div>
     </section>
 
     <!-- QUICK FACTS
@@ -73,65 +88,81 @@
     <!-- THIS WEEK'S SHELF (signature feature)
          Solves the core problem in the brief: GreenLeaf previously
          had no central place to publish urgent/low-stock items.
-         Volunteers update this table weekly. In Part 2/3 this could
-         become a live, editable list instead of static HTML. -->
+         Volunteers update this table weekly. PART 2: wrapped the table in
+         .table-scroll so it scrolls horizontally instead of squashing on
+         small screens. -->
     <section id="this-weeks-needs">
       <h2>This week's shelf</h2>
       <p>Updated by volunteers every Monday, so a donation always lands where it's needed most.</p>
-      <table border="1">
-        <tr>
-          <th>Item</th>
-          <th>Status</th>
-        </tr>
-        <tr>
-          <td>Cooking oil (2L)</td>
-          <td>Critical</td>
-        </tr>
-        <tr>
-          <td>Baby formula</td>
-          <td>Critical</td>
-        </tr>
-        <tr>
-          <td>Rice, 2kg bags</td>
-          <td>Low</td>
-        </tr>
-        <tr>
-          <td>Canned vegetables</td>
-          <td>Low</td>
-        </tr>
-        <tr>
-          <td>Pasta</td>
-          <td>Stocked</td>
-        </tr>
-      </table>
+      <div class="table-scroll">
+        <table border="1">
+          <tr>
+            <th>Item</th>
+            <th>Status</th>
+          </tr>
+          <tr>
+            <td>Cooking oil (2L)</td>
+            <td>Critical</td>
+          </tr>
+          <tr>
+            <td>Baby formula</td>
+            <td>Critical</td>
+          </tr>
+          <tr>
+            <td>Rice, 2kg bags</td>
+            <td>Low</td>
+          </tr>
+          <tr>
+            <td>Canned vegetables</td>
+            <td>Low</td>
+          </tr>
+          <tr>
+            <td>Pasta</td>
+            <td>Stocked</td>
+          </tr>
+        </table>
+      </div>
     </section>
 
     <!-- SERVICES PREVIEW
          Short summary of the 3 core services, each with an image.
-         Full detail lives on services.html - this is just a teaser. -->
+         Full detail lives on services.html - this is just a teaser.
+         PART 2: the three <article> cards are wrapped in .service-cards
+         so CSS Grid can lay them out as 3 columns on desktop. -->
     <section id="services-preview">
       <h2>What we do</h2>
 
-      <!-- Service 1: Food parcels -->
-      <article>
-        <h3>Weekly food parcel distribution</h3>
-        <img src="images/food-parcels.jpg" alt="Packed food parcels ready for distribution" width="300">
-        <p>Pre-packed parcels of staples and seasonal produce, handed out every Tuesday and Thursday.</p>
-      </article>
+      <div class="service-cards">
+        <!-- Service 1: Food parcels -->
+        <article>
+          <h3>Weekly food parcel distribution</h3>
+          <picture>
+            <source media="(max-width: 640px)" srcset="images/food-parcels-400w.jpg">
+            <img src="images/food-parcels-800w.jpg" alt="Packed food parcels ready for distribution" width="300">
+          </picture>
+          <p>Pre-packed parcels of staples and seasonal produce, handed out every Tuesday and Thursday.</p>
+        </article>
 
-      <!-- Service 2: Soup kitchen -->
-      <article>
-        <h3>Weekend soup kitchen</h3>
-        <img src="images/soup-kitchen.jpg" alt="Volunteers serving soup at the weekend soup kitchen" width="300">
-        <p>A hot, sit-down meal open to anyone who needs one, every Saturday and Sunday.</p>
-      </article>
+        <!-- Service 2: Soup kitchen -->
+        <article>
+          <h3>Weekend soup kitchen</h3>
+          <picture>
+            <source media="(max-width: 640px)" srcset="images/soup-kitchen-400w.jpg">
+            <img src="images/soup-kitchen-800w.jpg" alt="Volunteers serving soup at the weekend soup kitchen" width="300">
+          </picture>
+          <p>A hot, sit-down meal open to anyone who needs one, every Saturday and Sunday.</p>
+        </article>
 
-      <!-- Service 3: Donation drop-off -->
-      <article>
-        <h3>Donation drop-off &amp; collection</h3>
-        <img src="images/donation-dropoff.jpg" alt="Donation boxes at the GreenLeaf depot" width="300">
-        <p>Drop food off at the depot or a partner bin, or arrange a recurring pickup.</p>
-      </article>
+        <!-- Service 3: Donation drop-off -->
+        <article>
+          <h3>Donation drop-off &amp; collection</h3>
+          <picture>
+            <source media="(max-width: 640px)" srcset="images/donation-dropoff-400w.jpg">
+            <img src="images/donation-dropoff-800w.jpg" alt="Donation boxes at the GreenLeaf depot" width="300">
+          </picture>
+          <p>Drop food off at the depot or a partner bin, or arrange a recurring pickup.</p>
+        </article>
+      </div>
 
       <p><a href="services.html">See all our services</a></p>
     </section>

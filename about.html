@@ -4,7 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GreenLeaf Community Food Bank - About Us</title>
-  <!-- No CSS yet: styling and responsiveness are added in Part 2 -->
+
+  <!-- PART 2: external stylesheet + web fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -29,10 +33,15 @@
   <main>
 
     <!-- ORG OVERVIEW
-         Who GreenLeaf is, in plain terms, with a supporting photo. -->
+         Who GreenLeaf is, in plain terms, with a supporting photo.
+         PART 2: added srcset so the browser can load a smaller file on
+         small screens. -->
     <section id="about-overview">
       <h2>About GreenLeaf</h2>
-      <img src="images/about-depot.jpg" alt="GreenLeaf Depot building in Randburg" width="400">
+      <picture>
+        <source media="(max-width: 640px)" srcset="images/about-depot-400w.jpg">
+        <img src="images/about-depot-800w.jpg" alt="GreenLeaf Depot building in Randburg" width="400">
+      </picture>
       <p>
         GreenLeaf Community Food Bank is a volunteer-run non-profit organisation that
         collects, sorts, and distributes food donations to low-income families and
@@ -57,7 +66,8 @@
     </section>
 
     <!-- VALUES
-         Four core values, each explained in one line. -->
+         Four core values, each explained in one line.
+         PART 2: styled as a 2x2 card grid on desktop via CSS Grid on #values ul. -->
     <section id="values">
       <h2>Our values</h2>
       <ul>

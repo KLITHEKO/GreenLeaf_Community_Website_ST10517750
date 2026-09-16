@@ -4,15 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GreenLeaf Community Food Bank - Contact</title>
+
+  <!-- PART 2: external stylesheet + web fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+  <!-- HEADER: same on every page, see index.html for notes -->
   <header>
     <img src="images/logo.png" alt="GreenLeaf Community Food Bank logo" width="80" height="80">
     <h1>GreenLeaf Community Food Bank</h1>
     <p>No one should go hungry in our neighbourhood.</p>
   </header>
 
+  <!-- NAVIGATION: same on every page, see index.html for notes -->
   <nav>
     <ul>
       <li><a href="index.html">Home</a></li>
@@ -25,43 +32,52 @@
 
   <main>
 
-    <section id="contact-details">
-      <h2>Contact us</h2>
-      <img src="images/contact-map.jpg" alt="Map placeholder showing the GreenLeaf depot location" width="400">
-      <h3>Visit</h3>
-      <p>GreenLeaf Depot<br>14 Marlboro Drive, Randburg<br>Monday - Friday, 08:00 - 17:00</p>
+    <!-- PART 2: contact details + contact form wrapped in .contact-grid so
+         CSS Grid can place them side by side on desktop. -->
+    <div class="contact-grid">
 
-      <h3>Reach us</h3>
-      <p>Email: <a href="mailto:hello@greenleaffoodbank.org">hello@greenleaffoodbank.org</a></p>
-      <p>Phone: <a href="tel:+27820000000">+27 82 000 0000</a></p>
-      <p>WhatsApp community group: <a href="#">Join here</a></p>
-    </section>
+      <section id="contact-details">
+        <h2>Contact us</h2>
+        <picture>
+          <source media="(max-width: 640px)" srcset="images/contact-map-400w.jpg">
+          <img src="images/contact-map-800w.jpg" alt="Map placeholder showing the GreenLeaf depot location" width="400">
+        </picture>
+        <h3>Visit</h3>
+        <p>GreenLeaf Depot<br>14 Marlboro Drive, Randburg<br>Monday - Friday, 08:00 - 17:00</p>
 
-    <section id="contact-form">
-      <h3>Send us a message</h3>
-      <form action="#" method="post">
-        <label for="c-name">Name:</label><br>
-        <input type="text" id="c-name" name="c-name"><br><br>
+        <h3>Reach us</h3>
+        <p>Email: <a href="mailto:hello@greenleaffoodbank.org">hello@greenleaffoodbank.org</a></p>
+        <p>Phone: <a href="tel:+27820000000">+27 82 000 0000</a></p>
+        <p>WhatsApp community group: <a href="#">Join here</a></p>
+      </section>
 
-        <label for="c-email">Email:</label><br>
-        <input type="email" id="c-email" name="c-email"><br><br>
+      <section id="contact-form">
+        <h3>Send us a message</h3>
+        <form action="#" method="post">
+          <label for="c-name">Name:</label>
+          <input type="text" id="c-name" name="c-name">
 
-        <label for="c-subject">Subject:</label><br>
-        <select id="c-subject" name="c-subject">
-          <option value="">Select a topic</option>
-          <option value="donation">Donation query</option>
-          <option value="volunteering">Volunteering</option>
-          <option value="partnership">Business partnership</option>
-          <option value="parcel">Food parcel request</option>
-          <option value="other">Other</option>
-        </select><br><br>
+          <label for="c-email">Email:</label>
+          <input type="email" id="c-email" name="c-email">
 
-        <label for="c-message">Message:</label><br>
-        <textarea id="c-message" name="c-message" rows="6" cols="40"></textarea><br><br>
+          <label for="c-subject">Subject:</label>
+          <select id="c-subject" name="c-subject">
+            <option value="">Select a topic</option>
+            <option value="donation">Donation query</option>
+            <option value="volunteering">Volunteering</option>
+            <option value="partnership">Business partnership</option>
+            <option value="parcel">Food parcel request</option>
+            <option value="other">Other</option>
+          </select>
 
-        <input type="submit" value="Send message">
-      </form>
-    </section>
+          <label for="c-message">Message:</label>
+          <textarea id="c-message" name="c-message" rows="6" cols="40"></textarea>
+
+          <input type="submit" value="Send message">
+        </form>
+      </section>
+
+    </div>
 
     <section id="follow">
       <h3>Follow GreenLeaf</h3>
@@ -74,6 +90,7 @@
 
   </main>
 
+  <!-- FOOTER: same on every page, see index.html for notes -->
   <footer>
     <p>GreenLeaf Depot, 14 Marlboro Drive, Randburg</p>
     <p>Email: <a href="mailto:hello@greenleaffoodbank.org">hello@greenleaffoodbank.org</a> | Phone: <a href="tel:+27820000000">+27 82 000 0000</a></p>
