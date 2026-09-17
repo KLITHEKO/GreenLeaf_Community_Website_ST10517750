@@ -43,11 +43,12 @@ as a table of contents.
 list style, table borders) so the site looks consistent across browsers, plus
 site-wide defaults for font, colour, and line-height.
 
-**Typography** — three type families used deliberately: Fraunces (serif) for
-headings, Public Sans for body text, and IBM Plex Mono for schedule/table labels
-and form labels, evoking hand-labelled pantry signage. Font sizes use `rem` and
-`clamp()` so they scale with the user's browser settings rather than being fixed
-in pixels.
+**Typography** — a simple two-font pairing: Lora (serif) for headings and
+Montserrat (sans-serif) for everything else, including the small uppercase
+"label" style used on table headers and form labels (achieved with
+letter-spacing and `text-transform`, not a third font). Font sizes use `rem`
+and `clamp()` so they scale with the user's browser settings rather than being
+fixed in pixels.
 
 **Layout (Flexbox + CSS Grid)** — Flexbox is used for every card/column layout
 that needs to reflow as the number of items changes (the hero, stat cards,
@@ -124,6 +125,14 @@ Firefox, Edge, Safari) support both `<picture>` and `srcset` fully.
 
 This section is the module-required record of edits made in response to Part 1
 feedback, plus new work delivered in Part 2. Newest entries first.
+
+### [Part 2 update] — simplified font pairing
+- **Changed** the typography from a three-font system (Fraunces / Public Sans /
+  IBM Plex Mono) to a simple two-font pairing: **Lora** for headings and
+  **Montserrat** for body text, form labels, and table headers. Reduces the
+  number of external font requests and gives a cleaner, more consistent look.
+- Updated the Google Fonts `<link>` on all 5 pages and the `--font-display` /
+  `--font-body` / `--font-mono` variables in `css/style.css` accordingly.
 
 ### [Part 2] — CSS styling, responsive design, README overhaul
 - **Added** `css/style.css`, linked from all 5 HTML pages (previously the site
