@@ -44,7 +44,7 @@ list style, table borders) so the site looks consistent across browsers, plus
 site-wide defaults for font, colour, and line-height.
 
 **Typography** — a simple two-font pairing: Lora (serif) for headings and
-Montserrat (sans-serif) for everything else, including the small uppercase
+Roboto (sans-serif) for everything else, including the small uppercase
 "label" style used on table headers and form labels (achieved with
 letter-spacing and `text-transform`, not a third font). Font sizes use `rem`
 and `clamp()` so they scale with the user's browser settings rather than being
@@ -126,10 +126,17 @@ Firefox, Edge, Safari) support both `<picture>` and `srcset` fully.
 This section is the module-required record of edits made in response to Part 1
 feedback, plus new work delivered in Part 2. Newest entries first.
 
+### [Part 2 update] — switched font pairing to Roboto + Lora
+- **Changed** the body/label font from Montserrat to **Roboto**, keeping
+  **Lora** for headings. Final pairing: Lora (headings) + Roboto (body,
+  labels, table headers).
+- Updated the Google Fonts `<link>` on all 5 pages and the `--font-body` /
+  `--font-mono` variables in `css/style.css` accordingly.
+
 ### [Part 2 update] — simplified font pairing
 - **Changed** the typography from a three-font system (Fraunces / Public Sans /
-  IBM Plex Mono) to a simple two-font pairing: **Lora** for headings and
-  **Montserrat** for body text, form labels, and table headers. Reduces the
+  IBM Plex Mono) to a simple two-font pairing: Lora for headings and
+  Montserrat for body text, form labels, and table headers. Reduces the
   number of external font requests and gives a cleaner, more consistent look.
 - Updated the Google Fonts `<link>` on all 5 pages and the `--font-display` /
   `--font-body` / `--font-mono` variables in `css/style.css` accordingly.
@@ -244,7 +251,7 @@ practices):
     https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries
     (Accessed: 16 September 2026).
 
-14. Google Fonts (n.d.) *Fraunces, Public Sans, IBM Plex Mono*. Available at:
+14. Google Fonts (n.d.) *Lora, Roboto*. Available at:
     https://fonts.google.com/ (Accessed: 16 September 2026).
 
 15. WEDE5020W Part 2 Guide, module handout (course lecturer, 2026).

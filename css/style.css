@@ -80,11 +80,11 @@ table {
   --line: rgba(31, 42, 29, 0.16);
 
   /* Typography - simple two-font pairing: Lora (serif) for headings,
-     Montserrat (sans) for everything else, including the mono-style
+     Roboto (sans) for everything else, including the mono-style
      labels that previously used a separate monospace font. */
   --font-display: 'Lora', Georgia, 'Times New Roman', serif;
-  --font-body: 'Montserrat', -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  --font-mono: 'Montserrat', -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --font-body: 'Roboto', -apple-system, Segoe UI, Arial, sans-serif;
+  --font-mono: 'Roboto', -apple-system, Segoe UI, Arial, sans-serif;
 
   /* Spacing scale (rem-based so it responds to the user's base font size) */
   --space-1: 0.5rem;
