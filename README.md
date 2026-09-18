@@ -1,8 +1,10 @@
-# GreenLeaf Community Food Bank — Website
+# GreenLeaf Community Food Bank Website
 
-Website project for WEDE5020W.
+GreenLeaf Community Food Bank began with a simple idea: neighbours helping neighbours. What started as a small WhatsApp group for sharing surplus food has grown into a community network of volunteers, donors, and local partners working together to make sure no one goes hungry.
 
-GreenLeaf Community Food Bank is a fictional non-profit organisation created for this module. All statistics, addresses, contact details, and organisational information used on the website are placeholders.
+Today, we distribute more than 1,200 food parcels every month, run a weekend soup kitchen that welcomes anyone who needs a hot meal, and work with 18 local businesses through regular donation drop-offs. Behind it all are more than 340 volunteer hours every month, driven by people who believe that a stronger community starts with looking out for one another.
+
+At GreenLeaf, we believe access to food should never come with judgment. Every person deserves to be treated with dignity, and every family should be able to count on consistent support when they need it. That is why everything we do is built around dignity, transparency, and community.
 
 ## Project Overview
 
