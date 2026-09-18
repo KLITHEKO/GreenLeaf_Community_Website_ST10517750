@@ -263,9 +263,48 @@ The `<picture>` implementation rendered correctly during testing.
 
 Modern browsers including Chrome, Firefox, Edge, and Safari support both `<picture>` and `srcset`.
 
+The screenshot tool also requires local file access to be explicitly enabled (`--enable-local-file-access`) to load the stylesheet and images from disk; without this flag it silently renders the page with no CSS and broken image icons, which looks like a styling bug but is a tool configuration issue, not a problem with the website itself.
+
 ## Changelog
 
 This section records changes made for Part 1 and Part 2.
+
+### Part 2 — Replaced placeholder photography with real images
+
+* Replaced all seven placeholder content images with real photographs supplied by the site owner: `hero-banner`, `food-parcels`, `soup-kitchen`, `donation-dropoff`, `about-depot`, `contact-map`, and `volunteers`
+* Cropped each photo to the exact aspect ratio and dimensions set out in `IMAGE_DIMENSIONS.txt` (16:9 for the hero banner, 4:3 for the rest), and regenerated matching `-400w`/`-800w` responsive variants for use in the existing `<picture>` elements
+* Two of the supplied photos (`about-depot`, `contact-map`) carried a third-party charity's logo watermark in the corner; this was removed by sampling and blending clean background from elsewhere in the same photo, so no unrelated organisation's branding appears on the GreenLeaf site
+* `logo.png` was left untouched, since it is GreenLeaf's own mark and has no photographic replacement
+* Refreshed all desktop/tablet/mobile screenshot evidence across all five pages to reflect the real photography
+* Discovered that the local screenshot tool (`wkhtmltoimage`) needs the `--enable-local-file-access` flag to load local CSS and image files at all in this environment; without it, pages rendered completely unstyled with broken image icons even though the site itself was unaffected — documented here so future evidence captures don't get mistaken for a real styling regression
+
+### Part 2 — Muted badges, rounded nav tabs, rounded table box
+
+* **Muted the status badges**: "Critical" and "Low" pills on This Week's Shelf changed from solid, bold-filled colours to a lighter, muted style — pale tinted background, coloured text, and a thin 1px matching-colour stroke instead of a heavy solid fill
+* **Rounded the navigation into tabs**: nav links now have `border-radius: 999px` (pill-shaped) with a light background tint on hover/focus, replacing the old underline-only hover state
+* **Rounded the schedule table box**: `.table-scroll` now uses the larger card radius (`--radius-card`) instead of the smaller default, with `overflow-y: hidden` added so the table's square header corners are properly clipped to the rounded wrapper
+* Adjusted the mobile nav tab styling so the pill shape looks right when links stack full-width (uses `--radius-card` instead of a full pill on small screens)
+
+### Part 2 — Background colour changed to white
+
+* Changed `--paper` (page/header background, and the semi-transparent nav bar tint) from cream (`#efe8d3`) to crisp white (`#FFFFFF`)
+* Card surfaces (`--card`, warm cream `#fbf7ea`) and the alternate section background (`--paper-warm`) were left unchanged, so cards now stand out more clearly against the white page instead of blending into a cream page
+* Refreshed screenshot evidence to reflect the white background
+
+### Part 2 — Reverted colour palette; header/nav layout change
+
+* Reverted the colour palette back to the original forest green / wheat / tomato / cream theme (`--green: #2c4a32`, `--wheat: #d9a441`, `--tomato: #c1432e`, `--paper: #efe8d3`), replacing the mint/slate/emerald palette used briefly before
+* Restored proper red (Critical) and amber (Low) semantics on the This Week's Shelf status pills, now using `--tomato` and a new `--wheat-tint` variable instead of the emerald-only pills
+* Restored the original footer text/link colours and nav hover accent to match the reverted palette
+* **Changed nav alignment**: logo stays anchored to the far left in the header (unchanged, was already left by default); navigation links are now right-aligned (`justify-content: flex-end`) instead of centered or left-aligned
+
+### Part 2 — Colour Palette Update (superseded above)
+
+* Replaced the colour palette with: `#F0FDF4` (mint background), `#1F2937` (slate text), `#10B981` (emerald primary), `#047857` (dark emerald)
+* Updated all colour variables in `css/style.css` (`--paper`, `--ink`, `--green`, `--green-dark`, and derived tones `--paper-warm`, `--card`, `--ink-soft`, `--green-tint`, `--line`)
+* Removed the previous amber/tomato accent colours; "Critical" and "Low" status indicators on the This Week's Shelf table are now shown as pill badges using only the new palette (dark emerald fill for Critical, light emerald tint for Low)
+* Updated hardcoded colour values that were not using variables (nav background, footer text/links, box-shadow tint) to match the new palette
+* Regenerated all desktop/tablet/mobile screenshots to reflect the new colours
 
 ### Part 2 — Font Pairing Updates
 

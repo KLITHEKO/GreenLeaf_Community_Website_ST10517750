@@ -72,7 +72,8 @@ table {
   --wheat-dark: #a97a24;
   --tomato: #c1432e;
   --tomato-tint: #f3ddd6;
-  --paper: #efe8d3;
+  --wheat-tint: #f6e8cc;
+  --paper: #ffffff;
   --paper-warm: #e8dfc4;
   --card: #fbf7ea;
   --ink: #1f2a1d;
@@ -96,7 +97,8 @@ table {
 
   /* Layout */
   --container-width: 71.25rem; /* ~1140px */
-  --radius: 4px;
+  --radius: 6px;
+  --radius-card: 14px; /* larger radius specifically for card-style containers */
   --shadow: 0 10px 30px rgba(24, 47, 30, 0.14);
 }
 
@@ -218,7 +220,7 @@ nav {
   position: sticky;
   top: 0;
   z-index: 10;
-  background-color: rgba(239, 232, 211, 0.95);
+  background-color: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(4px);
   border-bottom: 1px solid var(--line);
 }
@@ -229,22 +231,25 @@ nav ul {
   padding: var(--space-1) var(--space-3);
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-end; /* links aligned to the right; logo stays far left in header above */
   gap: var(--space-1) var(--space-3);
 }
 
 nav a {
   display: inline-block;
-  padding: var(--space-1) var(--space-1);
+  padding: var(--space-1) var(--space-2);
   font-weight: 700;
   font-size: 0.95rem;
   color: var(--ink-soft);
-  border-bottom: 2px solid transparent;
+  border: 1px solid transparent;
+  border-radius: 999px; /* pill-shaped tabs */
 }
 
 nav a:hover,
 nav a:focus {
   color: var(--green);
-  border-bottom-color: var(--wheat-dark);
+  background-color: var(--green-tint);
+  border-color: var(--green-tint);
 }
 
 /* Footer uses CSS Grid with named template areas: its 3 paragraphs (address,
@@ -328,7 +333,7 @@ footer a:focus {
   flex: 1 1 200px;
   background-color: var(--card);
   border: 1px solid var(--line);
-  border-radius: var(--radius);
+  border-radius: var(--radius-card);
   padding: var(--space-2);
   font-weight: 600;
   text-align: center;
@@ -346,7 +351,7 @@ footer a:focus {
   flex: 1 1 260px;
   background-color: var(--card);
   border: 1px solid var(--line);
-  border-radius: var(--radius);
+  border-radius: var(--radius-card);
   padding: var(--space-3);
   box-shadow: var(--shadow);
   transition: transform 0.2s ease;
@@ -393,7 +398,7 @@ footer a:focus {
   flex: 1 1 45%;
   background-color: var(--card);
   border: 1px solid var(--line);
-  border-radius: var(--radius);
+  border-radius: var(--radius-card);
   padding: var(--space-2);
 }
 
@@ -408,7 +413,7 @@ footer a:focus {
   flex: 1 1 380px;
   background-color: var(--card);
   border: 1px solid var(--line);
-  border-radius: var(--radius);
+  border-radius: var(--radius-card);
   padding: var(--space-3);
   box-shadow: var(--shadow);
   margin-bottom: 0 !important;
@@ -431,9 +436,10 @@ footer a:focus {
 .table-scroll {
   width: 100%;
   overflow-x: auto;
+  overflow-y: hidden;
   margin-bottom: var(--space-2);
   border: 1px solid var(--line);
-  border-radius: var(--radius);
+  border-radius: var(--radius-card);
 }
 
 /* --------------------------------------------------------------------------
@@ -509,7 +515,19 @@ input[type="submit"]:hover {
 }
 
 input[type="submit"]:active {
-  transform: translateY(0);
+  transform: translateY(1px); /* visible "press down" feel on click */
+}
+
+/* Accessibility: a clear, consistent focus indicator for keyboard users on
+   every interactive element (links, nav, buttons, form fields), instead of
+   relying on each browser's inconsistent default outline. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--green);
+  outline-offset: 2px;
 }
 
 /* --------------------------------------------------------------------------
@@ -524,11 +542,21 @@ input[type="submit"]:active {
 #this-weeks-needs tr:nth-child(2) td:nth-child(2),
 #this-weeks-needs tr:nth-child(3) td:nth-child(2) {
   color: var(--tomato);
+  background-color: var(--tomato-tint);
+  border: 1px solid var(--tomato);
+  border-radius: 999px;
+  padding: 0.2em 0.7em;
+  display: inline-block;
 }
 
 #this-weeks-needs tr:nth-child(4) td:nth-child(2),
 #this-weeks-needs tr:nth-child(5) td:nth-child(2) {
   color: var(--wheat-dark);
+  background-color: var(--wheat-tint);
+  border: 1px solid var(--wheat-dark);
+  border-radius: 999px;
+  padding: 0.2em 0.7em;
+  display: inline-block;
 }
 
 /* --------------------------------------------------------------------------
@@ -582,7 +610,8 @@ input[type="submit"]:active {
   nav a {
     display: block;
     width: 100%;
-    padding: var(--space-1) 0;
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-card);
   }
 
   main {
