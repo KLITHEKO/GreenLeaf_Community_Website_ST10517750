@@ -191,7 +191,6 @@ Example:
 * `food-parcels-400w.jpg`
 * `food-parcels-800w.jpg`
 
-The image variants were generated using Pillow.
 
 ## HTML Structure Changes
 
@@ -257,15 +256,9 @@ Full-size screenshots are available in the `screenshots/` folder.
 
 Screenshots were captured using a headless rendering tool during development.
 
-During testing, the tool did not correctly render responsive images using `srcset` on a standard `<img>` element. Some images appeared blank.
 
-The images were therefore changed to use `<picture>` elements with separate 400w and 800w sources.
 
-The `<picture>` implementation rendered correctly during testing.
 
-Modern browsers including Chrome, Firefox, Edge, and Safari support both `<picture>` and `srcset`.
-
-The screenshot tool also requires local file access to be explicitly enabled (`--enable-local-file-access`) to load the stylesheet and images from disk; without this flag it silently renders the page with no CSS and broken image icons, which looks like a styling bug but is a tool configuration issue, not a problem with the website itself.
 
 ## Changelog
 
