@@ -5,28 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GreenLeaf Community Food Bank - Home</title>
 
-  <!-- PART 2: external stylesheet + web fonts (previously: no CSS at all) -->
+  <!-- Links the external stylesheet and loads the Lora and Roboto web fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- ============================================================
-       HEADER
-       Appears at the top of every page: logo, org name, tagline.
-       ============================================================ -->
+  <!-- HEADER
+       Shown on every page: logo, organisation name and tagline. -->
   <header>
     <img src="images/logo.png" alt="GreenLeaf Community Food Bank logo" width="80" height="80">
     <h1>GreenLeaf Community Food Bank</h1>
     <p>No one should go hungry in our neighbourhood.</p>
   </header>
 
-  <!-- ============================================================
-       NAVIGATION
-       Main menu, identical on every page, so users always know
-       where they are and can reach any other page in one click.
-       ============================================================ -->
+  <!-- NAVIGATION
+       Same menu on every page so any page is one click away. -->
   <nav>
     <ul>
       <li><a href="index.html">Home</a></li>
@@ -37,18 +32,13 @@
     </ul>
   </nav>
 
-  <!-- ============================================================
-       MAIN CONTENT
-       Everything unique to the Home page lives inside <main>.
-       ============================================================ -->
+  <!-- MAIN CONTENT
+       Holds everything unique to the Home page. -->
   <main>
 
-    <!-- HERO / INTRO
-         First thing a visitor sees: what GreenLeaf does, plus
-         the three main "call to action" links.
-         PART 2: now uses <picture> + srcset so the browser can pick a
-         smaller image file on small screens instead of always downloading
-         the full-size banner. -->
+    <!-- HERO
+         Introduces GreenLeaf and links to the three main actions.
+         <picture> serves a smaller image on mobile to save data. -->
     <section id="hero">
       <picture>
         <source media="(max-width: 640px)" srcset="images/hero-banner-400w.jpg">
@@ -74,7 +64,7 @@
     </section>
 
     <!-- QUICK FACTS
-         Short, scannable impact stats to build trust quickly. -->
+         Short, scannable impact stats that build trust quickly. -->
     <section id="quick-facts">
       <h2>GreenLeaf at a glance</h2>
       <ul>
@@ -86,11 +76,8 @@
     </section>
 
     <!-- THIS WEEK'S SHELF (signature feature)
-         Solves the core problem in the brief: GreenLeaf previously
-         had no central place to publish urgent/low-stock items.
-         Volunteers update this table weekly. PART 2: wrapped the table in
-         .table-scroll so it scrolls horizontally instead of squashing on
-         small screens. -->
+         One central place to show low-stock items, updated weekly by volunteers.
+         .table-scroll lets the table scroll sideways on small screens. -->
     <section id="this-weeks-needs">
       <h2>This week's shelf</h2>
       <p>Updated by volunteers every Monday, so a donation always lands where it's needed most.</p>
@@ -125,15 +112,13 @@
     </section>
 
     <!-- SERVICES PREVIEW
-         Short summary of the 3 core services, each with an image.
-         Full detail lives on services.html - this is just a teaser.
-         PART 2: the three <article> cards are wrapped in .service-cards
-         so CSS Grid can lay them out as 3 columns on desktop. -->
+         Teaser of the 3 core services; full details are on services.html.
+         .service-cards uses CSS Grid to show 3 columns on desktop. -->
     <section id="services-preview">
       <h2>What we do</h2>
 
       <div class="service-cards">
-        <!-- Service 1: Food parcels -->
+        <!-- Service 1: weekly food parcels -->
         <article>
           <h3>Weekly food parcel distribution</h3>
           <picture>
@@ -143,7 +128,7 @@
           <p>Pre-packed parcels of staples and seasonal produce, handed out every Tuesday and Thursday.</p>
         </article>
 
-        <!-- Service 2: Soup kitchen -->
+        <!-- Service 2: weekend soup kitchen -->
         <article>
           <h3>Weekend soup kitchen</h3>
           <picture>
@@ -153,7 +138,7 @@
           <p>A hot, sit-down meal open to anyone who needs one, every Saturday and Sunday.</p>
         </article>
 
-        <!-- Service 3: Donation drop-off -->
+        <!-- Service 3: donation drop-off and collection -->
         <article>
           <h3>Donation drop-off &amp; collection</h3>
           <picture>
@@ -169,10 +154,8 @@
 
   </main>
 
-  <!-- ============================================================
-       FOOTER
-       Appears at the bottom of every page: contact info + legal line.
-       ============================================================ -->
+  <!-- FOOTER
+       Shown on every page: address, contact details and copyright. -->
   <footer>
     <p>GreenLeaf Depot, 14 Marlboro Drive, Randburg</p>
     <p>Email: <a href="mailto:hello@greenleaffoodbank.org">hello@greenleaffoodbank.org</a> | Phone: <a href="tel:+27820000000">+27 82 000 0000</a></p>
