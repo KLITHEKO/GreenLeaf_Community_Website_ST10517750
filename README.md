@@ -15,7 +15,7 @@ At GreenLeaf, we believe access to food should never come with judgment. Every p
 5. [Part 2: CSS and styling](#part-2-css-and-styling)
 6. [Responsive design](#responsive-design)
 7. [Screenshot evidence](#screenshot-evidence)
-8. [Part 3 (planned)](#part-3-planned)
+8. [Part 3: JavaScript enhancements](#part-3-javascript-enhancements)
 9. [Changelog](#changelog)
 10. [References](#references)
 
@@ -32,7 +32,7 @@ The website includes:
 - Forms for donations, volunteering, partnerships, and assistance requests
 - Responsive schedule tables
 - Screenshot evidence at three viewport sizes
-- A `js/` folder reserved for Part 3
+- JavaScript in the `js/` folder (Part 3)
 
 ---
 
@@ -60,7 +60,8 @@ greenleaf/
 ├── README.md            Project documentation
 ├── css/
 │   └── style.css        External stylesheet
-├── js/                  Reserved for Part 3
+├── js/                  JavaScript (Part 3)
+│   └── accordion.js     FAQ accordion on Get Involved
 ├── images/              Site images and responsive variants
 └── screenshots/         Desktop, tablet, and mobile evidence
 ```
@@ -241,14 +242,22 @@ Screenshots were captured with a headless rendering tool at 1440px (desktop), 76
 
 ---
 
-## Part 3 (planned)
+## Part 3: JavaScript enhancements
 
-The `js/` folder is reserved for Part 3. Planned functionality:
+Part 3 adds interactivity with plain JavaScript (no frameworks). Each item is documented in the Changelog as it is completed.
 
-- Form validation
-- Interactive navigation
-- Client-side behaviour
-- Other interactive features
+| Brief item                          | Status                                                         |
+| ----------------------------------- | -------------------------------------------------------------- |
+| 2.1 Accordion, tabs or modal        | Done: FAQ accordion on the Get Involved page (`js/accordion.js`) |
+| 2.1 Interactive map                 | Not started                                                    |
+| 2.1 Animations and transitions      | Not started                                                    |
+| 2.1 Advanced DOM manipulation       | Not started                                                    |
+| 2.1 Gallery with lightbox           | Not started                                                    |
+| 2.2 Dynamic content loading         | Not started                                                    |
+| 2.2 Search, filter and sort         | Not started                                                    |
+| Form validation                     | Not started                                                    |
+| SEO best practices                  | Not started                                                    |
+| Deployment on a free platform       | Live on GitHub Pages                                           |
 
 For now, the forms use `action="#"` and do not submit data to a backend.
 
@@ -257,6 +266,20 @@ For now, the forms use `action="#"` and do not submit data to a backend.
 ## Changelog
 
 Newest changes first.
+
+### Part 3: FAQ accordion (brief 2.1: accordion)
+
+- **What:** Added a collapsible "Frequently asked questions" section with six questions. Each answer is hidden until its question is clicked, and clicking again hides it. An accordion suits this content because the questions are short and independent, and it keeps the page compact.
+- **Where:** Get Involved page, below the four forms.
+- **Files added or changed:**
+  - `get-involved.html`: new `#faq` section and a `<script>` tag before `</body>`.
+  - `js/accordion.js` (new): the accordion behaviour.
+  - `css/style.css`: new "Accordion" block in section 7 (Components).
+  - `README.md`: this entry, the Part 3 section, the Contents list, the folder structure, and two new references.
+- **How it works:** Each question is a `<button>`. When the page loads, the script hides every answer and sets `aria-expanded="false"` on its button. Clicking a question switches `aria-expanded` between `"true"` and `"false"` and shows or hides the matching answer. Each question works on its own, so several can be open at once.
+- **Accessibility:** Because the questions are buttons, Enter and Space work as well as the mouse. `aria-expanded` tells screen readers whether an answer is open, and `aria-controls` links each button to its answer (World Wide Web Consortium, no date; Mozilla Developer Network, no date e). The questions sit inside `<h3>` headings so they appear in a screen reader's heading list, and the existing `:focus-visible` outline applies.
+- **Without JavaScript:** All answers stay visible, so no content is lost.
+- **How to test:** Open the Get Involved page and scroll to the FAQ. Click a question to open it and click again to close it. Press Tab to move between questions and Enter or Space to open one. A plus sign marks a closed question and a minus sign an open one.
 
 ### Part 2: Comment clean-up and softer status badges
 
@@ -358,6 +381,10 @@ Mozilla Developer Network (no date c) *Responsive images*. Available at: https:/
 
 Mozilla Developer Network (no date d) *Using media queries*. Available at: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries (Accessed: 16 September 2026).
 
+Mozilla Developer Network (no date e) *ARIA: aria-expanded attribute*. Available at: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-expanded (Accessed: 30 October 2026).
+
 News24 (2026) *One of SA's biggest child feeding schemes was once a small Cape Town soup kitchen*, 25 May. Available at: https://www.news24.com/life/food/news/one-of-sas-biggest-child-feeding-schemes-was-once-a-small-cape-town-soup-kitchen-20260525-0352 (Accessed: DD Month 2026).
 
 Wander Cape Town (2023) *Interview with Danny Diliberto, CEO of Ladles of Love*, 29 October. Available at: https://wandercapetown.com/local-knowledge/interviews/danny-diliberto-ladles-of-love/ (Accessed: DD Month 2026).
+
+World Wide Web Consortium (no date) *Accordion example*. ARIA Authoring Practices Guide. Available at: https://www.w3.org/WAI/ARIA/apg/patterns/accordion/examples/accordion/ (Accessed: 30 October 2026).

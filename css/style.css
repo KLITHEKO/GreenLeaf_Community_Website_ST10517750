@@ -9,7 +9,7 @@
    4. Typography
    5. Layout - Header / Navigation / Footer
    6. Layout - Page sections (Grid & Flexbox)
-   7. Components - Cards, Tables, Forms, Buttons
+   7. Components - Cards, Tables, Forms, Buttons, Accordion
    8. Visual styles - status colours
    9. Responsive - Tablet
    10. Responsive - Mobile
@@ -431,7 +431,7 @@ footer a:focus {
 }
 
 /* --------------------------------------------------------------------------
-   7. COMPONENTS - Cards, Tables, Forms, Buttons
+   7. COMPONENTS - Cards, Tables, Forms, Buttons, Accordion
    -------------------------------------------------------------------------- */
 table {
   font-size: 0.95rem;
@@ -516,6 +516,63 @@ select:focus-visible,
 textarea:focus-visible {
   outline: 3px solid var(--green);
   outline-offset: 2px;
+}
+
+/* Accordion: FAQ questions that open and close (js/accordion.js) */
+#faq {
+  margin-top: var(--space-5);
+}
+
+.accordion {
+  max-width: 48rem;
+}
+
+.accordion h3 {
+  font-size: 1.05rem;
+  margin: var(--space-1) 0 0;
+}
+
+.accordion h3:first-child {
+  margin-top: 0;
+}
+
+.accordion-trigger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-2);
+  width: 100%;
+  padding: var(--space-2);
+  text-align: left;
+  background-color: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.accordion-trigger:hover {
+  background-color: var(--green-tint);
+}
+
+/* + and - icons only appear once the script is running */
+.accordion-trigger[aria-expanded]::after {
+  content: "+";
+  font-size: 1.25rem;
+  line-height: 1;
+  color: var(--green);
+}
+
+.accordion-trigger[aria-expanded="true"]::after {
+  content: "\2212"; /* minus sign */
+}
+
+.accordion-panel {
+  padding: var(--space-2) var(--space-2) var(--space-1);
+}
+
+.accordion-panel p:last-child {
+  margin-bottom: 0;
 }
 
 /* --------------------------------------------------------------------------

@@ -124,6 +124,56 @@
 
     </div>
 
+    <!-- FAQ
+         Questions open and close with js/accordion.js.
+         Without JavaScript every answer stays visible. -->
+    <section id="faq">
+      <h2>Frequently asked questions</h2>
+      <div class="accordion">
+        <h3>
+          <button type="button" class="accordion-trigger" aria-controls="faq-a1">Do I need paperwork to get a food parcel?</button>
+        </h3>
+        <div class="accordion-panel" id="faq-a1">
+          <p>No. No paperwork is needed for a first visit. Just come to a distribution site during the hours listed on our <a href="services.html">Services page</a>.</p>
+        </div>
+
+        <h3>
+          <button type="button" class="accordion-trigger" aria-controls="faq-a2">When and where are parcels handed out?</button>
+        </h3>
+        <div class="accordion-panel" id="faq-a2">
+          <p>On Tuesdays from 09:00 to 12:00 at Ubuntu Community Hall, Alexandra, and on Thursdays from 14:00 to 17:00 at Riverside Church Hall, Diepsloot.</p>
+        </div>
+
+        <h3>
+          <button type="button" class="accordion-trigger" aria-controls="faq-a3">What can I donate?</button>
+        </h3>
+        <div class="accordion-panel" id="faq-a3">
+          <p>We collect staples such as rice, oil and canned goods. Businesses can also give surplus, near-date or unsellable-but-safe food. <a href="index.html#this-weeks-needs">This week's shelf</a> on the Home page shows what is needed most.</p>
+        </div>
+
+        <h3>
+          <button type="button" class="accordion-trigger" aria-controls="faq-a4">Can my business set up a regular pickup?</button>
+        </h3>
+        <div class="accordion-panel" id="faq-a4">
+          <p>Yes. Use the <a href="#partner">Partner your business</a> form and tell us whether you could donate weekly, fortnightly, monthly or once-off.</p>
+        </div>
+
+        <h3>
+          <button type="button" class="accordion-trigger" aria-controls="faq-a5">Do I need experience to volunteer?</button>
+        </h3>
+        <div class="accordion-panel" id="faq-a5">
+          <p>No. Reliable hands are all you need. You can sort and pack parcels, serve at the soup kitchen or help run collection routes. Use the <a href="#volunteer">Volunteer with us</a> form to sign up.</p>
+        </div>
+
+        <h3>
+          <button type="button" class="accordion-trigger" aria-controls="faq-a6">Where does a cash donation go?</button>
+        </h3>
+        <div class="accordion-panel" id="faq-a6">
+          <p>Cash donations let us buy exactly what is short on the shelf this week.</p>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- FOOTER: same on every page, see index.html for notes -->
@@ -132,6 +182,9 @@
     <p>Email: <a href="mailto:hello@greenleaffoodbank.org">hello@greenleaffoodbank.org</a> | Phone: <a href="tel:+27820000000">+27 82 000 0000</a></p>
     <p>&copy; 2026 GreenLeaf Community Food Bank. Together, we can help ensure no one goes hungry in our neighbourhood.</p>
   </footer>
+
+  <!-- FAQ accordion -->
+  <script src="js/accordion.js"></script>
 
 </body>
 </html>
