@@ -268,7 +268,7 @@ Newest changes first.
 ### Part 2: Real photography replaces placeholders
 
 - Replaced all seven placeholder images with real photos supplied by the site owner: `hero-banner`, `food-parcels`, `soup-kitchen`, `donation-dropoff`, `about-depot`, `contact-map`, and `volunteers`.
-- Cropped each photo to the sizes in `IMAGE_DIMENSIONS.txt` (16:9 for the hero banner, 4:3 for the rest) and regenerated the `-400w` and `-800w` variants.
+- Cropped each photo to a standard size (16:9 for the hero banner, 4:3 for the rest) and regenerated the `-400w` and `-800w` variants.
 - Removed a third-party charity's watermark from `about-depot` and `contact-map` by blending in clean background from the same photo, so no other organisation's branding appears on the site.
 - Left `logo.png` unchanged, since it is GreenLeaf's own mark.
 - Refreshed all screenshot evidence.
@@ -329,14 +329,10 @@ Newest changes first.
 
 - Created a five-page semantic HTML website with a header, navigation, main content, and footer on each page.
 - Added placeholder images.
-- Created the project proposal.
-- Created a research folder with competitor analysis, target audience research, content inventory, and a photo shot list.
 
 ---
 
 ## References
-
-Full research notes and citations are in the Part 1 proposal and research folder.
 
 FoodForward SA (no date a) *About us*. Available at: https://www.foodforwardsa.org/about-us/ (Accessed: DD Month 2026).
 
