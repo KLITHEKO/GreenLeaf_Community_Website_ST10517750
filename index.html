@@ -5,60 +5,59 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GreenLeaf Community Food Bank - Home</title>
 
-  <!-- Links the external stylesheet and loads the Lora and Roboto web fonts -->
+  <!-- Links the external stylesheet and loads the Google Sans web font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- HEADER
-       Shown on every page: logo, organisation name and tagline. -->
-  <header>
-    <img src="images/logo.png" alt="GreenLeaf Community Food Bank logo" width="80" height="80">
-    <h1>GreenLeaf Community Food Bank</h1>
-    <p>No one should go hungry in our neighbourhood.</p>
+  <!-- HEADER AND NAVIGATION
+       Same bar on every page: logo and name on the left, links and the Donate button on the right.
+       On small screens js/menu.js adds a Menu button that opens and closes the links. -->
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      <img src="images/logo.png" alt="" width="40" height="40">
+      <span>GreenLeaf Community Food Bank</span>
+    </a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Our Services</a></li>
+        <li><a href="get-involved.html">Get Involved</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a class="btn btn-accent" href="get-involved.html#donate">Donate</a></li>
+      </ul>
+    </nav>
   </header>
-
-  <!-- NAVIGATION
-       Same menu on every page so any page is one click away. -->
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About Us</a></li>
-      <li><a href="services.html">Our Services</a></li>
-      <li><a href="get-involved.html">Get Involved</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
 
   <!-- MAIN CONTENT
        Holds everything unique to the Home page. -->
   <main>
 
     <!-- HERO
-         Introduces GreenLeaf and links to the three main actions.
+         Photo at the top (800px wide), then the headline, a short intro and links to the main actions.
          <picture> serves a smaller image on mobile to save data. -->
     <section id="hero">
       <picture>
         <source media="(max-width: 640px)" srcset="images/hero-banner-400w.jpg">
         <img src="images/hero-banner-800w.jpg"
              srcset="images/hero-banner-400w.jpg 400w, images/hero-banner-800w.jpg 800w"
-             sizes="(max-width: 640px) 100vw, 700px"
-             alt="GreenLeaf volunteers packing food parcels" width="700">
+             sizes="(max-width: 800px) 100vw, 800px"
+             alt="GreenLeaf volunteers packing food parcels" width="800" height="450">
       </picture>
       <div>
-        <h2>Fighting food insecurity in our community</h2>
+        <h1>Fighting food insecurity in our community</h1>
         <p>
           GreenLeaf Community Food Bank collects, sorts, and distributes food donations
-          to low-income families and individuals facing food insecurity in our local area.
-          We run a weekly food parcel service, a weekend soup kitchen, and a donation
-          drop-off and collection service for businesses and individuals.
+          to low-income families in our local area. We run a weekly food parcel service,
+          a weekend soup kitchen, and a drop-off service for businesses.
         </p>
         <p>
-          <a href="get-involved.html">Donate food or funds</a> |
-          <a href="get-involved.html">Volunteer with us</a> |
-          <a href="get-involved.html">Request a food parcel</a>
+          <a href="get-involved.html#volunteer">Volunteer with us</a> |
+          <a href="get-involved.html#partner">Partner your business</a> |
+          <a href="get-involved.html#request-parcel">Request a food parcel</a>
         </p>
       </div>
     </section>
@@ -68,10 +67,9 @@
     <section id="quick-facts">
       <h2>GreenLeaf at a glance</h2>
       <ul>
-        <li>1,200+ food parcels distributed every month</li>
-        <li>18 business drop-off partners across the area</li>
-        <li>340 volunteer hours contributed every month</li>
-        <li>Donations reach a family within 72 hours on average</li>
+        <li><span class="stat-number"><span class="count" data-target="1200">1,200</span>+</span> parcels a month</li>
+        <li><span class="stat-number"><span class="count" data-target="340">340</span></span> volunteer hours a month</li>
+        <li><span class="stat-number"><span class="count" data-target="18">18</span></span> partner businesses</li>
       </ul>
     </section>
 
@@ -82,30 +80,30 @@
       <h2>This week's shelf</h2>
       <p>Updated by volunteers every Monday, so a donation always lands where it's needed most.</p>
       <div class="table-scroll">
-        <table border="1">
+        <table>
           <tr>
             <th>Item</th>
             <th>Status</th>
           </tr>
           <tr>
             <td>Cooking oil (2L)</td>
-            <td>Critical</td>
+            <td><span class="stock stock-critical"><span class="bars" aria-hidden="true"><i class="on"></i><i></i><i></i></span>Critical</span></td>
           </tr>
           <tr>
             <td>Baby formula</td>
-            <td>Critical</td>
+            <td><span class="stock stock-critical"><span class="bars" aria-hidden="true"><i class="on"></i><i></i><i></i></span>Critical</span></td>
           </tr>
           <tr>
             <td>Rice, 2kg bags</td>
-            <td>Low</td>
+            <td><span class="stock stock-low"><span class="bars" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i></span>Low</span></td>
           </tr>
           <tr>
             <td>Canned vegetables</td>
-            <td>Low</td>
+            <td><span class="stock stock-low"><span class="bars" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i></span>Low</span></td>
           </tr>
           <tr>
             <td>Pasta</td>
-            <td>Stocked</td>
+            <td><span class="stock stock-stocked"><span class="bars" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span>Stocked</span></td>
           </tr>
         </table>
       </div>
@@ -161,6 +159,12 @@
     <p>Email: <a href="mailto:hello@greenleaffoodbank.org">hello@greenleaffoodbank.org</a> | Phone: <a href="tel:+27820000000">+27 82 000 0000</a></p>
     <p>&copy; 2026 GreenLeaf Community Food Bank. Together, we can help ensure no one goes hungry in our neighbourhood.</p>
   </footer>
+
+  <!-- Mobile menu -->
+  <script src="js/menu.js"></script>
+
+  <!-- Scroll reveal -->
+  <script src="js/animations.js"></script>
 
 </body>
 </html>

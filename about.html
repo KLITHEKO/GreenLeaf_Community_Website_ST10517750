@@ -5,41 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GreenLeaf Community Food Bank - About Us</title>
 
-  <!-- Links the external stylesheet and loads the Lora and Roboto web fonts -->
+  <!-- Links the external stylesheet and loads the Google Sans web font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- HEADER: same on every page, see index.html for notes -->
-  <header>
-    <img src="images/logo.png" alt="GreenLeaf Community Food Bank logo" width="80" height="80">
-    <h1>GreenLeaf Community Food Bank</h1>
-    <p>No one should go hungry in our neighbourhood.</p>
+  <!-- HEADER AND NAVIGATION
+       Same bar on every page: logo and name on the left, links and the Donate button on the right.
+       On small screens js/menu.js adds a Menu button that opens and closes the links. -->
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      <img src="images/logo.png" alt="" width="40" height="40">
+      <span>GreenLeaf Community Food Bank</span>
+    </a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" aria-current="page">About Us</a></li>
+        <li><a href="services.html">Our Services</a></li>
+        <li><a href="get-involved.html">Get Involved</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a class="btn btn-accent" href="get-involved.html#donate">Donate</a></li>
+      </ul>
+    </nav>
   </header>
-
-  <!-- NAVIGATION: same on every page, see index.html for notes -->
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About Us</a></li>
-      <li><a href="services.html">Our Services</a></li>
-      <li><a href="get-involved.html">Get Involved</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
 
   <main>
 
     <!-- ORG OVERVIEW
          Who GreenLeaf is, with a supporting photo. -->
-    <section id="about-overview">
-      <h2>About GreenLeaf</h2>
+    <section id="about-overview" class="page-hero">
       <picture>
         <source media="(max-width: 640px)" srcset="images/about-depot-400w.jpg">
-        <img src="images/about-depot-800w.jpg" alt="GreenLeaf Depot building in Randburg" width="400">
+        <img src="images/about-depot-800w.jpg" alt="GreenLeaf Depot building in Randburg" width="800" height="600">
       </picture>
+      <div>
+      <h1>About GreenLeaf</h1>
       <p>
         GreenLeaf Community Food Bank is a volunteer-run non-profit organisation that
         collects, sorts, and distributes food donations to low-income families and
@@ -51,6 +54,7 @@
         Our work is guided by one simple belief: no one in our community should go
         hungry, and everyone deserves dignity when asking for help.
       </p>
+      </div>
     </section>
 
     <!-- MISSION & VISION
@@ -64,14 +68,26 @@
     </section>
 
     <!-- VALUES
-         Four core values, each explained in one line. -->
+         Four core values, each with a small icon and a one-line explanation. -->
     <section id="values">
       <h2>Our values</h2>
       <ul>
-        <li><strong>Dignity</strong> - everyone who receives help is treated with respect.</li>
-        <li><strong>Transparency</strong> - we publish how donations are used.</li>
-        <li><strong>Community</strong> - we rely on and invest in local volunteers and partners.</li>
-        <li><strong>Reliability</strong> - our distribution schedule stays consistent so families can count on us.</li>
+        <li>
+          <svg class="value-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21.2l7.8-7.7 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+          <p><strong>Dignity</strong> - everyone who receives help is treated with respect.</p>
+        </li>
+        <li>
+          <svg class="value-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          <p><strong>Transparency</strong> - we show what is on our shelves each week and publish our distribution schedule.</p>
+        </li>
+        <li>
+          <svg class="value-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <p><strong>Community</strong> - we rely on and invest in local volunteers and partners.</p>
+        </li>
+        <li>
+          <svg class="value-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="M9 16l2 2 4-4"/></svg>
+          <p><strong>Reliability</strong> - our distribution schedule stays consistent so families can count on us.</p>
+        </li>
       </ul>
     </section>
 
@@ -110,6 +126,12 @@
     <p>Email: <a href="mailto:hello@greenleaffoodbank.org">hello@greenleaffoodbank.org</a> | Phone: <a href="tel:+27820000000">+27 82 000 0000</a></p>
     <p>&copy; 2026 GreenLeaf Community Food Bank. Together, we can help ensure no one goes hungry in our neighbourhood.</p>
   </footer>
+
+  <!-- Mobile menu -->
+  <script src="js/menu.js"></script>
+
+  <!-- Scroll reveal -->
+  <script src="js/animations.js"></script>
 
 </body>
 </html>

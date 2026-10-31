@@ -10,7 +10,7 @@
    5. Layout - Header / Navigation / Footer
    6. Layout - Page sections (Grid & Flexbox)
    7. Components - Cards, Tables, Forms, Buttons, Accordion
-   8. Visual styles - status colours
+   8. Visual styles - stock status and animations
    9. Responsive - Tablet
    10. Responsive - Mobile
    ========================================================================== */
@@ -78,10 +78,10 @@ table {
   --ink-soft: #45503f;
   --line: rgba(31, 42, 29, 0.16);
 
-  /* Fonts - Lora for headings, Roboto for body text and labels */
-  --font-display: 'Lora', Georgia, 'Times New Roman', serif;
-  --font-body: 'Roboto', -apple-system, Segoe UI, Arial, sans-serif;
-  --font-mono: 'Roboto', -apple-system, Segoe UI, Arial, sans-serif;
+  /* Fonts - one family, Google Sans, for headings, body text and labels */
+  --font-display: 'Google Sans', 'Google Sans Flex', -apple-system, 'Segoe UI', Arial, sans-serif;
+  --font-body: 'Google Sans', 'Google Sans Flex', -apple-system, 'Segoe UI', Arial, sans-serif;
+  --font-mono: 'Google Sans', 'Google Sans Flex', -apple-system, 'Segoe UI', Arial, sans-serif;
 
   /* Spacing scale in rem, so it scales with the user's font size */
   --space-1: 0.5rem;
@@ -128,7 +128,7 @@ main {
 main > section,
 main > div.help-grid > section,
 main > div.contact-grid > section {
-  margin-bottom: var(--space-5);
+  margin-bottom: var(--space-6); /* roomier gaps between sections */
 }
 
 main > section:last-child {
@@ -144,7 +144,7 @@ h1, h2, h3, h4 {
   color: var(--green-dark);
   line-height: 1.15;
   letter-spacing: -0.01em;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 h1 { font-size: clamp(1.75rem, 1.4rem + 1.5vw, 2.5rem); }
@@ -157,7 +157,6 @@ p {
   max-width: 65ch;
 }
 
-header p,
 footer p {
   max-width: none;
 }
@@ -183,70 +182,87 @@ main a:not(.btn):not(.nav-link):focus {
    5. LAYOUT - HEADER / NAVIGATION / FOOTER
    Header and nav use Flexbox so they re-flow on smaller screens.
    -------------------------------------------------------------------------- */
-header {
-  background-color: var(--paper);
-  border-bottom: 1px solid var(--line);
-  padding: var(--space-3);
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  max-width: var(--container-width);
-  margin-inline: auto;
-}
-
-header img {
-  width: 56px;
-  height: 56px;
-  flex-shrink: 0;
-}
-
-header h1 {
-  font-size: 1.4rem;
-  margin: 0;
-}
-
-header p {
-  font-size: 0.9rem;
-  color: var(--ink-soft);
-  margin: 0;
-  flex-basis: 100%;
-}
-
-/* Sticky nav stays at the top while scrolling */
-nav {
+/* Header bar: logo and name on the left, links and Donate on the right.
+   It stays at the top while scrolling. */
+.site-header {
   position: sticky;
   top: 0;
   z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding: var(--space-2) max(var(--space-3), calc((100% - var(--container-width)) / 2 + var(--space-3)));
   background-color: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(4px);
   border-bottom: 1px solid var(--line);
 }
 
-nav ul {
-  max-width: var(--container-width);
-  margin-inline: auto;
-  padding: var(--space-1) var(--space-3);
+.brand {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end; /* links on the right */
-  gap: var(--space-1) var(--space-3);
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--green-dark);
 }
 
-nav a {
+.brand img {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+nav ul {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+nav a:not(.btn) {
   display: inline-block;
   padding: var(--space-1) var(--space-2);
-  font-weight: 700;
+  font-weight: 500;
   font-size: 0.95rem;
   color: var(--ink-soft);
-  border: 1px solid transparent;
   border-radius: 999px; /* pill-shaped links */
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 
-nav a:hover,
-nav a:focus {
+/* Hover, keyboard focus and the page you are on */
+nav a:not(.btn):hover,
+nav a:not(.btn):focus-visible,
+nav a[aria-current="page"] {
   color: var(--green);
   background-color: var(--green-tint);
-  border-color: var(--green-tint);
+}
+
+/* Buttons: .btn-accent (wheat) is kept for Donate only */
+.btn {
+  display: inline-block;
+  padding: 0.6em 1.2em;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: 2px solid transparent;
+  border-radius: var(--radius);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn:hover,
+.btn:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-accent {
+  background-color: var(--wheat);
+  color: var(--green-dark);
+}
+
+/* Mobile menu (js/menu.js): the Menu button only exists when JavaScript is on */
+.menu-button {
+  display: none;
 }
 
 /* Footer uses CSS Grid with named areas: address, contact and copyright
@@ -291,41 +307,68 @@ footer a:focus {
    neatly as the screen gets narrower. (Grid is used for the footer.)
    -------------------------------------------------------------------------- */
 
-/* Home: hero image beside the intro text */
-#hero {
+/* Hero layout: photo on top, then the text centred below it.
+   Used by Home (#hero) and the first section of every other page (.page-hero) */
+#hero,
+.page-hero {
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-4);
+  flex-direction: column;
   align-items: center;
+  text-align: center;
+  gap: var(--space-4);
 }
 
 #hero picture,
-#hero > div {
-  flex: 1 1 320px;
-  min-width: 0;
+.page-hero picture,
+.page-hero > img { /* a photo that is not wrapped in <picture> */
+  width: 100%;
+  max-width: 800px; /* the photo's own width, so it stays sharp */
 }
 
 #hero img,
-#hero picture {
-  border-radius: var(--radius);
+.page-hero img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-card);
   box-shadow: var(--shadow);
 }
 
-/* Home: 4 quick-fact stat cards */
+#hero > div,
+.page-hero > div {
+  max-width: 40rem;
+}
+
+#hero h1,
+.page-hero h1 {
+  margin-bottom: var(--space-2);
+}
+
+#hero p,
+.page-hero p {
+  margin-inline: auto;
+}
+
+/* Home: three big numbers with a short label under each */
 #quick-facts ul {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-2);
+  gap: var(--space-4) var(--space-3);
 }
 
 #quick-facts li {
-  flex: 1 1 200px;
-  background-color: var(--card);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-card);
-  padding: var(--space-2);
-  font-weight: 600;
+  flex: 1 1 160px;
   text-align: center;
+  font-weight: 500;
+  color: var(--ink-soft);
+}
+
+.stat-number {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2.75rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--green);
 }
 
 /* Home: service preview cards that lift slightly on hover */
@@ -384,11 +427,35 @@ footer a:focus {
 }
 
 #values li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
   flex: 1 1 45%;
   background-color: var(--card);
   border: 1px solid var(--line);
   border-radius: var(--radius-card);
   padding: var(--space-2);
+}
+
+/* About page: round icon badge beside each value (drawn with inline SVG) */
+.value-icon {
+  flex: 0 0 auto;
+  box-sizing: content-box;
+  width: 1.75rem;  /* 28px icon inside a 48px circle */
+  height: 1.75rem;
+  padding: 0.625rem;
+  border-radius: 50%;
+  background-color: var(--green-tint);
+  fill: none;
+  stroke: var(--green); /* matches the site's main green */
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+#values li p {
+  margin: 0;
+  max-width: none;
 }
 
 /* Get Involved page: the 4 forms as cards */
@@ -399,6 +466,7 @@ footer a:focus {
 }
 
 .help-grid section {
+  scroll-margin-top: 6rem; /* keeps the heading clear of the sticky header when a link jumps here */
   flex: 1 1 380px;
   background-color: var(--card);
   border: 1px solid var(--line);
@@ -418,6 +486,101 @@ footer a:focus {
 
 .contact-grid section {
   flex: 1 1 320px;
+}
+
+/* Get Involved: photo gallery thumbnails */
+.gallery {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-2);
+}
+
+.gallery a {
+  display: block;
+}
+
+.gallery img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover; /* crops the wider photo to match the rest */
+  border-radius: var(--radius);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gallery a:hover img,
+.gallery a:focus-visible img {
+  transform: scale(1.03);
+  box-shadow: var(--shadow);
+}
+
+/* Lightbox: the pop-up that shows one photo large (built by js/lightbox.js) */
+.lightbox {
+  border: 0;
+  padding: var(--space-2);
+  width: min(52rem, 94vw);
+  max-width: none;
+  background: var(--paper);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow);
+}
+
+.lightbox::backdrop {
+  background: rgba(15, 25, 17, 0.8);
+}
+
+.lightbox img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+}
+
+.lightbox-caption {
+  margin: var(--space-2) 0 0;
+  max-width: none;
+  color: var(--ink);
+}
+
+.lightbox-count {
+  margin: var(--space-1) 0 0;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+.lightbox-controls {
+  display: flex;
+  gap: var(--space-1);
+  margin-top: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.lightbox-controls button {
+  min-height: 44px;
+  padding: 0 var(--space-3);
+  font: inherit;
+  font-weight: 500;
+  color: #fff;
+  background: var(--green);
+  border: 2px solid var(--green);
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+.lightbox-controls button:hover {
+  background: var(--green-dark);
+}
+
+.lightbox-controls .lightbox-close {
+  margin-left: auto;
+  color: var(--green);
+  background: transparent;
+}
+
+.lightbox-controls .lightbox-close:hover {
+  color: #fff;
 }
 
 /* Wide tables scroll sideways instead of squashing on small screens */
@@ -576,39 +739,144 @@ textarea:focus-visible {
 }
 
 /* --------------------------------------------------------------------------
-   8. VISUAL STYLES - status colours
-   Soft pill badges in the "This week's shelf" table:
-   muted red for Critical items, muted amber for Low items.
+   8. VISUAL STYLES - stock status and animations
+   "This week's shelf" shows stock as three small bars plus the word:
+   1 red bar = Critical, 2 amber bars = Low, 3 green bars = Stocked.
    -------------------------------------------------------------------------- */
-#this-weeks-needs td:nth-child(2) {
-  font-weight: 700;
+
+/* Adjust the bar size here. The tablet and mobile sections below
+   override these values on smaller screens. */
+:root {
+  --bar-width: 1.6rem;
+  --bar-height: 0.5rem;
+  --bar-gap: 3px;
 }
 
-/* Shared pill shape for Critical and Low badges */
-#this-weeks-needs tr:nth-child(2) td:nth-child(2),
-#this-weeks-needs tr:nth-child(3) td:nth-child(2),
-#this-weeks-needs tr:nth-child(4) td:nth-child(2),
-#this-weeks-needs tr:nth-child(5) td:nth-child(2) {
-  display: inline-block;
-  padding: 0.2em 0.7em;
-  border: none; /* removes the table's bottom border from the pill */
-  border-radius: 999px;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08); /* subtle ring instead of a hard border */
+.stock {
+  font-weight: 700;
   font-size: 0.85rem;
 }
 
-/* Critical */
-#this-weeks-needs tr:nth-child(2) td:nth-child(2),
-#this-weeks-needs tr:nth-child(3) td:nth-child(2) {
-  color: #9b3a2a;
-  background-color: #fbeeea;
+/* --level is the bar colour, color is the (darker) label colour */
+.stock-critical { --level: var(--tomato); color: #9b3a2a; }
+.stock-low      { --level: var(--wheat);  color: #85621f; }
+.stock-stocked  { --level: var(--green);  color: var(--green); }
+
+.bars {
+  display: inline-flex;
+  gap: var(--bar-gap);
+  margin-right: 0.7em;
+  vertical-align: middle;
 }
 
-/* Low */
-#this-weeks-needs tr:nth-child(4) td:nth-child(2),
-#this-weeks-needs tr:nth-child(5) td:nth-child(2) {
-  color: #85621f;
-  background-color: #f8f1e1;
+.bars i {
+  width: var(--bar-width);
+  height: var(--bar-height);
+  border-radius: 3px;
+  background-color: var(--line); /* empty bar */
+}
+
+.bars i.on {
+  background-color: var(--level); /* filled bar */
+}
+
+/* Scroll reveal (js/animations.js) */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Mobile menu: below 768px the links move behind the Menu button.
+   Without JavaScript (no .has-menu) the links just wrap onto extra rows. */
+@media (max-width: 768px) {
+  .site-header {
+    flex-wrap: wrap;
+  }
+
+  /* The name can shrink and wrap, so the Menu button stays beside it */
+  .brand {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+  }
+
+  .menu-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    min-height: 44px; /* easy to tap */
+    padding: 0 var(--space-2);
+    background: none;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    color: var(--green);
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  /* Three bars drawn with CSS: the middle bar plus one above and one below */
+  .menu-icon,
+  .menu-icon::before,
+  .menu-icon::after {
+    display: block;
+    width: 1.2rem;
+    height: 2px;
+    background-color: var(--green);
+  }
+
+  .menu-icon {
+    position: relative;
+  }
+
+  .menu-icon::before,
+  .menu-icon::after {
+    content: "";
+    position: absolute;
+    left: 0;
+  }
+
+  .menu-icon::before { top: -6px; }
+  .menu-icon::after  { top: 6px; }
+
+  /* The links drop down under the header bar */
+  nav.has-menu ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: var(--space-1) var(--space-2) var(--space-2);
+    background-color: var(--paper);
+    border-bottom: 1px solid var(--line);
+    box-shadow: var(--shadow);
+  }
+
+  nav.has-menu.menu-open ul {
+    display: flex;
+  }
+
+  nav.has-menu a:not(.btn) {
+    display: block;
+    border-radius: var(--radius);
+  }
+
+  nav.has-menu .btn {
+    display: block;
+    margin-top: var(--space-1);
+    text-align: center;
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -619,10 +887,6 @@ textarea:focus-visible {
   :root {
     --space-5: 2.25rem;
     --space-6: 3rem;
-  }
-
-  #quick-facts li {
-    flex-basis: 45%; /* 2 per row */
   }
 
   .service-cards article {
@@ -636,6 +900,10 @@ textarea:focus-visible {
   .contact-grid section {
     flex-basis: 100%; /* details above form */
   }
+
+  :root {
+    --bar-width: 1.3rem; /* slightly smaller stock bars */
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -647,34 +915,37 @@ textarea:focus-visible {
     font-size: 15px; /* smaller base, so all rem values shrink */
   }
 
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-  }
-
-  nav ul {
-    flex-direction: column;
-    gap: 0;
-  }
-
-  nav a {
-    display: block;
-    width: 100%;
-    padding: var(--space-1) var(--space-2);
-    border-radius: var(--radius-card);
+  .brand {
+    font-size: 1rem; /* shorter name block on phones */
   }
 
   main {
     padding: var(--space-4) var(--space-2);
   }
 
-  #quick-facts li,
+  /* Keep the three stats side by side on phones, with smaller numbers */
+  #quick-facts ul {
+    gap: var(--space-2);
+  }
+
+  #quick-facts li {
+    flex-basis: 80px;
+    font-size: 0.9rem;
+  }
+
+  .stat-number {
+    font-size: 1.9rem;
+  }
+
   .service-cards article,
   #values li,
   .help-grid section,
   .contact-grid section {
     flex-basis: 100%; /* one column */
+  }
+
+  .gallery {
+    grid-template-columns: repeat(2, 1fr); /* 2 photos per row on phones */
   }
 
   .media-row {
@@ -687,6 +958,22 @@ textarea:focus-visible {
 
   table {
     min-width: 480px; /* keeps tables readable inside .table-scroll */
+  }
+
+  /* Shelf table is only two short columns, so it fits without sideways scrolling */
+  #this-weeks-needs table {
+    min-width: 0;
+  }
+
+  #this-weeks-needs th,
+  #this-weeks-needs td {
+    padding-left: var(--space-1);
+    padding-right: var(--space-1);
+  }
+
+  :root {
+    --bar-width: 1rem; /* smallest stock bars */
+    --bar-gap: 2px;
   }
 
   footer {

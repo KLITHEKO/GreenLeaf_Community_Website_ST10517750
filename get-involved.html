@@ -5,37 +5,70 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GreenLeaf Community Food Bank - Get Involved</title>
 
-  <!-- Links the external stylesheet and loads the Lora and Roboto web fonts -->
+  <!-- Links the external stylesheet and loads the Google Sans web font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- HEADER: same on every page, see index.html for notes -->
-  <header>
-    <img src="images/logo.png" alt="GreenLeaf Community Food Bank logo" width="80" height="80">
-    <h1>GreenLeaf Community Food Bank</h1>
-    <p>No one should go hungry in our neighbourhood.</p>
+  <!-- HEADER AND NAVIGATION
+       Same bar on every page: logo and name on the left, links and the Donate button on the right.
+       On small screens js/menu.js adds a Menu button that opens and closes the links. -->
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      <img src="images/logo.png" alt="" width="40" height="40">
+      <span>GreenLeaf Community Food Bank</span>
+    </a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Our Services</a></li>
+        <li><a href="get-involved.html" aria-current="page">Get Involved</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a class="btn btn-accent" href="get-involved.html#donate">Donate</a></li>
+      </ul>
+    </nav>
   </header>
-
-  <!-- NAVIGATION: same on every page, see index.html for notes -->
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About Us</a></li>
-      <li><a href="services.html">Our Services</a></li>
-      <li><a href="get-involved.html">Get Involved</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
 
   <main>
 
-    <section id="involved-intro">
-      <h2>Get involved</h2>
-      <img src="images/volunteers.jpg" alt="GreenLeaf volunteers" width="350">
-      <p>Whether you have five minutes, five hours, or a standing order to make, there's a place for you at GreenLeaf.</p>
+    <section id="involved-intro" class="page-hero">
+      <img src="images/volunteers.jpg" alt="GreenLeaf volunteers" width="800" height="600">
+      <div>
+        <h1>Get involved</h1>
+        <p>Whether you have five minutes, five hours, or a standing order to make, there's a place for you at GreenLeaf.</p>
+      </div>
+    </section>
+
+    <!-- PHOTO GALLERY
+         Click a photo to open it larger in the lightbox (js/lightbox.js).
+         Without JavaScript each link simply opens the full photo. -->
+    <section id="gallery">
+      <h2>See what volunteering looks like</h2>
+      <ul class="gallery">
+        <li>
+          <a href="images/food-parcels-800w.jpg" data-caption="Help sort and pack parcels for families across the area.">
+            <img src="images/food-parcels-400w.jpg" alt="Volunteers packing food parcels" width="400" height="300">
+          </a>
+        </li>
+        <li>
+          <a href="images/soup-kitchen-800w.jpg" data-caption="Serve a hot meal at our weekend soup kitchen.">
+            <img src="images/soup-kitchen-400w.jpg" alt="Volunteers serving soup at the weekend soup kitchen" width="400" height="300">
+          </a>
+        </li>
+        <li>
+          <a href="images/hero-banner-800w.jpg" data-caption="Help run collection routes and hand out parcels.">
+            <img src="images/hero-banner-400w.jpg" alt="GreenLeaf volunteers on a collection route" width="400" height="225">
+          </a>
+        </li>
+        <li>
+          <a href="images/donation-dropoff-800w.jpg" data-caption="Welcome donors and sort their gifts at our drop-off point.">
+            <img src="images/donation-dropoff-400w.jpg" alt="Donation boxes at the GreenLeaf depot" width="400" height="300">
+          </a>
+        </li>
+      </ul>
     </section>
 
     <!-- FORMS
@@ -185,6 +218,14 @@
 
   <!-- FAQ accordion -->
   <script src="js/accordion.js"></script>
+
+  <!-- Photo gallery lightbox -->
+  <script src="js/lightbox.js"></script>
+  <!-- Mobile menu -->
+  <script src="js/menu.js"></script>
+
+  <!-- Scroll reveal -->
+  <script src="js/animations.js"></script>
 
 </body>
 </html>

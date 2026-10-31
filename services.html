@@ -5,56 +5,58 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GreenLeaf Community Food Bank - Our Services</title>
 
-  <!-- Links the external stylesheet and loads the Lora and Roboto web fonts -->
+  <!-- Links the external stylesheet and loads the Google Sans web font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- HEADER: same on every page, see index.html for notes -->
-  <header>
-    <img src="images/logo.png" alt="GreenLeaf Community Food Bank logo" width="80" height="80">
-    <h1>GreenLeaf Community Food Bank</h1>
-    <p>No one should go hungry in our neighbourhood.</p>
+  <!-- HEADER AND NAVIGATION
+       Same bar on every page: logo and name on the left, links and the Donate button on the right.
+       On small screens js/menu.js adds a Menu button that opens and closes the links. -->
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      <img src="images/logo.png" alt="" width="40" height="40">
+      <span>GreenLeaf Community Food Bank</span>
+    </a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html" aria-current="page">Our Services</a></li>
+        <li><a href="get-involved.html">Get Involved</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a class="btn btn-accent" href="get-involved.html#donate">Donate</a></li>
+      </ul>
+    </nav>
   </header>
-
-  <!-- NAVIGATION: same on every page, see index.html for notes -->
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About Us</a></li>
-      <li><a href="services.html">Our Services</a></li>
-      <li><a href="get-involved.html">Get Involved</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
 
   <main>
 
     <!-- PAGE INTRO -->
-    <section id="services-intro">
-      <h2>Our services</h2>
-      <p>GreenLeaf runs three core services, all volunteer-run and funded by donations.</p>
+    <section id="services-intro" class="page-hero">
+      <picture>
+        <source media="(max-width: 640px)" srcset="images/food-parcels-400w.jpg">
+        <img src="images/food-parcels-800w.jpg" alt="Packed food parcels ready for distribution" width="800" height="600">
+      </picture>
+      <div>
+        <h1>Our services</h1>
+        <p>GreenLeaf runs three core services, all volunteer-run and funded by donations.</p>
+      </div>
     </section>
 
     <!-- SERVICE 1: FOOD PARCELS
-         Image beside the description, then the schedule table. -->
+         Its photo is the page hero above, so this has text and the schedule table. -->
     <section id="food-parcels">
       <h3>1. Weekly food parcel distribution</h3>
-      <div class="media-row">
-        <picture>
-          <source media="(max-width: 640px)" srcset="images/food-parcels-400w.jpg">
-          <img src="images/food-parcels-800w.jpg" alt="Packed food parcels ready for distribution" width="350">
-        </picture>
-        <p>
-          Pre-packed parcels of staples such as rice, oil, and canned goods, plus
-          seasonal fresh produce when available, are handed out weekly at three
-          community sites.
-        </p>
-      </div>
+      <p>
+        Pre-packed parcels of staples such as rice, oil, and canned goods, plus
+        seasonal fresh produce when available, are handed out weekly at three
+        community sites.
+      </p>
       <div class="table-scroll">
-        <table border="1">
+        <table>
           <tr><th>Day</th><th>Time</th><th>Location</th></tr>
           <tr><td>Tuesday</td><td>09:00 - 12:00</td><td>Ubuntu Community Hall, Alexandra</td></tr>
           <tr><td>Thursday</td><td>14:00 - 17:00</td><td>Riverside Church Hall, Diepsloot</td></tr>
@@ -76,7 +78,7 @@
         </p>
       </div>
       <div class="table-scroll">
-        <table border="1">
+        <table>
           <tr><th>Day</th><th>Time</th><th>Location</th></tr>
           <tr><td>Saturday</td><td>10:00 - 13:00</td><td>GreenLeaf Depot, Randburg</td></tr>
           <tr><td>Sunday</td><td>10:00 - 13:00</td><td>GreenLeaf Depot, Randburg</td></tr>
@@ -126,6 +128,12 @@
     <p>Email: <a href="mailto:hello@greenleaffoodbank.org">hello@greenleaffoodbank.org</a> | Phone: <a href="tel:+27820000000">+27 82 000 0000</a></p>
     <p>&copy; 2026 GreenLeaf Community Food Bank. Together, we can help ensure no one goes hungry in our neighbourhood.</p>
   </footer>
+
+  <!-- Mobile menu -->
+  <script src="js/menu.js"></script>
+
+  <!-- Scroll reveal -->
+  <script src="js/animations.js"></script>
 
 </body>
 </html>

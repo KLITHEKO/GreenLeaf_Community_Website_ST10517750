@@ -5,43 +5,53 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GreenLeaf Community Food Bank - Contact</title>
 
-  <!-- Links the external stylesheet and loads the Lora and Roboto web fonts -->
+  <!-- Links the external stylesheet and loads the Google Sans web font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- HEADER: same on every page, see index.html for notes -->
-  <header>
-    <img src="images/logo.png" alt="GreenLeaf Community Food Bank logo" width="80" height="80">
-    <h1>GreenLeaf Community Food Bank</h1>
-    <p>No one should go hungry in our neighbourhood.</p>
+  <!-- HEADER AND NAVIGATION
+       Same bar on every page: logo and name on the left, links and the Donate button on the right.
+       On small screens js/menu.js adds a Menu button that opens and closes the links. -->
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      <img src="images/logo.png" alt="" width="40" height="40">
+      <span>GreenLeaf Community Food Bank</span>
+    </a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Our Services</a></li>
+        <li><a href="get-involved.html">Get Involved</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
+        <li><a class="btn btn-accent" href="get-involved.html#donate">Donate</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <!-- NAVIGATION: same on every page, see index.html for notes -->
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About Us</a></li>
-      <li><a href="services.html">Our Services</a></li>
-      <li><a href="get-involved.html">Get Involved</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-
   <main>
+
+    <!-- PAGE HERO
+         Map photo on top, then the heading (same layout as the other pages). -->
+    <section id="contact-intro" class="page-hero">
+      <picture>
+        <source media="(max-width: 640px)" srcset="images/contact-map-400w.jpg">
+        <img src="images/contact-map-800w.jpg" alt="Map placeholder showing the GreenLeaf depot location" width="800" height="600">
+      </picture>
+      <div>
+        <h1>Contact us</h1>
+        <p>Questions, offers of help or a parcel request? Visit us, get in touch, or send a message below.</p>
+      </div>
+    </section>
 
     <!-- CONTACT LAYOUT
          Details and form sit side by side on desktop. -->
     <div class="contact-grid">
 
       <section id="contact-details">
-        <h2>Contact us</h2>
-        <picture>
-          <source media="(max-width: 640px)" srcset="images/contact-map-400w.jpg">
-          <img src="images/contact-map-800w.jpg" alt="Map placeholder showing the GreenLeaf depot location" width="400">
-        </picture>
         <h3>Visit</h3>
         <p>GreenLeaf Depot<br>14 Marlboro Drive, Randburg<br>Monday - Friday, 08:00 - 17:00</p>
 
@@ -58,7 +68,7 @@
           <input type="text" id="c-name" name="c-name">
 
           <label for="c-email">Email:</label>
-          <input type="email" id="c-email" name="c-email">
+          <input type="email" id="c-email" name="c-email" required>
 
           <label for="c-subject">Subject:</label>
           <select id="c-subject" name="c-subject">
@@ -96,6 +106,12 @@
     <p>Email: <a href="mailto:hello@greenleaffoodbank.org">hello@greenleaffoodbank.org</a> | Phone: <a href="tel:+27820000000">+27 82 000 0000</a></p>
     <p>&copy; 2026 GreenLeaf Community Food Bank. Together, we can help ensure no one goes hungry in our neighbourhood.</p>
   </footer>
+
+  <!-- Mobile menu -->
+  <script src="js/menu.js"></script>
+
+  <!-- Scroll reveal -->
+  <script src="js/animations.js"></script>
 
 </body>
 </html>
