@@ -3,12 +3,87 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GreenLeaf Community Food Bank - Home</title>
 
-  <!-- Links the external stylesheet and loads the Google Sans web font -->
+  <!-- SEO: the title and description shown in search results -->
+  <title>Community Food Bank in Randburg | GreenLeaf</title>
+  <meta name="description" content="GreenLeaf is a volunteer-run food bank in Randburg, Johannesburg. Get a food parcel, volunteer, donate food or partner with us to fight hunger locally.">
+  <link rel="canonical" href="https://klitheko.github.io/GreenLeaf_Community_Website_ST10517750/index.html">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#2c4a32">
+
+  <!-- Security: the page may only load files from this site and Google Fonts -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <!-- Social sharing: how the page looks when its link is shared (Open Graph and Twitter card) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="GreenLeaf Community Food Bank">
+  <meta property="og:locale" content="en_ZA">
+  <meta property="og:title" content="Community Food Bank in Randburg | GreenLeaf">
+  <meta property="og:description" content="GreenLeaf is a volunteer-run food bank in Randburg, Johannesburg. Get a food parcel, volunteer, donate food or partner with us to fight hunger locally.">
+  <meta property="og:url" content="https://klitheko.github.io/GreenLeaf_Community_Website_ST10517750/index.html">
+  <meta property="og:image" content="https://klitheko.github.io/GreenLeaf_Community_Website_ST10517750/images/community-hands-together-800w.jpg">
+  <meta property="og:image:alt" content="A circle of hands stacked together in a black-and-white photo of community members and children">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Icons for browser tabs and phone home screens -->
+  <link rel="icon" href="favicon.ico" sizes="32x32 48x48">
+  <link rel="icon" type="image/png" href="images/favicon-32.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+  <!-- Google Sans web font, then the site stylesheet -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+
+  <!-- Local SEO: structured data that tells search engines who we are and where the depot is.
+       The coordinates are approximate - replace with the real depot position. -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NGO",
+  "name": "GreenLeaf Community Food Bank",
+  "url": "https://klitheko.github.io/GreenLeaf_Community_Website_ST10517750/",
+  "logo": "https://klitheko.github.io/GreenLeaf_Community_Website_ST10517750/images/apple-touch-icon.png",
+  "image": "https://klitheko.github.io/GreenLeaf_Community_Website_ST10517750/images/community-hands-together-800w.jpg",
+  "description": "Volunteer-run food bank in Randburg, Johannesburg. Weekly food parcels, a weekend soup kitchen and food donation drop-off.",
+  "email": "hello@greenleaffoodbank.org",
+  "telephone": "+27820000000",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "14 Marlboro Drive",
+    "addressLocality": "Randburg",
+    "addressRegion": "Gauteng",
+    "addressCountry": "ZA"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -26.09441,
+    "longitude": 28.00673
+  },
+  "areaServed": [
+    "Randburg",
+    "Alexandra",
+    "Diepsloot",
+    "Johannesburg"
+  ],
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "08:00",
+      "closes": "17:00"
+    }
+  ]
+}
+  </script>
 </head>
 <body>
 
@@ -17,7 +92,7 @@
        On small screens js/menu.js adds a Menu button that opens and closes the links. -->
   <header class="site-header">
     <a class="brand" href="index.html">
-      <img src="images/logo.png" alt="" width="40" height="40">
+      <img src="images/greenleaf-logo-96.png" alt="" width="40" height="40">
       <span>GreenLeaf Community Food Bank</span>
     </a>
     <nav aria-label="Main">
@@ -41,17 +116,19 @@
          <picture> serves a smaller image on mobile to save data. -->
     <section id="hero">
       <picture>
-        <source media="(max-width: 640px)" srcset="images/hero-banner-400w.jpg">
-        <img src="images/hero-banner-800w.jpg"
-             srcset="images/hero-banner-400w.jpg 400w, images/hero-banner-800w.jpg 800w"
+        <source media="(max-width: 640px)" srcset="images/community-hands-together-400w.jpg">
+        <img src="images/community-hands-together-800w.jpg"
+             srcset="images/community-hands-together-400w.jpg 400w, images/community-hands-together-800w.jpg 800w"
              sizes="(max-width: 800px) 100vw, 800px"
-             alt="GreenLeaf volunteers packing food parcels" width="800" height="450">
+             alt="A circle of hands stacked together in a black-and-white photo of community members and children"
+             width="800" height="450" fetchpriority="high">
       </picture>
       <div>
         <h1>Fighting food insecurity in our community</h1>
         <p>
-          GreenLeaf Community Food Bank collects, sorts, and distributes food donations
-          to low-income families in our local area. We run a weekly food parcel service,
+          GreenLeaf Community Food Bank is a volunteer-run food bank in Randburg,
+          Johannesburg. We collect, sort, and distribute food donations to low-income
+          families in our local area. We run a weekly food parcel service,
           a weekend soup kitchen, and a drop-off service for businesses.
         </p>
         <p>
@@ -118,36 +195,36 @@
       <div class="service-cards">
         <!-- Service 1: weekly food parcels -->
         <article>
-          <h3>Weekly food parcel distribution</h3>
+          <h3><a href="services.html#food-parcels">Weekly food parcel distribution</a></h3>
           <picture>
-            <source media="(max-width: 640px)" srcset="images/food-parcels-400w.jpg">
-            <img src="images/food-parcels-800w.jpg" alt="Packed food parcels ready for distribution" width="300">
+            <source media="(max-width: 640px)" srcset="images/volunteers-packing-food-parcels-400w.jpg">
+            <img src="images/volunteers-packing-food-parcels-800w.jpg" alt="Three volunteers packing boxes of food aid beside a van" width="300" height="225" loading="lazy" decoding="async">
           </picture>
           <p>Pre-packed parcels of staples and seasonal produce, handed out every Tuesday and Thursday.</p>
         </article>
 
         <!-- Service 2: weekend soup kitchen -->
         <article>
-          <h3>Weekend soup kitchen</h3>
+          <h3><a href="services.html#soup-kitchen">Weekend soup kitchen</a></h3>
           <picture>
-            <source media="(max-width: 640px)" srcset="images/soup-kitchen-400w.jpg">
-            <img src="images/soup-kitchen-800w.jpg" alt="Volunteers serving soup at the weekend soup kitchen" width="300">
+            <source media="(max-width: 640px)" srcset="images/hot-meals-soup-kitchen-400w.jpg">
+            <img src="images/hot-meals-soup-kitchen-800w.jpg" alt="Rows of hot meals in takeaway containers at the weekend soup kitchen" width="300" height="225" loading="lazy" decoding="async">
           </picture>
           <p>A hot, sit-down meal open to anyone who needs one, every Saturday and Sunday.</p>
         </article>
 
         <!-- Service 3: donation drop-off and collection -->
         <article>
-          <h3>Donation drop-off &amp; collection</h3>
+          <h3><a href="services.html#donation-dropoff">Donation drop-off &amp; collection</a></h3>
           <picture>
-            <source media="(max-width: 640px)" srcset="images/donation-dropoff-400w.jpg">
-            <img src="images/donation-dropoff-800w.jpg" alt="Donation boxes at the GreenLeaf depot" width="300">
+            <source media="(max-width: 640px)" srcset="images/canned-food-donation-crate-400w.jpg">
+            <img src="images/canned-food-donation-crate-800w.jpg" alt="A crate of canned food being sorted by gloved volunteers at the GreenLeaf depot" width="300" height="225" loading="lazy" decoding="async">
           </picture>
           <p>Drop food off at the depot or a partner bin, or arrange a recurring pickup.</p>
         </article>
       </div>
 
-      <p><a href="services.html">See all our services</a></p>
+      <p><a href="services.html">See all our services and schedules</a> | <a href="about.html">About GreenLeaf</a> | <a href="contact.html">Find the depot</a></p>
     </section>
 
   </main>

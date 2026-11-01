@@ -3,12 +3,88 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GreenLeaf Community Food Bank - Contact</title>
 
-  <!-- Links the external stylesheet and loads the Google Sans web font -->
+  <!-- SEO: the title and description shown in search results -->
+  <title>Contact GreenLeaf Food Bank | Randburg, Johannesburg</title>
+  <meta name="description" content="Find the GreenLeaf depot at 14 Marlboro Drive, Randburg. Opening hours, phone, email, an interactive map and a message form.">
+  <link rel="canonical" href="https://klitheko.github.io/GreenLeaf_Community_Website_ST10517750/contact.html">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#2c4a32">
+
+  <!-- Security: the page may only load files from this site, OpenStreetMap map tiles and Google Fonts -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://tile.openstreetmap.org; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <!-- Social sharing: how the page looks when its link is shared (Open Graph and Twitter card) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="GreenLeaf Community Food Bank">
+  <meta property="og:locale" content="en_ZA">
+  <meta property="og:title" content="Contact GreenLeaf Food Bank | Randburg, Johannesburg">
+  <meta property="og:description" content="Find the GreenLeaf depot at 14 Marlboro Drive, Randburg. Opening hours, phone, email, an interactive map and a message form.">
+  <meta property="og:url" content="https://klitheko.github.io/GreenLeaf_Community_Website_ST10517750/contact.html">
+  <meta property="og:image" content="https://klitheko.github.io/GreenLeaf_Community_Website_ST10517750/images/volunteers-unloading-food-aid-boxes-800w.jpg">
+  <meta property="og:image:alt" content="Volunteers unloading boxes of food aid from a van at a community distribution table">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Icons for browser tabs and phone home screens -->
+  <link rel="icon" href="favicon.ico" sizes="32x32 48x48">
+  <link rel="icon" type="image/png" href="images/favicon-32.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+  <!-- Google Sans web font, then the site stylesheet -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+
+  <!-- Local SEO: structured data that tells search engines who we are and where the depot is.
+       The coordinates are approximate - replace with the real depot position. -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NGO",
+  "name": "GreenLeaf Community Food Bank",
+  "url": "https://klitheko.github.io/GreenLeaf_Community_Website_ST10517750/",
+  "logo": "https://klitheko.github.io/GreenLeaf_Community_Website_ST10517750/images/apple-touch-icon.png",
+  "image": "https://klitheko.github.io/GreenLeaf_Community_Website_ST10517750/images/community-hands-together-800w.jpg",
+  "description": "Volunteer-run food bank in Randburg, Johannesburg. Weekly food parcels, a weekend soup kitchen and food donation drop-off.",
+  "email": "hello@greenleaffoodbank.org",
+  "telephone": "+27820000000",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "14 Marlboro Drive",
+    "addressLocality": "Randburg",
+    "addressRegion": "Gauteng",
+    "addressCountry": "ZA"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -26.09441,
+    "longitude": 28.00673
+  },
+  "areaServed": [
+    "Randburg",
+    "Alexandra",
+    "Diepsloot",
+    "Johannesburg"
+  ],
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "08:00",
+      "closes": "17:00"
+    }
+  ]
+}
+  </script>
 </head>
 <body>
 
@@ -17,7 +93,7 @@
        On small screens js/menu.js adds a Menu button that opens and closes the links. -->
   <header class="site-header">
     <a class="brand" href="index.html">
-      <img src="images/logo.png" alt="" width="40" height="40">
+      <img src="images/greenleaf-logo-96.png" alt="" width="40" height="40">
       <span>GreenLeaf Community Food Bank</span>
     </a>
     <nav aria-label="Main">
@@ -38,12 +114,12 @@
          Map photo on top, then the heading (same layout as the other pages). -->
     <section id="contact-intro" class="page-hero">
       <picture>
-        <source media="(max-width: 640px)" srcset="images/contact-map-400w.jpg">
-        <img src="images/contact-map-800w.jpg" alt="Map placeholder showing the GreenLeaf depot location" width="800" height="600">
+        <source media="(max-width: 640px)" srcset="images/volunteers-unloading-food-aid-boxes-400w.jpg">
+        <img src="images/volunteers-unloading-food-aid-boxes-800w.jpg" alt="Volunteers unloading boxes of food aid from a van at a community distribution table" width="800" height="600" fetchpriority="high">
       </picture>
       <div>
         <h1>Contact us</h1>
-        <p>Questions, offers of help or a parcel request? Visit us, get in touch, or send a message below.</p>
+        <p>Questions for our Randburg food bank? Visit the depot, get in touch, or send a message below. To give or get help, go to <a href="get-involved.html">Get involved</a>.</p>
       </div>
     </section>
 
@@ -52,26 +128,28 @@
     <div class="contact-grid">
 
       <section id="contact-details">
-        <h3>Visit</h3>
+        <h2 class="subheading">Visit</h2>
         <p>GreenLeaf Depot<br>14 Marlboro Drive, Randburg<br>Monday - Friday, 08:00 - 17:00</p>
+        <p>Distribution and soup kitchen times are on our <a href="services.html">services page</a>.</p>
 
-        <h3>Reach us</h3>
+        <h2 class="subheading">Reach us</h2>
         <p>Email: <a href="mailto:hello@greenleaffoodbank.org">hello@greenleaffoodbank.org</a></p>
         <p>Phone: <a href="tel:+27820000000">+27 82 000 0000</a></p>
         <p>WhatsApp community group: <a href="#">Join here</a></p>
       </section>
 
       <section id="contact-form">
-        <h3>Send us a message</h3>
-        <form action="#" method="post">
+        <h2 class="subheading">Send us a message</h2>
+        <form action="#" method="post" data-success="Thank you! We have your message and will reply to your email soon.">
+          <p class="form-note">All fields are required.</p>
           <label for="c-name">Name:</label>
-          <input type="text" id="c-name" name="c-name">
+          <input type="text" id="c-name" name="c-name" required minlength="2" maxlength="80" autocomplete="name">
 
           <label for="c-email">Email:</label>
-          <input type="email" id="c-email" name="c-email" required>
+          <input type="email" id="c-email" name="c-email" required maxlength="120" autocomplete="email">
 
           <label for="c-subject">Subject:</label>
-          <select id="c-subject" name="c-subject">
+          <select id="c-subject" name="c-subject" required>
             <option value="">Select a topic</option>
             <option value="donation">Donation query</option>
             <option value="volunteering">Volunteering</option>
@@ -81,7 +159,7 @@
           </select>
 
           <label for="c-message">Message:</label>
-          <textarea id="c-message" name="c-message" rows="6" cols="40"></textarea>
+          <textarea id="c-message" name="c-message" rows="6" cols="40" required minlength="10" maxlength="1000"></textarea>
 
           <input type="submit" value="Send message">
         </form>
@@ -89,8 +167,17 @@
 
     </div>
 
+    <!-- INTERACTIVE MAP
+         js/map.js replaces the link inside with a Leaflet map. -->
+    <section id="find-us">
+      <h2>Find the depot on the map</h2>
+      <div id="map" role="region" aria-label="Map showing the GreenLeaf depot in Randburg">
+        <p><a href="https://www.openstreetmap.org/?mlat=-26.09441&amp;mlon=28.00673#map=15/-26.09441/28.00673" rel="noopener noreferrer">View the GreenLeaf depot area on OpenStreetMap</a></p>
+      </div>
+    </section>
+
     <section id="follow">
-      <h3>Follow GreenLeaf</h3>
+      <h2 class="subheading">Follow GreenLeaf</h2>
       <ul>
         <li><a href="#">Facebook</a></li>
         <li><a href="#">Instagram</a></li>
@@ -106,6 +193,13 @@
     <p>Email: <a href="mailto:hello@greenleaffoodbank.org">hello@greenleaffoodbank.org</a> | Phone: <a href="tel:+27820000000">+27 82 000 0000</a></p>
     <p>&copy; 2026 GreenLeaf Community Food Bank. Together, we can help ensure no one goes hungry in our neighbourhood.</p>
   </footer>
+
+  <!-- Interactive map: the Leaflet library (kept in vendor/) then our own script -->
+  <script src="vendor/leaflet/leaflet.js"></script>
+  <script src="js/map.js"></script>
+
+  <!-- Form validation -->
+  <script src="js/validation.js"></script>
 
   <!-- Mobile menu -->
   <script src="js/menu.js"></script>

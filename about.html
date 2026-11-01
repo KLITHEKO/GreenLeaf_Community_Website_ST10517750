@@ -3,10 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GreenLeaf Community Food Bank - About Us</title>
 
-  <!-- Links the external stylesheet and loads the Google Sans web font -->
+  <!-- SEO: the title and description shown in search results -->
+  <title>About GreenLeaf | Volunteer-Run Food Bank, Randburg</title>
+  <meta name="description" content="Learn how GreenLeaf began, what we believe in and how our volunteers collect, sort and share food with families in Randburg and Johannesburg.">
+  <link rel="canonical" href="https://klitheko.github.io/GreenLeaf_Community_Website_ST10517750/about.html">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#2c4a32">
+
+  <!-- Security: the page may only load files from this site and Google Fonts -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <!-- Social sharing: how the page looks when its link is shared (Open Graph and Twitter card) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="GreenLeaf Community Food Bank">
+  <meta property="og:locale" content="en_ZA">
+  <meta property="og:title" content="About GreenLeaf | Volunteer-Run Food Bank, Randburg">
+  <meta property="og:description" content="Learn how GreenLeaf began, what we believe in and how our volunteers collect, sort and share food with families in Randburg and Johannesburg.">
+  <meta property="og:url" content="https://klitheko.github.io/GreenLeaf_Community_Website_ST10517750/about.html">
+  <meta property="og:image" content="https://klitheko.github.io/GreenLeaf_Community_Website_ST10517750/images/volunteers-handing-out-food-at-depot-800w.jpg">
+  <meta property="og:image:alt" content="GreenLeaf volunteers handing out water at a food table">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Icons for browser tabs and phone home screens -->
+  <link rel="icon" href="favicon.ico" sizes="32x32 48x48">
+  <link rel="icon" type="image/png" href="images/favicon-32.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+  <!-- Google Sans web font, then the site stylesheet -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -17,7 +44,7 @@
        On small screens js/menu.js adds a Menu button that opens and closes the links. -->
   <header class="site-header">
     <a class="brand" href="index.html">
-      <img src="images/logo.png" alt="" width="40" height="40">
+      <img src="images/greenleaf-logo-96.png" alt="" width="40" height="40">
       <span>GreenLeaf Community Food Bank</span>
     </a>
     <nav aria-label="Main">
@@ -38,15 +65,15 @@
          Who GreenLeaf is, with a supporting photo. -->
     <section id="about-overview" class="page-hero">
       <picture>
-        <source media="(max-width: 640px)" srcset="images/about-depot-400w.jpg">
-        <img src="images/about-depot-800w.jpg" alt="GreenLeaf Depot building in Randburg" width="800" height="600">
+        <source media="(max-width: 640px)" srcset="images/volunteers-handing-out-food-at-depot-400w.jpg">
+        <img src="images/volunteers-handing-out-food-at-depot-800w.jpg" alt="Three GreenLeaf volunteers in white T-shirts handing a cup of water to a visitor at a food table" width="800" height="600" fetchpriority="high">
       </picture>
       <div>
       <h1>About GreenLeaf</h1>
       <p>
-        GreenLeaf Community Food Bank is a volunteer-run non-profit organisation that
-        collects, sorts, and distributes food donations to low-income families and
-        individuals facing food insecurity in our local area. We started as a small
+        GreenLeaf Community Food Bank is a volunteer-run non-profit organisation in
+        Randburg, Johannesburg, that collects, sorts, and distributes food donations
+        to low-income families and individuals facing food insecurity in our local area. We started as a small
         group coordinating through a WhatsApp group and word-of-mouth, and have since
         grown into a network of volunteers, donors, and community partners.
       </p>
@@ -116,6 +143,11 @@
         <li>Donor &amp; business partnerships</li>
         <li>Soup kitchen team leads</li>
       </ul>
+      <p>
+        Want to help? <a href="get-involved.html">Volunteer, donate or partner with us</a>,
+        see <a href="services.html">what our services offer</a>, or
+        <a href="contact.html">contact the depot</a>.
+      </p>
     </section>
 
   </main>

@@ -1,0 +1,14 @@
+{
+  "updated": "2026-11-01",
+  "sessions": [
+    { "service": "Food parcels",     "day": "Tuesday",   "dayNumber": 2, "start": "09:00", "end": "12:00", "location": "Ubuntu Community Hall, Alexandra" },
+    { "service": "Food parcels",     "day": "Thursday",  "dayNumber": 4, "start": "14:00", "end": "17:00", "location": "Riverside Church Hall, Diepsloot" },
+    { "service": "Soup kitchen",     "day": "Saturday",  "dayNumber": 6, "start": "10:00", "end": "13:00", "location": "GreenLeaf Depot, Randburg" },
+    { "service": "Soup kitchen",     "day": "Sunday",    "dayNumber": 7, "start": "10:00", "end": "13:00", "location": "GreenLeaf Depot, Randburg" },
+    { "service": "Donation drop-off", "day": "Monday",    "dayNumber": 1, "start": "08:00", "end": "17:00", "location": "GreenLeaf Depot, Randburg" },
+    { "service": "Donation drop-off", "day": "Tuesday",   "dayNumber": 2, "start": "08:00", "end": "17:00", "location": "GreenLeaf Depot, Randburg" },
+    { "service": "Donation drop-off", "day": "Wednesday", "dayNumber": 3, "start": "08:00", "end": "17:00", "location": "GreenLeaf Depot, Randburg" },
+    { "service": "Donation drop-off", "day": "Thursday",  "dayNumber": 4, "start": "08:00", "end": "17:00", "location": "GreenLeaf Depot, Randburg" },
+    { "service": "Donation drop-off", "day": "Friday",    "dayNumber": 5, "start": "08:00", "end": "17:00", "location": "GreenLeaf Depot, Randburg" }
+  ]
+}

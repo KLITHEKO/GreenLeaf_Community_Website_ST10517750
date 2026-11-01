@@ -3,10 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GreenLeaf Community Food Bank - Get Involved</title>
 
-  <!-- Links the external stylesheet and loads the Google Sans web font -->
+  <!-- SEO: the title and description shown in search results -->
+  <title>Volunteer, Donate Food or Request a Food Parcel | GreenLeaf</title>
+  <meta name="description" content="Volunteer at our Randburg food bank, donate food or funds, partner your business or request a food parcel. Four simple forms, no experience needed.">
+  <link rel="canonical" href="https://klitheko.github.io/GreenLeaf_Community_Website_ST10517750/get-involved.html">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#2c4a32">
+
+  <!-- Security: the page may only load files from this site and Google Fonts -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <!-- Social sharing: how the page looks when its link is shared (Open Graph and Twitter card) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="GreenLeaf Community Food Bank">
+  <meta property="og:locale" content="en_ZA">
+  <meta property="og:title" content="Volunteer, Donate Food or Request a Food Parcel | GreenLeaf">
+  <meta property="og:description" content="Volunteer at our Randburg food bank, donate food or funds, partner your business or request a food parcel. Four simple forms, no experience needed.">
+  <meta property="og:url" content="https://klitheko.github.io/GreenLeaf_Community_Website_ST10517750/get-involved.html">
+  <meta property="og:image" content="https://klitheko.github.io/GreenLeaf_Community_Website_ST10517750/images/volunteer-with-school-children-800w.jpg">
+  <meta property="og:image:alt" content="A GreenLeaf volunteer in a blue T-shirt facing a group of children in school uniforms">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Icons for browser tabs and phone home screens -->
+  <link rel="icon" href="favicon.ico" sizes="32x32 48x48">
+  <link rel="icon" type="image/png" href="images/favicon-32.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+  <!-- Google Sans web font, then the site stylesheet -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -17,7 +44,7 @@
        On small screens js/menu.js adds a Menu button that opens and closes the links. -->
   <header class="site-header">
     <a class="brand" href="index.html">
-      <img src="images/logo.png" alt="" width="40" height="40">
+      <img src="images/greenleaf-logo-96.png" alt="" width="40" height="40">
       <span>GreenLeaf Community Food Bank</span>
     </a>
     <nav aria-label="Main">
@@ -35,10 +62,13 @@
   <main>
 
     <section id="involved-intro" class="page-hero">
-      <img src="images/volunteers.jpg" alt="GreenLeaf volunteers" width="800" height="600">
+      <picture>
+        <source media="(max-width: 640px)" srcset="images/volunteer-with-school-children-400w.jpg">
+        <img src="images/volunteer-with-school-children-800w.jpg" alt="A GreenLeaf volunteer in a blue T-shirt facing a group of children in school uniforms" width="800" height="600" fetchpriority="high">
+      </picture>
       <div>
         <h1>Get involved</h1>
-        <p>Whether you have five minutes, five hours, or a standing order to make, there's a place for you at GreenLeaf.</p>
+        <p>Whether you have five minutes, five hours, or a standing order to make, there's a place for you at our Randburg food bank. Volunteer, donate food or funds, partner your business, or request a food parcel. Not sure where to start? See <a href="services.html">what our services do</a> or <a href="contact.html">contact us</a>.</p>
       </div>
     </section>
 
@@ -49,23 +79,23 @@
       <h2>See what volunteering looks like</h2>
       <ul class="gallery">
         <li>
-          <a href="images/food-parcels-800w.jpg" data-caption="Help sort and pack parcels for families across the area.">
-            <img src="images/food-parcels-400w.jpg" alt="Volunteers packing food parcels" width="400" height="300">
+          <a href="images/volunteers-packing-food-parcels-800w.jpg" data-caption="Help sort and pack parcels for families across the area.">
+            <img src="images/volunteers-packing-food-parcels-400w.jpg" alt="Volunteers packing boxes of food aid for parcels" width="400" height="300" loading="lazy" decoding="async">
           </a>
         </li>
         <li>
-          <a href="images/soup-kitchen-800w.jpg" data-caption="Serve a hot meal at our weekend soup kitchen.">
-            <img src="images/soup-kitchen-400w.jpg" alt="Volunteers serving soup at the weekend soup kitchen" width="400" height="300">
+          <a href="images/hot-meals-soup-kitchen-800w.jpg" data-caption="Serve a hot meal at our weekend soup kitchen.">
+            <img src="images/hot-meals-soup-kitchen-400w.jpg" alt="Rows of hot meals in takeaway containers at the soup kitchen" width="400" height="300" loading="lazy" decoding="async">
           </a>
         </li>
         <li>
-          <a href="images/hero-banner-800w.jpg" data-caption="Help run collection routes and hand out parcels.">
-            <img src="images/hero-banner-400w.jpg" alt="GreenLeaf volunteers on a collection route" width="400" height="225">
+          <a href="images/community-hands-together-800w.jpg" data-caption="Join a team that works side by side for the community.">
+            <img src="images/community-hands-together-400w.jpg" alt="A circle of hands stacked together in a black-and-white photo" width="400" height="225" loading="lazy" decoding="async">
           </a>
         </li>
         <li>
-          <a href="images/donation-dropoff-800w.jpg" data-caption="Welcome donors and sort their gifts at our drop-off point.">
-            <img src="images/donation-dropoff-400w.jpg" alt="Donation boxes at the GreenLeaf depot" width="400" height="300">
+          <a href="images/canned-food-donation-crate-800w.jpg" data-caption="Welcome donors and sort their gifts at our drop-off point.">
+            <img src="images/canned-food-donation-crate-400w.jpg" alt="A crate of canned food being sorted by gloved volunteers" width="400" height="300" loading="lazy" decoding="async">
           </a>
         </li>
       </ul>
@@ -76,34 +106,36 @@
     <div class="help-grid">
 
       <section id="donate">
-        <h3>Donate funds or food</h3>
+        <h2 class="subheading">Donate funds or food</h2>
         <p>Cash donations let us buy exactly what's short on the shelf this week. Prefer to give food directly? Drop it at the depot or a partner bin anytime.</p>
-        <form action="#" method="post">
+        <form action="#" method="post" data-success="Thank you! We have your donation details and will send payment instructions to your email.">
+          <p class="form-note">All fields are required.</p>
           <label for="amount">Donation amount (ZAR):</label>
-          <input type="number" id="amount" name="amount" min="10" placeholder="e.g. 350">
+          <input type="number" id="amount" name="amount" required min="10" max="1000000" step="1" inputmode="numeric" placeholder="e.g. 350">
 
           <label for="donor-name">Full name:</label>
-          <input type="text" id="donor-name" name="donor-name">
+          <input type="text" id="donor-name" name="donor-name" required minlength="2" maxlength="80" autocomplete="name">
 
           <label for="donor-email">Email:</label>
-          <input type="email" id="donor-email" name="donor-email">
+          <input type="email" id="donor-email" name="donor-email" required maxlength="120" autocomplete="email">
 
           <input type="submit" value="Continue to payment">
         </form>
       </section>
 
       <section id="volunteer">
-        <h3>Volunteer with us</h3>
+        <h2 class="subheading">Volunteer with us</h2>
         <p>No experience needed - just reliable hands. Sort parcels, serve at the soup kitchen, or help run collection routes.</p>
-        <form action="#" method="post">
+        <form action="#" method="post" data-success="Thank you for offering to volunteer! A team lead will message you on WhatsApp soon.">
+          <p class="form-note">All fields are required.</p>
           <label for="vol-name">Name:</label>
-          <input type="text" id="vol-name" name="vol-name">
+          <input type="text" id="vol-name" name="vol-name" required minlength="2" maxlength="80" autocomplete="name">
 
           <label for="vol-number">WhatsApp number:</label>
-          <input type="tel" id="vol-number" name="vol-number">
+          <input type="tel" id="vol-number" name="vol-number" required pattern="(\+27|0)[0-9 ]{9,12}" maxlength="16" inputmode="tel" autocomplete="tel" data-pattern-message="Enter a South African number, for example 082 000 0000 or +27 82 000 0000.">
 
           <label for="vol-area">I'd like to help with:</label>
-          <select id="vol-area" name="vol-area">
+          <select id="vol-area" name="vol-area" required>
             <option value="">Select an area</option>
             <option value="sorting">Sorting &amp; packing</option>
             <option value="soup">Soup kitchen</option>
@@ -116,17 +148,18 @@
       </section>
 
       <section id="partner">
-        <h3>Partner your business</h3>
+        <h2 class="subheading">Partner your business</h2>
         <p>Restaurants, grocers, and offices can set up a recurring pickup for surplus, near-date, or unsellable-but-safe food.</p>
-        <form action="#" method="post">
+        <form action="#" method="post" data-success="Thank you! We have your details and will contact you to arrange a pickup.">
+          <p class="form-note">All fields are required.</p>
           <label for="biz-name">Business name:</label>
-          <input type="text" id="biz-name" name="biz-name">
+          <input type="text" id="biz-name" name="biz-name" required minlength="2" maxlength="100" autocomplete="organization">
 
           <label for="biz-email">Contact email:</label>
-          <input type="email" id="biz-email" name="biz-email">
+          <input type="email" id="biz-email" name="biz-email" required maxlength="120" autocomplete="email">
 
           <label for="biz-frequency">Roughly how often could you donate?</label>
-          <select id="biz-frequency" name="biz-frequency">
+          <select id="biz-frequency" name="biz-frequency" required>
             <option value="">Select frequency</option>
             <option value="weekly">Weekly</option>
             <option value="fortnightly">Fortnightly</option>
@@ -139,17 +172,18 @@
       </section>
 
       <section id="request-parcel">
-        <h3>Request a food parcel</h3>
+        <h2 class="subheading">Request a food parcel</h2>
         <p>Parcels are available to anyone facing food insecurity in the area. No paperwork is required for a first visit - just come to a distribution site during the hours listed on our Services page.</p>
-        <form action="#" method="post">
+        <form action="#" method="post" data-success="Thank you! We will send the parcel details to your WhatsApp number soon.">
+          <p class="form-note">All fields are required.</p>
           <label for="req-name">Name:</label>
-          <input type="text" id="req-name" name="req-name">
+          <input type="text" id="req-name" name="req-name" required minlength="2" maxlength="80" autocomplete="name">
 
           <label for="req-number">WhatsApp number:</label>
-          <input type="tel" id="req-number" name="req-number">
+          <input type="tel" id="req-number" name="req-number" required pattern="(\+27|0)[0-9 ]{9,12}" maxlength="16" inputmode="tel" autocomplete="tel" data-pattern-message="Enter a South African number, for example 082 000 0000 or +27 82 000 0000.">
 
           <label for="req-area">Nearest area:</label>
-          <input type="text" id="req-area" name="req-area" placeholder="e.g. Alexandra, Diepsloot, Randburg">
+          <input type="text" id="req-area" name="req-area" required minlength="2" maxlength="80" placeholder="e.g. Alexandra, Diepsloot, Randburg">
 
           <input type="submit" value="Send me the details">
         </form>
@@ -215,6 +249,9 @@
     <p>Email: <a href="mailto:hello@greenleaffoodbank.org">hello@greenleaffoodbank.org</a> | Phone: <a href="tel:+27820000000">+27 82 000 0000</a></p>
     <p>&copy; 2026 GreenLeaf Community Food Bank. Together, we can help ensure no one goes hungry in our neighbourhood.</p>
   </footer>
+
+  <!-- Form validation -->
+  <script src="js/validation.js"></script>
 
   <!-- FAQ accordion -->
   <script src="js/accordion.js"></script>

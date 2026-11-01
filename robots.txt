@@ -1,0 +1,9 @@
+# GreenLeaf Community Food Bank - instructions for search engine crawlers
+# Every page may be crawled. Only the screenshots folder (marker evidence, not site content) is skipped.
+# The CSS, JavaScript and data files are NOT blocked, so search engines can render the pages fully.
+
+User-agent: *
+Allow: /
+Disallow: /screenshots/
+
+Sitemap: https://klitheko.github.io/GreenLeaf_Community_Website_ST10517750/sitemap.xml

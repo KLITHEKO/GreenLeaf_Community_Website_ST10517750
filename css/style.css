@@ -152,6 +152,9 @@ h2 { font-size: clamp(1.4rem, 1.2rem + 1vw, 1.9rem); margin-bottom: var(--space-
 h3 { font-size: 1.3rem; margin-bottom: var(--space-2); }
 h4 { font-size: 1.05rem; margin-bottom: var(--space-1); }
 
+/* Section titles that sit directly under the page h1 but keep the smaller h3 look */
+.subheading { font-size: 1.3rem; margin-bottom: var(--space-2); }
+
 p {
   margin-bottom: var(--space-2);
   max-width: 65ch;
@@ -583,6 +586,60 @@ footer a:focus {
   color: #fff;
 }
 
+/* Contact page: interactive map */
+#map {
+  height: 22rem;
+  border-radius: var(--radius-card);
+  border: 1px solid var(--line);
+  background-color: var(--green-tint); /* shows while the map loads */
+  z-index: 0; /* keeps the map's controls below the sticky header */
+}
+
+#map > p {
+  padding: var(--space-2);
+}
+
+/* Services page: session finder (search, filter, sort) */
+.finder-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+
+.finder-controls > div {
+  flex: 1 1 11rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+#finder-count {
+  margin-bottom: var(--space-1);
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+#finder-empty button {
+  font: inherit;
+  color: var(--green);
+  background: none;
+  border: 0;
+  text-decoration: underline;
+  cursor: pointer;
+  min-height: 44px; /* easy to tap */
+}
+
+/* Text for screen readers only (used for the table caption) */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
 /* Wide tables scroll sideways instead of squashing on small screens */
 .table-scroll {
   width: 100%;
@@ -649,6 +706,34 @@ input:focus, select:focus, textarea:focus {
   outline: none;
   border-color: var(--green);
   box-shadow: 0 0 0 3px var(--green-tint);
+}
+
+/* Form validation messages (shown by js/validation.js) */
+.form-note {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.error-message {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--tomato); /* 5:1 contrast on white */
+}
+
+input[aria-invalid="true"],
+select[aria-invalid="true"],
+textarea[aria-invalid="true"] {
+  border-color: var(--tomato); /* the message is the main signal, the border backs it up */
+}
+
+.form-success {
+  margin: var(--space-1) 0 0;
+  padding: var(--space-2);
+  background-color: var(--green-tint);
+  color: var(--green-dark);
+  border-radius: var(--radius);
+  font-weight: 500;
 }
 
 /* Submit button with hover and click effects */
@@ -868,12 +953,17 @@ textarea:focus-visible {
   }
 
   nav.has-menu a:not(.btn) {
-    display: block;
+    display: flex;
+    align-items: center;
+    min-height: 44px; /* easy to tap */
     border-radius: var(--radius);
   }
 
   nav.has-menu .btn {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
     margin-top: var(--space-1);
     text-align: center;
   }
@@ -917,6 +1007,12 @@ textarea:focus-visible {
 
   .brand {
     font-size: 1rem; /* shorter name block on phones */
+  }
+
+  /* Easy to tap: form fields at least 44px tall, and 16px text so iPhones do not zoom in on focus */
+  input, select, textarea {
+    font-size: 16px;
+    min-height: 44px;
   }
 
   main {

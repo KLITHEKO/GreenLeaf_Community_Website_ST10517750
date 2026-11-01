@@ -3,10 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GreenLeaf Community Food Bank - Our Services</title>
 
-  <!-- Links the external stylesheet and loads the Google Sans web font -->
+  <!-- SEO: the title and description shown in search results -->
+  <title>Food Parcels, Soup Kitchen &amp; Food Donations | GreenLeaf</title>
+  <meta name="description" content="See when and where GreenLeaf hands out weekly food parcels, serves hot meals at the weekend soup kitchen and collects food donations in Randburg.">
+  <link rel="canonical" href="https://klitheko.github.io/GreenLeaf_Community_Website_ST10517750/services.html">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#2c4a32">
+
+  <!-- Security: the page may only load files from this site and Google Fonts -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <!-- Social sharing: how the page looks when its link is shared (Open Graph and Twitter card) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="GreenLeaf Community Food Bank">
+  <meta property="og:locale" content="en_ZA">
+  <meta property="og:title" content="Food Parcels, Soup Kitchen &amp; Food Donations | GreenLeaf">
+  <meta property="og:description" content="See when and where GreenLeaf hands out weekly food parcels, serves hot meals at the weekend soup kitchen and collects food donations in Randburg.">
+  <meta property="og:url" content="https://klitheko.github.io/GreenLeaf_Community_Website_ST10517750/services.html">
+  <meta property="og:image" content="https://klitheko.github.io/GreenLeaf_Community_Website_ST10517750/images/volunteers-packing-food-parcels-800w.jpg">
+  <meta property="og:image:alt" content="Three volunteers packing boxes of food aid beside a van">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Icons for browser tabs and phone home screens -->
+  <link rel="icon" href="favicon.ico" sizes="32x32 48x48">
+  <link rel="icon" type="image/png" href="images/favicon-32.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+  <!-- Google Sans web font, then the site stylesheet -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -17,7 +44,7 @@
        On small screens js/menu.js adds a Menu button that opens and closes the links. -->
   <header class="site-header">
     <a class="brand" href="index.html">
-      <img src="images/logo.png" alt="" width="40" height="40">
+      <img src="images/greenleaf-logo-96.png" alt="" width="40" height="40">
       <span>GreenLeaf Community Food Bank</span>
     </a>
     <nav aria-label="Main">
@@ -37,23 +64,66 @@
     <!-- PAGE INTRO -->
     <section id="services-intro" class="page-hero">
       <picture>
-        <source media="(max-width: 640px)" srcset="images/food-parcels-400w.jpg">
-        <img src="images/food-parcels-800w.jpg" alt="Packed food parcels ready for distribution" width="800" height="600">
+        <source media="(max-width: 640px)" srcset="images/volunteers-packing-food-parcels-400w.jpg">
+        <img src="images/volunteers-packing-food-parcels-800w.jpg" alt="Three volunteers packing boxes of food aid beside a van" width="800" height="600" fetchpriority="high">
       </picture>
       <div>
         <h1>Our services</h1>
-        <p>GreenLeaf runs three core services, all volunteer-run and funded by donations.</p>
+        <p>GreenLeaf runs three core services in Randburg and across Johannesburg: weekly food parcels, a weekend soup kitchen and food donation drop-off. All are volunteer-run and funded by donations.</p>
       </div>
+    </section>
+
+    <!-- SESSION FINDER
+         Hidden until js/schedule.js has loaded data/schedule.json.
+         It replaces the fixed schedule tables below when it works. -->
+    <section id="session-finder" hidden>
+      <h2 class="subheading">Find a session</h2>
+      <p>Search, filter or sort every food parcel, soup kitchen and drop-off time.</p>
+
+      <div class="finder-controls" role="search">
+        <div>
+          <label for="finder-search">Search</label>
+          <input type="search" id="finder-search" placeholder="e.g. Alexandra or Saturday" maxlength="60" autocomplete="off">
+        </div>
+        <div>
+          <label for="finder-service">Service</label>
+          <select id="finder-service"><option value="">All services</option></select>
+        </div>
+        <div>
+          <label for="finder-day">Day</label>
+          <select id="finder-day"><option value="">Any day</option></select>
+        </div>
+        <div>
+          <label for="finder-sort">Sort by</label>
+          <select id="finder-sort">
+            <option value="day">Day</option>
+            <option value="time">Start time</option>
+            <option value="location">Location</option>
+            <option value="service">Service</option>
+          </select>
+        </div>
+      </div>
+
+      <p id="finder-count" aria-live="polite"></p>
+      <div class="table-scroll">
+        <table>
+          <caption class="visually-hidden">GreenLeaf sessions</caption>
+          <thead><tr><th>Service</th><th>Day</th><th>Time</th><th>Location</th></tr></thead>
+          <tbody id="finder-rows"></tbody>
+        </table>
+      </div>
+      <p id="finder-empty" hidden>No sessions match. <button type="button" id="finder-clear">Clear filters</button></p>
     </section>
 
     <!-- SERVICE 1: FOOD PARCELS
          Its photo is the page hero above, so this has text and the schedule table. -->
     <section id="food-parcels">
-      <h3>1. Weekly food parcel distribution</h3>
+      <h2 class="subheading">1. Weekly food parcel distribution</h2>
       <p>
         Pre-packed parcels of staples such as rice, oil, and canned goods, plus
         seasonal fresh produce when available, are handed out weekly at three
-        community sites.
+        community sites. Need one?
+        <a href="get-involved.html#request-parcel">Request a food parcel</a>.
       </p>
       <div class="table-scroll">
         <table>
@@ -66,15 +136,16 @@
 
     <!-- SERVICE 2: SOUP KITCHEN -->
     <section id="soup-kitchen">
-      <h3>2. Weekend soup kitchen</h3>
+      <h2 class="subheading">2. Weekend soup kitchen</h2>
       <div class="media-row">
         <picture>
-          <source media="(max-width: 640px)" srcset="images/soup-kitchen-400w.jpg">
-          <img src="images/soup-kitchen-800w.jpg" alt="Volunteers serving soup at the weekend soup kitchen" width="350">
+          <source media="(max-width: 640px)" srcset="images/hot-meals-soup-kitchen-400w.jpg">
+          <img src="images/hot-meals-soup-kitchen-800w.jpg" alt="Rows of hot meals in takeaway containers at the weekend soup kitchen" width="350" height="263" loading="lazy" decoding="async">
         </picture>
         <p>
           A hot, sit-down meal open to anyone who needs one, run entirely by local
-          volunteers out of the GreenLeaf depot hall.
+          volunteers out of the GreenLeaf depot hall. Want to help serve?
+          <a href="get-involved.html#volunteer">Volunteer with us</a>.
         </p>
       </div>
       <div class="table-scroll">
@@ -90,16 +161,17 @@
          Aimed mainly at businesses and individuals who want to give
          food directly rather than money (see get-involved.html). -->
     <section id="donation-dropoff">
-      <h3>3. Donation drop-off &amp; collection</h3>
+      <h2 class="subheading">3. Donation drop-off &amp; collection</h2>
       <div class="media-row">
         <picture>
-          <source media="(max-width: 640px)" srcset="images/donation-dropoff-400w.jpg">
-          <img src="images/donation-dropoff-800w.jpg" alt="Donation boxes at the GreenLeaf depot" width="350">
+          <source media="(max-width: 640px)" srcset="images/canned-food-donation-crate-400w.jpg">
+          <img src="images/canned-food-donation-crate-800w.jpg" alt="A crate of canned food being sorted by gloved volunteers at the GreenLeaf depot" width="350" height="263" loading="lazy" decoding="async">
         </picture>
         <p>
           Drop food off at the depot or a partner collection bin, or arrange a
           recurring pickup. Ideal for restaurants, grocers, and offices with regular
-          surplus food.
+          surplus food. Businesses can <a href="get-involved.html#partner">partner with us</a>
+          for regular pickups.
         </p>
       </div>
       <ul>
@@ -113,10 +185,11 @@
          Reassures recipients that access is easy and dignified,
          per the "Dignity" value on the About page. -->
     <section id="who-we-help">
-      <h3>Who we help</h3>
+      <h2 class="subheading">Who we help</h2>
       <p>
         Our services are available to any family or individual in the local area
         facing food insecurity. No proof of income is required for a first visit.
+        Questions? <a href="contact.html">Contact the depot</a>.
       </p>
     </section>
 
@@ -128,6 +201,9 @@
     <p>Email: <a href="mailto:hello@greenleaffoodbank.org">hello@greenleaffoodbank.org</a> | Phone: <a href="tel:+27820000000">+27 82 000 0000</a></p>
     <p>&copy; 2026 GreenLeaf Community Food Bank. Together, we can help ensure no one goes hungry in our neighbourhood.</p>
   </footer>
+
+  <!-- Session finder: loads data/schedule.json -->
+  <script src="js/schedule.js"></script>
 
   <!-- Mobile menu -->
   <script src="js/menu.js"></script>
