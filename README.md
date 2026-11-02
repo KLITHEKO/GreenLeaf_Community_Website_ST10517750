@@ -361,7 +361,7 @@ The old names did not match the photos (for example `contact-map` was a photo of
 | `contact-map` | `volunteers-unloading-food-aid-boxes` | Volunteers unloading boxes of food aid from a van at a community distribution table |
 | `food-parcels` | `volunteers-packing-food-parcels` | Three volunteers packing boxes of food aid beside a van |
 | `hero-banner` | `community-hands-together` | A circle of hands stacked together in a black-and-white photo of community members and children |
-| `volunteers` | `volunteer-with-school-children` (a 400px version was added) | A GreenLeaf volunteer in a blue T-shirt facing a group of children in school uniforms |
+| `volunteers` | `volunteer-handing-over-aid-box` (renamed on 2 November 2026 when the photo was replaced; a 400px version was added) | Two volunteers in white T-shirts passing a cardboard box marked AID beside a van, with people waiting behind them |
 | `donation-dropoff` | `canned-food-donation-crate` | A crate of canned food being sorted by gloved volunteers at the GreenLeaf depot |
 | `soup-kitchen` | `hot-meals-soup-kitchen` | Rows of hot meals in takeaway containers at the weekend soup kitchen |
 | `logo.png` (2000 x 2000 pixels, 205 KB) | `greenleaf-logo-96.png` (96 x 96, 11 KB); the original is kept as `greenleaf-logo-original.png` | Empty on purpose: the logo sits beside the site name, so it is decoration |
@@ -502,6 +502,19 @@ GitHub Pages serves static files and does not let a site set its own HTTP header
 ## Changelog
 
 Newest changes first.
+
+### Part 3: New photo in the lightbox and a corrected Get Involved hero (Get Involved page)
+
+- **Date implemented:** 2 November 2026
+- **What:** One repeated photo in the lightbox gallery was replaced with a new photo, and the Get Involved top photo's file names and descriptions were corrected to match the photo it now shows.
+- **Why:** All four gallery photos were already used on other pages, so visitors saw the same pictures twice. The Get Involved top photo had been replaced with a new photo, but its file names and description still described the old one (a volunteer facing school children), which is wrong for screen readers and for search engines.
+- **Files changed:**
+  - `get-involved.html`: the fourth gallery link now opens the new photo (new `href`, `src`, `alt`; the caption stays "Welcome donors and sort their gifts at our drop-off point."), and the top photo's `<source>`, `<img>`, `og:image` and `og:image:alt` lines use the new names and description.
+  - `images/volunteers-passing-box-of-canned-food-800w.jpg` and `-400w.jpg` (new): the new gallery photo, made from the supplied 800px picture. The 800px copy opens in the lightbox, the 400px copy is the thumbnail.
+  - `images/volunteer-handing-over-aid-box-800w.jpg` and `-400w.jpg` (renamed from `volunteer-with-school-children-...`): the top photo. The 400px copy was remade at 400 by 300 so it matches the 800px photo's shape.
+  - `README.md`: this entry and the image table row.
+- **How it works:** The lightbox script (`js/lightbox.js`) opens every link inside `.gallery`, so no JavaScript changed. The supplied photos were PNG files of 644 KB (800px) and 235 KB (400px). They were saved as JPG files of 67 KB and 23 KB, which keeps the page light. Three of the four gallery photos are still the earlier ones: they are used on other pages too, and more new photos can be added the same way.
+- **How to test:** Open Get Involved and scroll to "See what volunteering looks like". The fourth thumbnail shows hands passing a clear box of canned food. Click it: the large photo and its caption open. Press Next and Previous to move through all four photos. At the top of the page, the photo shows two volunteers passing a box marked AID beside a van.
 
 ### Part 3: Submit button no longer jumps away (all five forms)
 
