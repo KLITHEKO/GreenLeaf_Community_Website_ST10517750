@@ -783,7 +783,7 @@ Newest changes first. Every entry says what changed, why, which files, how it wo
   - `css/style.css`: `.finder-controls`, `#finder-count`, `#finder-empty button` and `.visually-hidden` rules.
   - `README.md`: this entry.
 - **How it works:**
-  - **Loading the file.** `fetch("data/schedule.json")` asks for the file in the background. `fetch` only reports a failure when the network breaks, so the script checks `response.ok` itself (did the file really arrive?) before reading it with `response.json()` (Mozilla Developer Network, no date n).
+  - **Loading the file.** `fetch("data/schedule.json")` asks for the file in the background. `fetch` gives a result even when the server answers with an error (Mozilla Developer Network, no date n), so the script checks `response.ok` itself (did the file really arrive?) before reading it with `response.json()`. The `response.ok` check is standard practice, not something that page states.
   - **Filling the lists.** The "Service" and "Day" lists are built from the data. A new service in the file appears in the list without editing the HTML. Days are put in week order using `dayNumber`.
   - **Search and filter.** A session is shown when it matches the typed word (in the service, day, time or location, ignoring capital letters), the chosen service and the chosen day, all together.
   - **Sort.** Each option sorts by one thing and uses a second thing to break ties (for example start time, then day).
