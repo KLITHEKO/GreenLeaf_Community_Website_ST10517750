@@ -12,12 +12,13 @@ At GreenLeaf, we believe access to food should never come with judgment. Every p
 2. [Pages](#pages)
 3. [Repository structure](#repository-structure)
 4. [How to preview locally](#how-to-preview-locally)
-5. [Part 2: CSS and styling](#part-2-css-and-styling)
-6. [Responsive design](#responsive-design)
-7. [Screenshot evidence](#screenshot-evidence)
-8. [Part 3: JavaScript enhancements](#part-3-javascript-enhancements)
-9. [Changelog](#changelog)
-10. [References](#references)
+5. [How to update the website](#how-to-update-the-website)
+6. [Part 2: CSS and styling](#part-2-css-and-styling)
+7. [Responsive design](#responsive-design)
+8. [Screenshot evidence](#screenshot-evidence)
+9. [Part 3: JavaScript enhancements](#part-3-javascript-enhancements)
+10. [Changelog](#changelog)
+11. [References](#references)
 
 ---
 
@@ -106,6 +107,57 @@ Resize the browser window or use the browser's developer tools device toolbar at
 | Desktop | 1440px |
 | Tablet  | 768px  |
 | Mobile  | 375px  |
+
+---
+
+## How to update the website
+
+This guide is for GreenLeaf volunteers. You do not need to install anything. You change files on the GitHub website, and the live site updates by itself 1 to 2 minutes later.
+
+### How to change a file
+
+1. Go to the project on GitHub and sign in.
+2. Click the file you want to change (for example `services.html`).
+3. Click the **pencil icon** (Edit this file).
+4. Change the words. Only change the text, not the symbols around it (the bits in `< >`).
+5. Click **Commit changes**, then **Commit changes** again.
+6. Wait 1 to 2 minutes, then refresh the live site.
+
+If something looks wrong, tell the website helper. Every change can be undone.
+
+### Common jobs
+
+| I want to change... | Open this file |
+| --- | --- |
+| Session times | `data/schedule.json` and the tables in `services.html` (change both; in the JSON file keep every comma and quote mark exactly as it is) |
+| This week's shelf (what is low on stock) | `index.html`, in the "This week's shelf" table |
+| The three numbers on the home page | `index.html`, in "GreenLeaf at a glance" (change the number twice: in `data-target` and in the text) |
+| Words on a page | The page's file: `index.html`, `about.html`, `services.html`, `get-involved.html` or `contact.html` |
+| Phone, email or address | Many files. Use the search box at the top of the project, type the old phone number, and change it in every file that appears. |
+
+### Changing the shelf
+
+1. Open `index.html` and find the line for the item.
+2. Change the word to `Critical`, `Low` or `Stocked`.
+3. Change `stock-critical`, `stock-low` or `stock-stocked` on the same line to match.
+4. Bars: Critical has one `class="on"`, Low has two, Stocked has three.
+
+### Adding or changing photos
+
+1. Make two copies of the photo: one 400 pixels wide and one 800 pixels wide.
+2. Name them with plain words and dashes, ending `-400w.jpg` and `-800w.jpg`, for example `volunteers-sorting-vegetables-400w.jpg`.
+3. In the `images` folder on GitHub, click **Add file**, then **Upload files**, and add both copies.
+4. Open the page that uses the photo, click the pencil, and change the file names and the `alt` text (a short description of the photo for people who cannot see it).
+
+### Please do not
+
+- Rename or delete files and folders.
+- Remove anything inside `< >` or any `id=` or `class=` words.
+- Paste in code from other websites.
+
+### Need something bigger?
+
+New pages, new colours and new features need the website helper.
 
 ---
 
@@ -454,11 +506,13 @@ Sitemap: https://klitheko.github.io/GreenLeaf_Community_Website_ST10517750/sitem
 
 | Page | Desktop before | Desktop after | Phone (375px) before | Phone (375px) after |
 | --- | --- | --- | --- | --- |
-| Home | 506 KB | 326 KB (-36%) | 335 KB | 155 KB (-54%) |
-| About Us | 303 KB | 121 KB (-60%) | 259 KB | 77 KB (-70%) |
-| Our Services | 452 KB | 278 KB (-38%) | 315 KB | 141 KB (-55%) |
-| Get Involved | 414 KB | 238 KB (-43%) | 414 KB | 187 KB (-55%) |
-| Contact | 318 KB | 304 KB (-4%) | 259 KB | 246 KB (-5%) |
+| Home | 506 KB | 327 KB (-35%) | 335 KB | 155 KB (-54%) |
+| About Us | 303 KB | 122 KB (-60%) | 259 KB | 78 KB (-70%) |
+| Our Services | 452 KB | 279 KB (-38%) | 315 KB | 142 KB (-55%) |
+| Get Involved | 414 KB | 226 KB (-45%) | 414 KB | 193 KB (-53%) |
+| Contact | 318 KB | 309 KB (-3%) | 259 KB | 251 KB (-3%) |
+
+*Re-measured on 2 November 2026 after the form scripts and the photo changes on Get Involved.*
 
 **What made the difference**
 
@@ -502,6 +556,15 @@ GitHub Pages serves static files and does not let a site set its own HTTP header
 ## Changelog
 
 Newest changes first.
+
+### Part 3: "How to update the website" guide (README)
+
+- **Date implemented:** 2 November 2026
+- **What:** A new README section, "How to update the website", written for volunteers. It explains how to change a file on GitHub, which file holds each common thing (session times, the shelf table, the home page numbers, page text, contact details), how to add photos, and what not to touch.
+- **Why:** The website is looked after by volunteers who may not use code editors. A short guide means a time, a number or a photo can be changed without the original developer.
+- **Files changed:** `README.md` (the new section, a new line in the Contents list, and this entry). The page weight table was also re-measured, because the form scripts and photos changed since the last measurement (see "3.3 Page speed").
+- **How it works:** The guide uses the GitHub website instead of VS Code, so nothing needs installing. Each job names the exact file, and the steps for the shelf and for photos are numbered. The session times row says to change both `data/schedule.json` and the tables in `services.html`: the finder and the Get Involved replies read the JSON file, and the fixed tables are what visitors see if JavaScript fails. It warns volunteers to keep the commas and quote marks in the JSON file, because one wrong mark stops the finder loading (visitors then see the fixed tables).
+- **How to test:** Follow the steps with a test change, such as one word on `about.html`. After the commit, wait 1 to 2 minutes and refresh the live site to see it.
 
 ### Part 3: New photo in the lightbox and a corrected Get Involved hero (Get Involved page)
 
