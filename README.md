@@ -275,7 +275,7 @@ Content images use the HTML `<picture>` element so smaller screens download smal
 
 ## Screenshot evidence
 
-Screenshots were captured with a headless rendering tool at 1440px (desktop), 768px (tablet), and 375px (mobile). Full-size images are in the `screenshots/` folder.
+Screenshots were captured with a headless rendering tool at 1440px (desktop), 768px (tablet), and 375px (mobile). Full-size images are in the `screenshots/` folder. They were re-captured on 2 November 2026 from the current site files, with the Google Sans font loaded. On the two Contact screenshots the map shows the pin without the map pictures, because the capture tool could not reach OpenStreetMap; on the live site the map pictures load.
 
 ### Home
 
@@ -556,6 +556,19 @@ GitHub Pages serves static files and does not let a site set its own HTTP header
 ## Changelog
 
 Newest changes first.
+
+### Part 3: Screenshots refreshed to match the current site
+
+- **Date implemented:** 2 November 2026
+- **What:** All 13 screenshots in the `screenshots/` folder were taken again, so they show the site as it is now.
+- **Why:** The old screenshots were taken on 25 September, before the new header, hero layout, gallery, session finder, map, forms and photos. They no longer matched the live site.
+- **Files changed:** the 13 files in `screenshots/` (same names as before, so the Screenshot evidence tables did not need new links), and `README.md` (the note above the tables and this entry).
+- **How it works:**
+  - Each page was loaded in a headless Chromium browser at 1440px (desktop), 768px (tablet) and 375px (mobile). About and Contact have desktop and mobile shots only, as before.
+  - The page was scrolled to the bottom and back first, so the sections that fade in, the lazy images and the animated counters all show in the full-page picture.
+  - The Google Sans font was loaded from a local copy, because the capture tool could not reach Google Fonts. The screenshots therefore show the same font as the live site.
+  - The map pictures on the Contact screenshots are missing for the reason in the note above.
+- **How to test:** Open `screenshots/get-involved-desktop-1440px.jpg`. It shows the new top photo, the four gallery photos and the volunteer form with its date field. `services-desktop-1440px.jpg` shows the "Find a session" table. Compare any screenshot with the live page.
 
 ### Part 3: "How to update the website" guide (README)
 
