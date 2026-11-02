@@ -35,6 +35,16 @@ The website has:
 - Screenshots at three screen sizes
 - Scripts in the `js/` folder (Part 3)
 
+### Background research
+
+The services, forms and wording on the site were shaped by how real South African food organisations work. The GreenLeaf numbers and story are the site's own content and are not taken from these sources.
+
+FoodForward SA rescues quality surplus food from producers, manufacturers and retailers and passes it to vetted beneficiary organisations (FoodForward SA, no date a). This is the model behind the "Donation drop-off & collection" service on the Home and Services pages. Businesses across the food supply chain can donate edible surplus food by completing an online form, after which the operations team contacts them (FoodForward SA, no date b). The "Partner your business" form on Get Involved follows the same pattern: a short form, then a reply. FoodForward SA also offers two separate ways to give, "Donate Funds" for money and "Donate Food" for goods (FoodForward SA, no date c), which is why the "Donate funds or food" form covers both. It treats partnerships between businesses and non-profits as central to fighting hunger (FoodForward SA, no date d), which is why the Home and About pages mention local business partners.
+
+The "How we started" story on the About page follows a pattern seen in real organisations. FoodForward SA began in 2003 when one person collected leftover food from film sets for community groups, and it became a food bank in 2009 (Global FoodBanking Network, 2024). Ladles of Love began with one soup kitchen in 2014 (Ladles of Love, no date a), and its founder says it grew from a single soup kitchen outside his restaurant (Wander Cape Town, 2023). News24 (2026) describes another large South African child feeding scheme that started as a small Cape Town soup kitchen. I could not open the full article, so I only use its headline.
+
+The weekend soup kitchen and the volunteer options were shaped by Ladles of Love. Its volunteers cook, make sandwiches or organise fundraisers, and donors give money or groceries (Ladles of Love, no date a). Its soup kitchens serve hot meals to people facing homelessness and hardship, they are run by volunteers, and volunteers book a slot in advance (Ladles of Love, no date b). Its founder says that making volunteering easy is central to the work (Wander Cape Town, 2023), which is why the volunteer form is short and the FAQ says no experience is needed.
+
 ---
 
 ## Pages
@@ -464,7 +474,7 @@ Links use words that say where they go. Google's guide says link text tells peop
 - Every page has `<meta name="viewport" content="width=device-width, initial-scale=1.0">` (this tells phones to use the real screen width).
 - The layout changes at 1024px, 768px and 640px, and photos use `<picture>` so phones download the smaller 400px file.
 - **Tested:** all five pages at 320, 360, 375, 414 and 768px wide. None scroll sideways. Only tables inside their own scroll box and the map are allowed to be wider. The old sideways scroll at 320px on Home, Services and Contact no longer happens.
-- **Fixed while testing:** form boxes and menu links were 38 to 40px tall, which is below the usual 44px size for a finger tap. Form text was about 14px, which makes iPhones zoom in when a box is tapped. On screens 640px and narrower, form boxes are now at least 44px tall with 16px text, and the phone menu links are at least 44px tall.
+- **Fixed while testing:** form boxes and menu links were 38 to 40px tall, which is below the 44 by 44 pixel size for tap targets (World Wide Web Consortium, no date d). That size is the stricter AAA level of the accessibility guidelines, so I used it as a target, not as a minimum. Form text was about 14px, which makes iPhones zoom in when a box is tapped. On screens 640px and narrower, form boxes are now at least 44px tall with 16px text, and the phone menu links are at least 44px tall.
 - The map does not take over scrolling on a phone (scroll-wheel zoom is off), so it never traps a finger that is scrolling down the page.
 
 #### 3.2 Off-page SEO (plan, not done in the files)
@@ -551,9 +561,9 @@ GitHub Pages serves plain files and does not let a site set its own HTTP headers
 | **Content Security Policy** (`<meta http-equiv="Content-Security-Policy">`). It is a list of what the page may load: only this site's own scripts, plus Google Fonts for styles and fonts, `data:` and own-site images, no plugins (`object-src 'none'`), forms may only send to this site (`form-action 'self'`; on the Contact page also `mailto:`, so the form can open an email app), and `<base>` is locked (`base-uri 'self'`). The Contact page also allows pictures from `tile.openstreetmap.org` for the map. | `<head>` of every page | Bad or third-party scripts running on the page (cross-site scripting). MDN explains that CSP controls which things the browser may load and helps protect against cross-site scripting (Mozilla Developer Network, no date o). |
 | **No inline scripts or `onclick` attributes** | All pages (a script checked this) | Lets the policy above block all injected scripts. The only inline `<script>` is the JSON-LD data block, which is data and does not run. |
 | **Libraries kept on this site** | Leaflet in `vendor/leaflet/` | The site does not depend on another company's server staying safe, and a changed outside file cannot alter the site. Leaflet's licence (BSD 2-Clause) is included as `vendor/leaflet/LICENSE.txt`. |
-| **Referrer policy** `strict-origin-when-cross-origin` | `<head>` | Limits what other sites learn about which page a visitor came from. It is not stricter, because the OpenStreetMap tile policy says not to use a very strict Referrer-Policy and to keep a valid Referer (OpenStreetMap Foundation, no date). |
-| **`rel="noopener noreferrer"` on every outside link** | Contact page map links, Leaflet credit and OpenStreetMap credit | A page opened from our site cannot reach back into ours. |
-| **Safe handling of text** | `validation.js`, `schedule.js`, `lightbox.js`, `menu.js` | Text typed by a visitor or loaded from the JSON file is put on the page as plain text (`textContent` and `createElement`), never as HTML (`innerHTML`), so it can never run as code. The only HTML string is the fixed map popup that we wrote. |
+| **Referrer policy** `strict-origin-when-cross-origin` | `<head>` | Limits what other sites learn about which page a visitor came from. With this setting the full address is sent only inside our own site, and only the site name is sent to other secure sites (Mozilla Developer Network, no date y). It is not stricter, because the OpenStreetMap tile policy says not to use a very strict Referrer-Policy and to keep a valid Referer (OpenStreetMap Foundation, no date). |
+| **`rel="noopener noreferrer"` on every outside link** | Contact page map links, Leaflet credit and OpenStreetMap credit | A page opened from our site cannot reach back into ours: `noopener` stops the new page getting access to the page that opened it (Mozilla Developer Network, no date w), and `noreferrer` stops the browser sending the address of our page (Mozilla Developer Network, no date x). |
+| **Safe handling of text** | `validation.js`, `schedule.js`, `lightbox.js`, `menu.js` | Text typed by a visitor or loaded from the JSON file is put on the page as plain text (`textContent` and `createElement`), never as HTML (`innerHTML`), so it can never run as code (Mozilla Developer Network, no date v). The only HTML string is the fixed map popup that we wrote. |
 | **Form limits** | All forms | `maxlength`, `type="email"`, `type="tel"` with a pattern, and `min` on the donation amount limit what can be typed. This helps honest visitors. MDN is clear that checking in the browser is not a security measure, because it can be bypassed, so a real server must check again (Mozilla Developer Network, no date m). |
 | **No server and no secrets** | Whole site | The forms do not send data to a server (the Get Involved forms use `action="#"`; the Contact form builds an email in the visitor's own email app). So there is no database or password to attack, and no keys, tokens or passwords are stored in the repository. |
 | **HTTPS** | GitHub Pages setting | `github.io` sites are served over HTTPS (the secure version of http), and "Enforce HTTPS" sends any `http://` visit to HTTPS (GitHub, no date). Make sure the box is ticked: repository Settings, then Pages, then Enforce HTTPS. |
@@ -616,7 +626,7 @@ Newest changes first. Every entry says what changed, why, which files, how it wo
 - **Why:** Clicking Submit makes the box the visitor was typing in lose focus. At that moment its red error message appeared and pushed the button down before the mouse button was released, so the click missed the button. I found it while testing the new forms. A visitor would have seen a button that "does nothing" the first time.
 - **Files changed:** `js/validation.js`, `README.md`.
 - **How it works:**
-  - When the Submit button is pressed down (`pointerdown`), the script sets a note to itself: `pressingSubmit = true`.
+  - When the Submit button is pressed down (`pointerdown`, an event that fires when a mouse button is pressed or a finger touches the screen: Mozilla Developer Network, no date aa), the script sets a note to itself: `pressingSubmit = true`.
   - While that note is true, the "check this box when the visitor leaves it" step is skipped. The submit step still checks every box, so the messages still appear, but at the right moment.
   - When the mouse button or finger is released (`pointerup`), the note is set back to `false`.
 - **How to test:** On Get Involved, in "Request a food parcel" type `L` in Name and `123` in WhatsApp number, then click "Send me the details" once. The red messages should appear and the cursor should jump to Name on that one click.
@@ -634,9 +644,9 @@ Newest changes first. Every entry says what changed, why, which files, how it wo
   - `README.md`: this entry.
 - **How it works:**
   - **Who receives it.** `contact-email.js` reads the form's `action` and removes the `mailto:` part. To change who receives the emails, change only the `action` in `contact.html`.
-  - **After the checks pass.** `validation.js` announces a custom event called `formvalid` when every box is correct. `contact-email.js` hears it and takes over from there (`event.preventDefault()` stops the form's normal action).
-  - **The email.** Subject: `GreenLeaf website: ` plus the chosen topic. Body: Name, Email, Topic, then the message. The button is a `mailto:` link made of the address, `?subject=` and `&body=`. `encodeURIComponent` turns spaces and line breaks into a form that a link can carry.
-  - **The preview.** The details are shown as plain text in a `<pre>` box (`textContent`), so anything typed stays plain text and can never run as code. The button is a normal link with the `btn` class, so the site's link colour does not hide its white text.
+  - **After the checks pass.** `validation.js` announces a custom event called `formvalid` when every box is correct. A custom event is an event the site defines itself, with its own name (Mozilla Developer Network, no date s). `contact-email.js` hears it and takes over from there (`event.preventDefault()` stops the form's normal action: Mozilla Developer Network, no date ae).
+  - **The email.** Subject: `GreenLeaf website: ` plus the chosen topic. Body: Name, Email, Topic, then the message. The button is a `mailto:` link made of the address, `?subject=` and `&body=`. `encodeURIComponent` turns spaces, line breaks and characters such as `&` into a safe form that a link can carry, so typed text cannot be mistaken for part of the link itself (Mozilla Developer Network, no date r).
+  - **The preview.** The details are shown as plain text in a `<pre>` box (`textContent`), so anything typed stays plain text and can never run as code. MDN notes that `innerHTML`, the alternative, "can be susceptible to XSS attacks" (Mozilla Developer Network, no date v). The button is a normal link with the `btn` class, so the site's link colour does not hide its white text.
   - **The form is not cleared**, so the visitor can fix a typo and press the button again.
   - **Nothing is sent until the visitor sends it.** The site has no server. The message leaves only when the visitor presses Send in their email app. The page says so under the button.
   - **Without JavaScript** the browser still checks the required boxes. Submitting then opens the visitor's email app with the form text (`enctype="text/plain"`). I could not test that step, because it depends on which email app the visitor has.
@@ -667,7 +677,7 @@ Newest changes first. Every entry says what changed, why, which files, how it wo
 
 - **How it works:**
   - **The "enquire" page.** The site has five pages and no separate `enquire.html`. The four Get Involved forms are the enquiry forms (volunteering, donating, partnering and requesting a parcel).
-  - **After the checks pass.** `enquiry.js` hears the `formvalid` event from `validation.js`, copies what was typed (`FormData`) and shows "Checking availability...".
+  - **After the checks pass.** `enquiry.js` hears the `formvalid` event from `validation.js`, copies what was typed with `FormData`, a set of name and value pairs made from the form's boxes (Mozilla Developer Network, no date u) and shows "Checking availability...".
   - **The background request.** `fetch("data/schedule.json")` asks for the times file without reloading the page. The script checks `response.ok` (did the file arrive?) and then reads the contents with `response.json()`. This is the same file the session finder uses, so changing a time in the file changes the replies too.
   - **Short lines.** Sessions with the same time and place are joined into one line: "Monday, Tuesday, Wednesday, Thursday and Friday, 08:00 to 17:00 at GreenLeaf Depot, Randburg".
   - **Safe text.** The reply is built with `createElement` and `textContent` (plain text, never HTML), in a box with `role="status"` so screen readers read it out.
@@ -684,8 +694,8 @@ Newest changes first. Every entry says what changed, why, which files, how it wo
 - **Why:** The brief lists dates among the formats to check. Before this, the forms checked phone numbers, email addresses, numbers and lengths, but not dates.
 - **Files changed:** `get-involved.html` (the box `vol-date`), `js/enquiry.js` (sets the earliest and latest date), `js/validation.js` (the date messages), `README.md`.
 - **How it works:**
-  - The box is `<input type="date" required>`. The browser gives a date picker and refuses text that is not a date.
-  - When the page loads, `enquiry.js` sets `min` to today and `max` to one year from today, so the limits are always up to date.
+  - The box is `<input type="date" required>`. The browser gives a date picker and refuses text that is not a date (Mozilla Developer Network, no date q).
+  - When the page loads, `enquiry.js` sets `min` to today and `max` to one year from today, so the limits are always up to date. `min` is the earliest date accepted and `max` the latest, and dates outside that range fail the browser's check (Mozilla Developer Network, no date q).
   - `validation.js` shows "Please choose today or a later date." (`rangeUnderflow`, which means the date is too early), "Please choose a date within the next year." (`rangeOverflow`, too late) and "Please enter a valid date." (`badInput`, not a date at all).
 - **Every format now checked:**
 
@@ -755,7 +765,7 @@ Newest changes first. Every entry says what changed, why, which files, how it wo
   - **Two layers.** The HTML rules (`required`, `minlength`, `type="email"`, `pattern`, `min`) do the checking. Without JavaScript the browser's own checking still works. This is the approach MDN recommends starting with (Mozilla Developer Network, no date m).
   - **The script.** `form.noValidate = true` switches off the browser's own pop-up bubbles so we can show our own messages. For each box the script runs `field.checkValidity()` and reads `field.validity` (`valueMissing` = empty, `typeMismatch` = wrong kind, for example not an email, `tooShort`, `patternMismatch` = does not fit the pattern, `rangeUnderflow` = number too small) to choose the message. MDN describes this Constraint Validation API and the `novalidate` approach for custom messages (Mozilla Developer Network, no date m).
   - **When it checks.** When the visitor leaves a box (`blur`). Again as they type once the box has an error, so the message disappears as soon as it is fixed. And for all boxes when they press submit. On submit, the first wrong box gets the cursor.
-  - **Accessibility.** A wrong box gets `aria-invalid="true"` and `aria-describedby` pointing to its message, so screen readers read the message with the box. The thank-you box has `role="status"` so screen readers announce it. The error colour is `--tomato` (#c1432e, about 5:1 contrast on white), and it always comes with message text, so colour is not the only signal.
+  - **Accessibility.** A wrong box gets `aria-invalid="true"`, which tells assistive technology that the value "has failed validation" (Mozilla Developer Network, no date p), and `aria-describedby` pointing to its message, so screen readers read the message with the box. The thank-you box has `role="status"` so screen readers announce it. The error colour is `--tomato` (#c1432e, about 5:1 contrast on white, above the 4.5:1 minimum for normal text: World Wide Web Consortium, no date c), and it always comes with message text, so colour is not the only signal.
   - **Safety.** Messages are written with `textContent`, never `innerHTML`, so they can never run as code.
   - **No server.** When this entry was written, the forms only showed a thank-you message. On 2 November 2026 the Get Involved forms were changed to show a reply with live times, and the Contact form to build an email (see the entries above). The site still has no server.
 - **How to test:** On Contact, press "Send message" with the form empty: four red messages appear and the cursor jumps to Name. Type `A` in Name and click away: "Please enter at least 2 characters." Type `abc` in Email: "Please enter a valid email address." Fill everything in correctly and send: a green thank-you message appears and the form clears. On Get Involved, try `12345` in a WhatsApp number (rejected) and `082 000 0000` (accepted), and `5` as a donation amount ("The minimum is 10."). In the browser's settings turn JavaScript off: the browser's own bubbles appear instead.
@@ -777,7 +787,7 @@ Newest changes first. Every entry says what changed, why, which files, how it wo
   - **Filling the lists.** The "Service" and "Day" lists are built from the data. A new service in the file appears in the list without editing the HTML. Days are put in week order using `dayNumber`.
   - **Search and filter.** A session is shown when it matches the typed word (in the service, day, time or location, ignoring capital letters), the chosen service and the chosen day, all together.
   - **Sort.** Each option sorts by one thing and uses a second thing to break ties (for example start time, then day).
-  - **Drawing the table.** The table body is emptied and rebuilt with `insertRow` and `insertCell`, and each cell is filled with `textContent` (plain text). The count line is an `aria-live="polite"` area, so screen readers say "Showing 2 of 9 sessions" when it changes.
+  - **Drawing the table.** The table body is emptied and rebuilt with `insertRow` and `insertCell`, and each cell is filled with `textContent` (plain text). The count line is an `aria-live="polite"` area, which tells screen readers to announce changes at the next suitable moment without interrupting what they are reading (Mozilla Developer Network, no date t), so they say "Showing 2 of 9 sessions" when it changes.
   - **Safe fallback.** The finder is `hidden` in the HTML. It only appears, and only hides the two fixed schedule tables it replaces, after the data has loaded. If JavaScript is off or the file cannot load, the fixed tables stay visible, so the schedule is never lost. It also means search engines still see the schedule in the page's HTML.
 - **How to test:** Open Our Services from the live site (or a local server such as VS Code Live Server; `fetch` does not work when a page is opened straight from the folder, because browsers block it). Under "Find a session": choose "Soup kitchen" (2 sessions), choose Tuesday (2), type `alex` (1: Alexandra), type `zzz` (a message and "Clear filters" appear), and try each "Sort by" option.
 - **Tested:** 16 automatic checks, including a pretend failed download and JavaScript switched off.
@@ -872,7 +882,7 @@ Newest changes first. Every entry says what changed, why, which files, how it wo
 - **How it works:**
   - **Inline SVG.** An SVG is a picture made of lines and shapes. These are written straight into the HTML on a 24 by 24 grid (`viewBox="0 0 24 24"`), so they need no extra file or request and stay sharp at any size.
   - **Colours from the CSS.** `fill: none` with `stroke: var(--green)` draws each icon as an outline in the main green. The badge is a circle (`border-radius: 50%`) filled with `var(--green-tint)`. Changing those two variables recolours every icon.
-  - **Accessibility.** The icons are decoration, because each value already has a text label. They carry `aria-hidden="true"`, so screen readers skip them.
+  - **Accessibility.** The icons are decoration, because each value already has a text label. They carry `aria-hidden="true"`, so screen readers skip them (Mozilla Developer Network, no date ad).
   - **Layout.** Each card uses Flexbox (`display: flex`, icon then text). The cards still sit two per row and drop to one per row on phones.
 - **How to test:** Open About and scroll to "Our values". Each card should show a green outline icon in a pale green circle. Narrow the window to a phone width: the cards should stack in one column and the icons should stay round.
 
@@ -892,7 +902,7 @@ Newest changes first. Every entry says what changed, why, which files, how it wo
   - `css/style.css`: the Home top-section rules now also apply to `.page-hero`, so one set of rules covers all five pages. New `.gallery` rules (4 columns, 2 on phones) and `.lightbox` rules.
 - **How it works:**
   - **Top photos.** `.page-hero` is the same Flexbox column as `#hero`. The picture is `width: 100%` with `max-width: 800px`, so it is never stretched bigger than its real size.
-  - **Lightbox.** The script finds every `.gallery a` link and creates a `<dialog>` (a built-in pop-up element) with `document.createElement`. It opens it with `showModal()` when a small photo is clicked. `showModal()` shows the dark background (`::backdrop`) and makes the rest of the page unclickable while the pop-up is open (Mozilla Developer Network, no date l). `event.preventDefault()` stops the link from leaving the page. Previous and Next use `(n + total) % total`, which goes back to the first photo after the last one, and to the last photo before the first. The left and right arrow keys also move between photos. Escape, the Close button and a click on the dark area all close it. In testing, the cursor went back to the small photo afterwards.
+  - **Lightbox.** The script finds every `.gallery a` link and creates a `<dialog>` (a built-in pop-up element) with `document.createElement`. It opens it with `showModal()` when a small photo is clicked. `showModal()` shows the dark background (`::backdrop`) and makes the rest of the page unclickable while the pop-up is open (Mozilla Developer Network, no date l). `event.preventDefault()` stops the link from leaving the page, because it cancels the browser's normal action for the click (Mozilla Developer Network, no date ae). Previous and Next use `(n + total) % total`, which goes back to the first photo after the last one, and to the last photo before the first. The left and right arrow keys also move between photos. Escape, the Close button and a click on the dark area all close it. In testing, the cursor went back to the small photo afterwards.
   - **Without JavaScript.** The small photos are ordinary links, so each one just opens the full photo.
 - **How to test:** Open Get Involved and scroll to the gallery. Click a photo: the pop-up opens with a caption. Press the left and right arrow keys, then Escape. Click Next on the last photo and it should go to the first. Click the dark area to close. Then open About, Our Services and Contact: the first photo should sit centred above the heading, like Home. Narrow the window to a phone width: the gallery becomes 2 columns and the pop-up still fits the screen.
 
@@ -931,9 +941,9 @@ Newest changes first. Every entry says what changed, why, which files, how it wo
   - `css/style.css`: new header, brand, menu and button rules replace the old `header` and `nav` rules. All three font variables now list Google Sans. Headings are bold (700). `.btn` and `.btn-accent` were added, and the gap left above a form when you jump to it (`scroll-margin-top`) was changed to `6rem`.
   - `README.md`: the text section, the breakpoint note, the folder structure, the checklist, and this entry.
 - **How it works:**
-  - **Header.** `.site-header` is `position: sticky` (it sticks to the top while you scroll) and uses Flexbox, with the brand on the left and the links on the right. Its side space lines the bar up with the page content on wide screens.
-  - **Donate button.** It is the only place the wheat (gold) accent colour is used (`.btn-accent`). Dark green text on wheat has a contrast ratio of about 6.4 to 1, which passes the 4.5 to 1 level (called AA) needed for normal text. White text on wheat would only reach about 2.2 to 1, so it was not used.
-  - **Current page.** `aria-current="page"` tells screen readers which page is open. The CSS uses the same attribute to highlight the link.
+  - **Header.** `.site-header` is `position: sticky` (it stays at the top of the screen once you scroll to it: Mozilla Developer Network, no date z) and uses Flexbox, with the brand on the left and the links on the right. Its side space lines the bar up with the page content on wide screens.
+  - **Donate button.** It is the only place the wheat (gold) accent colour is used (`.btn-accent`). Dark green text on wheat has a contrast ratio of about 6.4 to 1, which passes the 4.5 to 1 level (called AA) needed for normal text (World Wide Web Consortium, no date c). White text on wheat would only reach about 2.2 to 1, so it was not used.
+  - **Current page.** `aria-current="page"` tells screen readers which page is open (Mozilla Developer Network, no date ab). The CSS uses the same attribute to highlight the link.
   - **Fonts.** All headings and text take their font from `--font-display`, `--font-body` or `--font-mono`. All three now point to Google Sans, so changing the font later takes one edit.
 - **How to test:** Open every page. The header should be one row with the Donate button at the right, the current page's link highlighted, and each page showing its own large heading. Check that all text looks like Google Sans. Open the browser's Network tab to confirm there is only one font request.
 
@@ -962,7 +972,7 @@ Newest changes first. Every entry says what changed, why, which files, how it wo
 - **Date implemented:** 30 October 2026
 - **Superseded:** this change was replaced by the single font Google Sans, described in the entry "Header, navigation and single font" above.
 - **What:** Headings and the large counter numbers now use Google Sans. The site name in the header stays in Lora, because the lettering looked best in that font. Body text and labels are still Roboto.
-- **Why:** The earlier Lora and Roboto pairing was tried against several other pairs in side-by-side mockups. Google Sans with Roboto was chosen for a cleaner, more modern look. Lora was kept only for the site name.
+- **Why:** The earlier Lora and Roboto pairing (Google Fonts, no date a) was tried against several other pairs in side-by-side mockups. Google Sans with Roboto was chosen for a cleaner, more modern look. Lora was kept only for the site name.
 - **Files changed:**
   - `css/style.css`: `--font-display` now lists Google Sans, and a new `--font-brand` variable holds Lora. `header h1` uses `--font-brand`.
   - `index.html`, `about.html`, `services.html`, `get-involved.html`, `contact.html`: a second Google Fonts `<link>` loads Google Sans, and the comment above the links was updated.
@@ -983,7 +993,7 @@ Newest changes first. Every entry says what changed, why, which files, how it wo
   - `index.html`: links now point to `get-involved.html#donate`, `#volunteer`, `#partner` and `#request-parcel`, and "Partner your business" was added.
   - `css/style.css`: `scroll-margin-top` added to the four form sections, with a larger value in the phone section.
   - `README.md`: this entry.
-- **How it works:** Each form section on the Get Involved page already had an `id`. A link that ends in `#` plus that id makes the browser scroll to that section. The menu bar stays fixed at the top of the screen, so `scroll-margin-top` tells the browser to stop a little early and leave the form heading visible. The menu bar is about 59px tall on wide screens, about 110px on a narrow tablet where it wraps onto two rows, and about 215px on phones where the links stack. That is why the value is `8rem` normally and `15rem` in the phone section.
+- **How it works:** Each form section on the Get Involved page already had an `id`. A link that ends in `#` plus that id makes the browser scroll to that section. The menu bar stays fixed at the top of the screen, so `scroll-margin-top` tells the browser to stop a little early and leave the form heading visible (Mozilla Developer Network, no date ac). The menu bar is about 59px tall on wide screens, about 110px on a narrow tablet where it wraps onto two rows, and about 215px on phones where the links stack. That is why the value is `8rem` normally and `15rem` in the phone section.
 - **Changing it:** If the menu bar height changes, for example when a mobile menu button is added, change the two `scroll-margin-top` values in `css/style.css`.
 - **How to test:** Open the Home page and click each of the four links. Each should land on its form with the heading in view and not hidden behind the menu bar. Try this at a narrow browser width as well. Open the Services page and check the tables look like the Home table.
 
@@ -1011,7 +1021,7 @@ Newest changes first. Every entry says what changed, why, which files, how it wo
   - `index.html`: each status cell now holds a `<span class="stock stock-...">` with a row of three `<i>` bars, then the word. The old `border="1"` setting was removed from this table.
   - `css/style.css`: the old badge rules in section 8 were replaced by the stock bar rules. Smaller bar sizes were added to the tablet (1024px) and phone (640px) sections.
   - `README.md`: this entry and a checklist row.
-- **How it works:** The word is still real text, so screen readers and visitors without CSS still read "Critical", "Low" or "Stocked". The bars are decoration only, so they carry `aria-hidden="true"`. Filled bars have the class `on`. Each status class sets a bar colour (`--level`) and a darker label colour, which keeps the text easy to read on white.
+- **How it works:** The word is still real text, so screen readers and visitors without CSS still read "Critical", "Low" or "Stocked". The bars are decoration only, so they carry `aria-hidden="true"`, which hides an element from screen readers (Mozilla Developer Network, no date ad). Filled bars have the class `on`. Each status class sets a bar colour (`--level`) and a darker label colour, which keeps the text easy to read on white.
 - **Changing it:** The bar size is set by three variables at the top of section 8 (`--bar-width`, `--bar-height`, `--bar-gap`). The tablet and phone sections change these values on smaller screens. On phones the shelf table drops its 480px minimum width, so it fits without sideways scrolling.
 - **How to test:** Open the Home page and scroll to "This week's shelf". The bars and words should line up with every row. Make the browser window about 375px wide: the table should still fit with no sideways scrolling.
 
@@ -1091,7 +1101,7 @@ Newest changes first. Every entry says what changed, why, which files, how it wo
 ### Part 2: Font pairing
 
 - Moved from three fonts (Fraunces, Public Sans, IBM Plex Mono) to two fonts.
-- Tried Lora and Montserrat first, then settled on **Lora** (headings) and **Roboto** (body text and labels).
+- Tried Lora and Montserrat first, then settled on **Lora** (headings) and **Roboto** (body text and labels) (Google Fonts, no date a).
 - Updated the Google Fonts link on all five pages and the `--font-*` variables.
 - Part 3 later moved the whole site to a single font, Google Sans (see the Part 3 entry "Header, navigation and single font").
 
@@ -1123,23 +1133,23 @@ Newest changes first. Every entry says what changed, why, which files, how it wo
 
 ## References
 
-FoodForward SA (no date a) *About us*. Available at: https://www.foodforwardsa.org/about-us/ (Accessed: 30 Ocoter 2026).
+FoodForward SA (no date a) *About us*. Available at: https://www.foodforwardsa.org/about-us/ (Accessed: 2 November 2026).
 
-FoodForward SA (no date b) *Donate food*. Available at: https://www.foodforwardsa.org/donate-food/ (Accessed: 17 September 2026).
+FoodForward SA (no date b) *Donate food*. Available at: https://www.foodforwardsa.org/donate-food/ (Accessed: 2 November 2026).
 
-FoodForward SA (no date c) *Home*. Available at: https://foodforwardsa.org/home/ (Accessed: 17 September 2026).
+FoodForward SA (no date c) *Home*. Available at: https://foodforwardsa.org/home/ (Accessed: 2 November 2026).
 
-FoodForward SA (no date d) *Welcome to Food Forward SA*. Available at: https://foodforwardsa.org/welcome/ (Accessed: 17 September 2026).
+FoodForward SA (no date d) *Welcome to Food Forward SA*. Available at: https://foodforwardsa.org/welcome/ (Accessed: 2 November 2026).
 
-Global FoodBanking Network (2024) *How FoodForward SA grew into the largest food bank in Sub-Saharan Africa: a Q&A with Andy Du Plessis*, 20 December. Available at: https://www.foodbanking.org/blogs/foodforward-sa-largest-food-bank-on-the-african-continent-qa-with-andy-du-plessis/ (Accessed: 17 September 2026).
+Global FoodBanking Network (2024) *How FoodForward SA grew into the largest food bank in Sub-Saharan Africa: a Q&A with Andy Du Plessis*, 20 December. Available at: https://www.foodbanking.org/blogs/foodforward-sa-largest-food-bank-on-the-african-continent-qa-with-andy-du-plessis/ (Accessed: 2 November 2026).
 
 Google Fonts (no date a) *Lora; Roboto*. Available at: https://fonts.google.com/ (Accessed: 17 September 2026).
 
 Google Fonts (no date b) *Google Sans*. Available at: https://fonts.google.com/specimen/Google+Sans (Accessed: 30 October 2026).
 
-Ladles of Love (no date a) *About our charity*. Available at: https://ladlesoflove.org.za/about/ (Accessed: 17 September 2026).
+Ladles of Love (no date a) *About our charity*. Available at: https://ladlesoflove.org.za/about/ (Accessed: 2 November 2026).
 
-Ladles of Love (no date b) *Soup kitchens for the homeless*. Available at: https://ladlesoflove.org.za/projects/soup-kitchens/ (Accessed: DD Month 2026).
+Ladles of Love (no date b) *Soup kitchens for the homeless*. Available at: https://ladlesoflove.org.za/projects/soup-kitchens/ (Accessed: 2 November 2026).
 
 Mozilla Developer Network (no date a) *CSS flexible box layout*. Available at: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout (Accessed: 16 September 2026).
 
@@ -1165,13 +1175,17 @@ Mozilla Developer Network (no date k) *Document: createElement() method*. Availa
 
 Mozilla Developer Network (no date l) *HTMLDialogElement: showModal() method*. Available at: https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/showModal (Accessed: 30 October 2026).
 
-News24 (2026) *One of SA's biggest child feeding schemes was once a small Cape Town soup kitchen*, 25 May. Available at: https://www.news24.com/life/food/news/one-of-sas-biggest-child-feeding-schemes-was-once-a-small-cape-town-soup-kitchen-20260525-0352 (Accessed: 17 September 2026).
+News24 (2026) *One of SA's biggest child feeding schemes was once a small Cape Town soup kitchen*, 25 May. Available at: https://www.news24.com/life/food/news/one-of-sas-biggest-child-feeding-schemes-was-once-a-small-cape-town-soup-kitchen-20260525-0352 (Accessed: 2 November 2026).
 
-Wander Cape Town (2023) *Interview with Danny Diliberto, CEO of Ladles of Love*, 29 October. Available at: https://wandercapetown.com/local-knowledge/interviews/danny-diliberto-ladles-of-love/ (Accessed: 17 September 2026).
+Wander Cape Town (2023) *Interview with Danny Diliberto, CEO of Ladles of Love*, 29 October. Available at: https://wandercapetown.com/local-knowledge/interviews/danny-diliberto-ladles-of-love/ (Accessed: 2 November 2026).
 
 World Wide Web Consortium (no date a) *Accordion example*. ARIA Authoring Practices Guide. Available at: https://www.w3.org/WAI/ARIA/apg/patterns/accordion/examples/accordion/ (Accessed: 30 October 2026).
 
 World Wide Web Consortium (no date b) *Disclosure (Show/Hide) Pattern*. ARIA Authoring Practices Guide. Available at: https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/ (Accessed: 30 October 2026).
+
+World Wide Web Consortium (no date c) *Understanding Success Criterion 1.4.3: Contrast (Minimum)*. Web Content Accessibility Guidelines 2.1. Available at: https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum (Accessed: 2 November 2026).
+
+World Wide Web Consortium (no date d) *Understanding Success Criterion 2.5.5: Target Size (Enhanced)*. Web Content Accessibility Guidelines 2.2. Available at: https://www.w3.org/WAI/WCAG22/Understanding/target-size-enhanced.html (Accessed: 2 November 2026).
 
 Chrome for Developers (no date) *Optimize image priority*. Available at: https://developer.chrome.com/docs/modern-web-guidance/guides/performance/optimize-image-priority (Accessed: 1 November 2026).
 
@@ -1204,5 +1218,37 @@ Mozilla Developer Network (no date m) *Client-side form validation*. Available a
 Mozilla Developer Network (no date n) *Fetch API*. Available at: https://developer.mozilla.org/en-US/docs/Web/API/Fetch%5FAPI (Accessed: 1 November 2026).
 
 Mozilla Developer Network (no date o) *Content-Security-Policy (CSP) header*. Available at: https://developer.mozilla.org/es/docs/Web/HTTP/Headers/Content-Security-Policy (Accessed: 1 November 2026).
+
+Mozilla Developer Network (no date p) *ARIA: aria-invalid attribute*. Available at: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-invalid (Accessed: 2 November 2026).
+
+Mozilla Developer Network (no date q) *<input type="date">*. Available at: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/date (Accessed: 2 November 2026).
+
+Mozilla Developer Network (no date r) *encodeURIComponent()*. Available at: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent (Accessed: 2 November 2026).
+
+Mozilla Developer Network (no date s) *CustomEvent*. Available at: https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent (Accessed: 2 November 2026).
+
+Mozilla Developer Network (no date t) *ARIA: aria-live attribute*. Available at: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-live (Accessed: 2 November 2026).
+
+Mozilla Developer Network (no date u) *FormData*. Available at: https://developer.mozilla.org/en-US/docs/Web/API/FormData (Accessed: 2 November 2026).
+
+Mozilla Developer Network (no date v) *Node: textContent property*. Available at: https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent (Accessed: 2 November 2026).
+
+Mozilla Developer Network (no date w) *rel="noopener" HTML attribute value*. Available at: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel/noopener (Accessed: 2 November 2026).
+
+Mozilla Developer Network (no date x) *rel="noreferrer" HTML attribute value*. Available at: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel/noreferrer (Accessed: 2 November 2026).
+
+Mozilla Developer Network (no date y) *Referrer-Policy header*. Available at: https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Referrer-Policy (Accessed: 2 November 2026).
+
+Mozilla Developer Network (no date z) *position CSS property*. Available at: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/position (Accessed: 2 November 2026).
+
+Mozilla Developer Network (no date aa) *Element: pointerdown event*. Available at: https://developer.mozilla.org/en-US/docs/Web/API/Element/pointerdown_event (Accessed: 2 November 2026).
+
+Mozilla Developer Network (no date ab) *ARIA: aria-current attribute*. Available at: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-current (Accessed: 2 November 2026).
+
+Mozilla Developer Network (no date ac) *scroll-margin-top CSS property*. Available at: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/scroll-margin-top (Accessed: 2 November 2026).
+
+Mozilla Developer Network (no date ad) *ARIA: aria-hidden attribute*. Available at: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-hidden (Accessed: 2 November 2026).
+
+Mozilla Developer Network (no date ae) *Event: preventDefault() method*. Available at: https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault (Accessed: 2 November 2026).
 
 OpenStreetMap Foundation (no date) *Tile usage policy*. Available at: https://operations.osmfoundation.org/policies/tiles/ (Accessed: 1 November 2026).
