@@ -26,9 +26,13 @@
       if (v.patternMismatch) {
         return field.dataset.patternMessage || "Please check the format.";
       }
-      if (v.rangeUnderflow) { return "The minimum is " + field.min + "."; }
-      if (v.rangeOverflow) { return "The maximum is " + field.max + "."; }
-      if (v.badInput) { return "Please enter a number."; }
+      if (v.rangeUnderflow) {
+        return field.type === "date" ? "Please choose today or a later date." : "The minimum is " + field.min + ".";
+      }
+      if (v.rangeOverflow) {
+        return field.type === "date" ? "Please choose a date within the next year." : "The maximum is " + field.max + ".";
+      }
+      if (v.badInput) { return field.type === "date" ? "Please enter a valid date." : "Please enter a number."; }
       return "Please check this field.";
     }
 
@@ -58,9 +62,19 @@
       }
     }
 
+    // Pressing Submit makes the field lose focus. If its error message appeared
+    // right then, the button would be pushed down and the click would be lost.
+    // So while the button is pressed we skip the blur check; the submit check still runs.
+    var pressingSubmit = false;
+    var submitButton = form.querySelector("input[type='submit']");
+    submitButton.addEventListener("pointerdown", function () { pressingSubmit = true; });
+    document.addEventListener("pointerup", function () { pressingSubmit = false; });
+
     fields.forEach(function (field) {
       // Check when the user leaves the field
-      field.addEventListener("blur", function () { check(field); });
+      field.addEventListener("blur", function () {
+        if (!pressingSubmit) { check(field); }
+      });
       // After an error, re-check as they type so the message clears when fixed
       field.addEventListener("input", function () {
         if (field.hasAttribute("aria-invalid")) { check(field); }
@@ -85,7 +99,7 @@
     }
 
     form.addEventListener("submit", function (event) {
-      event.preventDefault(); // there is no server yet, so nothing is sent
+      event.preventDefault(); // we handle the submit ourselves, so the page never reloads
       fields.forEach(check);
 
       var firstBad = form.querySelector("[aria-invalid='true']");
@@ -94,8 +108,13 @@
         if (old) { old.remove(); }
         firstBad.focus(); // take the user straight to the first problem
       } else {
-        form.reset();
-        showSuccess(form.dataset.success || "Thank you! Your form is complete.");
+        // Tell other scripts the form is valid. A script that wants to show its
+        // own reply (enquiry.js, contact-email.js) calls event.preventDefault().
+        var useDefault = form.dispatchEvent(new CustomEvent("formvalid", { cancelable: true }));
+        if (useDefault) {
+          form.reset();
+          showSuccess(form.dataset.success || "Thank you! Your form is complete.");
+        }
       }
     });
   });

@@ -12,7 +12,7 @@
   <meta name="theme-color" content="#2c4a32">
 
   <!-- Security: the page may only load files from this site, OpenStreetMap map tiles and Google Fonts -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://tile.openstreetmap.org; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://tile.openstreetmap.org; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
   <!-- Social sharing: how the page looks when its link is shared (Open Graph and Twitter card) -->
@@ -50,7 +50,7 @@
   "image": "https://klitheko.github.io/GreenLeaf_Community_Website_ST10517750/images/community-hands-together-800w.jpg",
   "description": "Volunteer-run food bank in Randburg, Johannesburg. Weekly food parcels, a weekend soup kitchen and food donation drop-off.",
   "email": "hello@greenleaffoodbank.org",
-  "telephone": "+27820000000",
+  "telephone": "+27658234298",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "14 Marlboro Drive",
@@ -134,13 +134,14 @@
 
         <h2 class="subheading">Reach us</h2>
         <p>Email: <a href="mailto:hello@greenleaffoodbank.org">hello@greenleaffoodbank.org</a></p>
-        <p>Phone: <a href="tel:+27820000000">+27 82 000 0000</a></p>
-        <p>WhatsApp community group: <a href="#">Join here</a></p>
+        <p>Phone: <a href="tel:+27658234298">+27 65 823 4298</a></p>
       </section>
 
       <section id="contact-form">
         <h2 class="subheading">Send us a message</h2>
-        <form action="#" method="post" data-success="Thank you! We have your message and will reply to your email soon.">
+        <!-- The action is the address the message goes to. js/contact-email.js reads it.
+             Without JavaScript the browser opens the visitor's email app with the form text. -->
+        <form action="mailto:hello@greenleaffoodbank.org" method="post" enctype="text/plain" data-success="Thank you! Your message is ready to send from your email app.">
           <p class="form-note">All fields are required.</p>
           <label for="c-name">Name:</label>
           <input type="text" id="c-name" name="c-name" required minlength="2" maxlength="80" autocomplete="name">
@@ -176,21 +177,13 @@
       </div>
     </section>
 
-    <section id="follow">
-      <h2 class="subheading">Follow GreenLeaf</h2>
-      <ul>
-        <li><a href="#">Facebook</a></li>
-        <li><a href="#">Instagram</a></li>
-        <li><a href="#">WhatsApp community group</a></li>
-      </ul>
-    </section>
 
   </main>
 
   <!-- FOOTER: same on every page, see index.html for notes -->
   <footer>
     <p>GreenLeaf Depot, 14 Marlboro Drive, Randburg</p>
-    <p>Email: <a href="mailto:hello@greenleaffoodbank.org">hello@greenleaffoodbank.org</a> | Phone: <a href="tel:+27820000000">+27 82 000 0000</a></p>
+    <p>Email: <a href="mailto:hello@greenleaffoodbank.org">hello@greenleaffoodbank.org</a> | Phone: <a href="tel:+27658234298">+27 65 823 4298</a></p>
     <p>&copy; 2026 GreenLeaf Community Food Bank. Together, we can help ensure no one goes hungry in our neighbourhood.</p>
   </footer>
 
@@ -198,8 +191,9 @@
   <script src="vendor/leaflet/leaflet.js"></script>
   <script src="js/map.js"></script>
 
-  <!-- Form validation -->
+  <!-- Form validation, then the script that builds the email -->
   <script src="js/validation.js"></script>
+  <script src="js/contact-email.js"></script>
 
   <!-- Mobile menu -->
   <script src="js/menu.js"></script>

@@ -44,7 +44,7 @@ The website includes:
 | About Us     | `about.html`        | Organisation background, mission, and values       |
 | Our Services | `services.html`     | Food bank services and schedules                   |
 | Get Involved | `get-involved.html` | Donate, volunteer, partner, and request assistance |
-| Contact      | `contact.html`      | Contact information and enquiry form               |
+| Contact      | `contact.html`      | Contact details, map and a message form that builds an email |
 
 ---
 
@@ -69,6 +69,8 @@ greenleaf/
 ├── js/                  JavaScript (Part 3)
 │   ├── accordion.js     FAQ accordion on Get Involved
 │   ├── animations.js    Scroll reveal and animated counters
+│   ├── contact-email.js Builds the email from the Contact form
+│   ├── enquiry.js       Replies to the four Get Involved forms
 │   ├── lightbox.js      Photo gallery pop-up on Get Involved
 │   ├── map.js           Interactive map on Contact
 │   ├── menu.js          Mobile menu button
@@ -268,12 +270,16 @@ Part 3 adds interactivity with plain JavaScript (no frameworks). Each item is do
 | 2.1 Gallery with lightbox           | Done: photo gallery on Get Involved opens in a lightbox (`js/lightbox.js`) |
 | 2.2 Dynamic content loading         | Done: session times loaded from `data/schedule.json` with `fetch` (`js/schedule.js`) |
 | 2.2 Search, filter and sort         | Done: "Find a session" on the Services page (`js/schedule.js`) |
-| Form validation                     | Done: all five forms (`js/validation.js`) |
+| 4.1 HTML form                       | Done: Contact message form and four enquiry forms on Get Involved (see changelog) |
+| 4.1 Form validation formats         | Done: phone, email, date, amount and character lengths (`js/validation.js`) |
+| JS client-side validation and error handling | Done: messages under each field, focus on the first error (`js/validation.js`) |
+| JS AJAX form submission             | Done with limits: `fetch` loads the reply in the background (`js/enquiry.js`); there is no server to post to (see changelog) |
+| Contact form compiled into an email | Done: preview plus "Open in my email app" (`js/contact-email.js`) |
 | SEO best practices                  | Done: see "SEO, page speed and security" below (3.1 on-page, 3.2 plan, 3.3 robots, sitemap, speed, security) |
 | Deployment on a free platform       | Live on GitHub Pages                                           |
 | Supporting change: shelf table      | Done: stock-level bars on Home (CSS only, no JavaScript)       |
 
-For now, the forms use `action="#"` and do not submit data to a backend: a correct form shows a thank-you message and clears, but nothing is sent.
+The site has no server, so no form posts data to a backend. The four Get Involved forms show a reply built from `data/schedule.json` (`js/enquiry.js`). The Contact form builds an email that the visitor sends from their own email app (`js/contact-email.js`).
 
 ### SEO, page speed and security (brief 3.1, 3.2 and 3.3)
 
@@ -339,7 +345,7 @@ Each page has exactly one `<h1>` and the levels never skip (an `<h2>` is never f
 | About Us | h1: About GreenLeaf<br>h2: Our mission<br>h2: Our vision<br>h2: Our values<br>h2: How we started<br>h2: Our team |
 | Our Services | h1: Our services<br>h2: Find a session<br>h2: 1. Weekly food parcel distribution<br>h2: 2. Weekend soup kitchen<br>h2: 3. Donation drop-off & collection<br>h2: Who we help |
 | Get Involved | h1: Get involved<br>h2: See what volunteering looks like<br>h2: Donate funds or food<br>h2: Volunteer with us<br>h2: Partner your business<br>h2: Request a food parcel<br>h2: Frequently asked questions<br>h3: Do I need paperwork to get a food parcel?<br>h3: When and where are parcels handed out?<br>h3: What can I donate?<br>h3: Can my business set up a regular pickup?<br>h3: Do I need experience to volunteer?<br>h3: Where does a cash donation go? |
-| Contact | h1: Contact us<br>h2: Visit<br>h2: Reach us<br>h2: Send us a message<br>h2: Find the depot on the map<br>h2: Follow GreenLeaf |
+| Contact | h1: Contact us<br>h2: Visit<br>h2: Reach us<br>h2: Send us a message<br>h2: Find the depot on the map |
 
 **What was fixed:** on Our Services, Get Involved and Contact the section titles were `<h3>` straight under the `<h1>`, which skips a level. They are now `<h2 class="subheading">`. The new `.subheading` rule in `css/style.css` keeps the smaller size the old `<h3>` had, so nothing changed visually.
 
@@ -411,11 +417,11 @@ Backlinks, social media and Google Business Profile happen outside the website f
 | --- | --- | --- |
 | Backlinks | Plan only | Ask the 18 partner businesses to link to the site from their own pages; ask local schools, churches, community groups and the local newspaper (for example the Randburg Sun) to mention and link to it; list the organisation on donation and non-profit directories (ForGood.co.za appeared in my keyword searches; I have not checked its listing rules). Aim for a few relevant links from real local sites. |
 | What to avoid | Rule | Google's spam policy treats buying or selling links for ranking, "link to me and I'll link to you" swaps and automated link building as link spam. Paid or sponsored links are acceptable only when marked `rel="nofollow"` or `rel="sponsored"` (Google Search Central, no date i). |
-| Social media | Partly done | **Done:** every page has Open Graph and Twitter card tags (`og:title`, `og:description`, `og:image`, `og:url`, `twitter:card`), so a shared link shows the page title, description and a photo. **Still to do:** create the Facebook page, Instagram account and WhatsApp group, then replace the three `#` links in "Follow GreenLeaf" on the Contact page with the real addresses. I did not invent account links. |
+| Social media | Partly done | **Done:** every page has Open Graph and Twitter card tags (`og:title`, `og:description`, `og:image`, `og:url`, `twitter:card`), so a shared link shows the page title, description and a photo. **Still to do:** create the Facebook page, Instagram account and WhatsApp group, then add the links to the Contact page. The three placeholder `#` links were removed on 2 November 2026 rather than leave links that go nowhere. |
 | Local SEO (on the site) | Done | The same address, phone number and email are used in the footer, the Contact page and the structured data. Home and Contact carry JSON-LD structured data of type `NGO` with address, phone, email, opening hours (Monday to Friday, 08:00 to 17:00) and `areaServed` (Randburg, Alexandra, Diepsloot, Johannesburg). The Contact page has an interactive map. Google lists `name` and `address` as required and `telephone`, `geo`, `url` and `openingHoursSpecification` as recommended for local business markup (Google Search Central, no date h). |
 | Local SEO (off the site) | Still to do | Claim a Google Business Profile with the same name, address and phone number as the site. This is my recommendation; I could not open Google's page about it, so I am not quoting it. |
 
-**Placeholders to replace before this is treated as real:** the phone number (`+27 82 000 0000`), the email address, the street address and the map coordinates (`-26.09441, 28.00673`, which are approximate and only point to Randburg) are placeholders. The coordinates live in two places: `js/map.js` (`depot`) and the JSON-LD block on `index.html` and `contact.html`.
+**Placeholders to replace before this is treated as real:** the email address (`hello@greenleaffoodbank.org`; it is the `action` of the Contact form), the street address and the map coordinates (`-26.09441, 28.00673`, which are approximate and only point to Randburg) are placeholders. The coordinates live in two places: `js/map.js` (`depot`) and the JSON-LD block on `index.html` and `contact.html`.
 
 #### 3.3 `robots.txt`
 
@@ -472,14 +478,14 @@ GitHub Pages serves static files and does not let a site set its own HTTP header
 
 | Measure | Where | What it protects against |
 | --- | --- | --- |
-| **Content Security Policy** (`<meta http-equiv="Content-Security-Policy">`): only this site's own scripts, plus Google Fonts for styles and fonts, `data:` and own-site images, no plugins (`object-src 'none'`), forms may only post to this site (`form-action 'self'`), `<base>` locked (`base-uri 'self'`). The Contact page also allows images from `tile.openstreetmap.org` for the map. | `<head>` of every page | Injected or third-party scripts running on the page (cross-site scripting). MDN explains that CSP controls which resources the browser may load and helps protect against cross-site scripting (Mozilla Developer Network, no date o). |
+| **Content Security Policy** (`<meta http-equiv="Content-Security-Policy">`): only this site's own scripts, plus Google Fonts for styles and fonts, `data:` and own-site images, no plugins (`object-src 'none'`), forms may only post to this site (`form-action 'self'`; on the Contact page also `mailto:`, so the form can open an email app), `<base>` locked (`base-uri 'self'`). The Contact page also allows images from `tile.openstreetmap.org` for the map. | `<head>` of every page | Injected or third-party scripts running on the page (cross-site scripting). MDN explains that CSP controls which resources the browser may load and helps protect against cross-site scripting (Mozilla Developer Network, no date o). |
 | **No inline scripts or `onclick` attributes** | All pages (checked by a script) | Lets the policy above block all injected script. The only inline `<script>` is the JSON-LD data block, which is data and does not run. |
 | **Libraries kept on this site** | Leaflet in `vendor/leaflet/` | No dependency on another company's server staying safe; a changed CDN file cannot alter the site. Leaflet's licence (BSD 2-Clause) is included as `vendor/leaflet/LICENSE.txt`. |
 | **Referrer policy** `strict-origin-when-cross-origin` | `<head>` | Limits what other sites learn about which page a visitor came from. It is not set to a stricter value because the OpenStreetMap tile policy says not to use a restrictive Referrer-Policy and to keep a valid Referer (OpenStreetMap Foundation, no date). |
 | **`rel="noopener noreferrer"` on every external link** | Contact page map links, Leaflet credit and OpenStreetMap credit | A page opened from our site cannot reach back into ours. |
 | **Safe handling of text** | `validation.js`, `schedule.js`, `lightbox.js`, `menu.js` | Text typed by a visitor or loaded from JSON is put on the page with `textContent` and `createElement`, never `innerHTML`, so it can never run as code. The only HTML string is the fixed map popup written by us. |
 | **Form limits** | All forms | `maxlength`, `type="email"`, `type="tel"` with a pattern, and `min` on the donation amount limit what can be entered. This is a convenience for honest visitors. MDN is clear that client-side validation is not a security measure because it can be bypassed, so a real server must validate again (Mozilla Developer Network, no date m). |
-| **No server and no secrets** | Whole site | The forms do not send data anywhere (`action="#"`), so there is no database or password to attack, and no keys, tokens or passwords are stored in the repository. |
+| **No server and no secrets** | Whole site | The forms do not send data to a server (the Get Involved forms use `action="#"`; the Contact form builds an email in the visitor's own email app), so there is no database or password to attack, and no keys, tokens or passwords are stored in the repository. |
 | **HTTPS** | GitHub Pages setting | `github.io` sites are served over HTTPS, and "Enforce HTTPS" redirects any `http://` visit to HTTPS (GitHub, no date). Make sure the box is ticked: repository Settings, then Pages, then Enforce HTTPS. |
 | **`.gitignore`** | Project root | Keeps computer-generated files such as `.DS_Store` (which lists folder contents) out of the repository. |
 
@@ -496,6 +502,116 @@ GitHub Pages serves static files and does not let a site set its own HTTP header
 ## Changelog
 
 Newest changes first.
+
+### Part 3: Submit button no longer jumps away (all five forms)
+
+- **Date implemented:** 2 November 2026
+- **What:** Fixed a bug in the form validation. If a visitor typed a wrong value and clicked the Submit button straight away, nothing happened on the first click.
+- **Why:** Clicking Submit makes the field lose focus. Its red error message appeared at that moment and pushed the button down before the mouse button was released, so the click missed the button. I found it while testing the new forms. A visitor would have seen a button that "does nothing" the first time.
+- **Files changed:** `js/validation.js`, `README.md`.
+- **How it works:**
+  - The submit button listens for `pointerdown` (the moment it is pressed) and sets `pressingSubmit = true`.
+  - While that is true, the "check when the field loses focus" step is skipped. The submit step still checks every field, so the messages still appear, but at the right time.
+  - A `pointerup` listener on the page sets it back to `false`.
+- **How to test:** On Get Involved, in "Request a food parcel" type `L` in Name and `123` in WhatsApp number, then click "Send me the details" once. The red messages appear and the cursor jumps to Name on that one click.
+- **Tested:** automated: a form is filled, submitted, then filled wrongly and submitted again with a single click each time.
+
+### Part 3: Contact form builds an email (brief 4.1, Contact page)
+
+- **Date implemented:** 2 November 2026
+- **What:** When the Contact form is correct, the page writes the visitor's details into an email, shows it (To, Subject and the full text) and offers an "Open in my email app" button. The visitor presses Send in their own email app.
+- **Why:** The brief says the Contact form's information, once validated, should be compiled into an email that the visitor can send to the recipient stated in the code.
+- **Files changed:**
+  - `contact.html`: the form now has `action="mailto:hello@greenleaffoodbank.org"`, `method="post"` and `enctype="text/plain"`. The address in the `action` is the recipient. The page's Content Security Policy now says `form-action 'self' mailto:`. The script tag for `contact-email.js` was added.
+  - `js/contact-email.js` (new): builds and shows the email.
+  - `css/style.css`: `.form-success` rules for paragraphs, lists and the preview box, and the `.email-button` rule.
+  - `README.md`: this entry.
+- **How it works:**
+  - **Where the recipient is.** `contact-email.js` reads the form's `action` with `getAttribute("action")` and removes `mailto:`. To change the recipient, change only the `action` in `contact.html`.
+  - **After validation.** `validation.js` announces a `formvalid` event when every field is correct. `contact-email.js` takes over with `event.preventDefault()`.
+  - **The email.** Subject: `GreenLeaf website: ` plus the chosen topic. Body: Name, Email, Topic, then the message. The link is `mailto:` plus the address, `?subject=` and `&body=`, with `encodeURIComponent` so spaces and line breaks survive.
+  - **The preview.** The details are shown with `textContent` in a `<pre>` box, so anything typed stays plain text. The button is a normal link with the `btn` class, so the site's link colour does not hide its white text.
+  - **The form is not cleared**, so the visitor can fix a typo and press the button again.
+  - **Not sent until the visitor sends it.** The site has no server, so the message leaves only when the visitor presses Send in their email app. The page says so under the button.
+  - **Without JavaScript** the browser still checks the required fields. Submitting then opens the visitor's email app with the form text (`enctype="text/plain"`). I could not test that step, because it depends on which email app the visitor has.
+- **Also changed on this page:**
+  - Removed the "Follow GreenLeaf" section and the "WhatsApp community group" link. All three links pointed to `#` and went nowhere.
+  - The phone number on every page (Reach us, footers) and in the structured data is now `+27 65 823 4298`.
+- **How to test:** On Contact, fill in all four fields and press "Send message". A green box shows the email. Press "Open in my email app": your email app opens with the To address, subject and message filled in. Change the Subject and press the main button again: the old box disappears while errors show.
+- **Tested:** 18 automated checks: empty and wrong input, the `mailto:` link, the subject, the body, a name typed as HTML staying as text, the button's text colour, no sideways scrolling at desktop and phone width.
+
+### Part 3: Enquiry forms reply with live times (brief: AJAX form submission, Get Involved page)
+
+- **Date implemented:** 2 November 2026
+- **What:** When a Get Involved form is correct, the page loads the session times in the background and shows a reply that fits that form, without reloading the page. A "Checking availability..." line shows first.
+- **Why:** The brief says the enquiry form, once validated, should be processed and give the visitor a response about cost, availability or another relevant aspect. It also asks for AJAX so the page does not reload.
+- **Files changed:**
+  - `js/enquiry.js` (new): the replies.
+  - `get-involved.html`: the script tag.
+  - `css/style.css`: reply box rules (shared with the Contact entry above).
+  - `README.md`: this entry.
+- **The replies:**
+
+| Form | What the visitor sees |
+| --- | --- |
+| Request a food parcel | Thanks by name, "No paperwork is needed for a first visit" (the site already says this) and the parcel sessions whose place contains the area typed (for example "Alexandra"). If none match, all parcel times are shown with a line saying so. |
+| Volunteer | Thanks by name, the start date in words (for example "2 November 2026"), and the sessions for the chosen area: parcels for sorting, soup kitchen for the soup kitchen, depot hours for driving, all sessions for something else. |
+| Donate | Thanks by name, the amount (for example "R350"), a line saying payment instructions will be emailed, and the drop-off hours for anyone who would rather give food. |
+| Partner your business | Thanks to the business, the email and how often they said they could donate, and the depot drop-off hours. |
+
+- **How it works:**
+  - **The page that is "enquire".** The site has five pages and no separate `enquire.html`. The four Get Involved forms are the enquiry forms (volunteering, donating, partnering and requesting a parcel).
+  - **After validation.** `enquiry.js` listens for the `formvalid` event from `validation.js`, copies what was typed with `FormData`, and shows "Checking availability...".
+  - **The background request.** `fetch("data/schedule.json")` runs without reloading the page. The script checks `response.ok` and reads the JSON with `response.json()`. This is the same file the session finder uses, so changing a time in the file changes the replies too.
+  - **Short lines.** Sessions with the same time and place are joined: "Monday, Tuesday, Wednesday, Thursday and Friday, 08:00 to 17:00 at GreenLeaf Depot, Randburg".
+  - **Safe text.** The reply is built with `createElement` and `textContent`, in a box with `role="status"` so screen readers read it out.
+  - **If the file cannot load**, the visitor sees "Thank you! We have your details. We could not load the session times just now. Please see our Services page for the latest times.", and the error goes to the console.
+  - **After the reply** the form is cleared.
+- **What AJAX means here, and its limit:** AJAX means the page asks for data in the background without reloading. `fetch` does that here. The site is on GitHub Pages and has no server, so no form data is posted anywhere: the background request fetches the times that the reply is made from. To post to a real service later (a form service such as Formspree, for example) the request would change to `fetch(url, { method: "POST", body: data })`. I did not add that because it needs an account and I could not test it.
+- **How to test:** Open the live site (or a local server such as VS Code Live Server; `fetch` does not work from a page opened directly from the folder). On Get Involved, fill in "Request a food parcel" with the area `Alexandra` and press the button: the Tuesday session in Alexandra appears. Try `Soweto`: all parcel times appear with a line saying there was no match. In the Donate form enter 350: the reply shows R350 and the drop-off hours.
+- **Tested:** 13 automated checks for the four replies, including a failed download (the file returns 404).
+
+### Part 3: Date field and the formats the forms check (brief 4.1 validation)
+
+- **Date implemented:** 2 November 2026
+- **What:** The Volunteer form has a new required field, "Earliest date you can start", with a date picker. A date in the past or more than a year ahead is rejected with a clear message.
+- **Why:** The brief lists dates among the formats to check. Before this, the forms checked phone numbers, email addresses, numbers and character lengths but not dates.
+- **Files changed:** `get-involved.html` (the field `vol-date`), `js/enquiry.js` (sets the earliest and latest date), `js/validation.js` (the date messages), `README.md`.
+- **How it works:**
+  - The field is `<input type="date" required>`. The browser gives a date picker and refuses text that is not a date.
+  - `enquiry.js` sets `min` to today and `max` to one year from today when the page loads, so the limits are always up to date.
+  - `validation.js` shows: "Please choose today or a later date." (`rangeUnderflow`), "Please choose a date within the next year." (`rangeOverflow`) and "Please enter a valid date." (`badInput`).
+- **Every format now checked:**
+
+| Format | Where | Rule |
+| --- | --- | --- |
+| South African phone number | Volunteer, Request a parcel | `(\+27\|0)[0-9 ]{9,12}`, for example 082 000 0000 or +27 82 000 0000 |
+| Email address | Contact, Donate, Partner | `type="email"` and up to 120 characters |
+| Date | Volunteer | today up to one year ahead |
+| Money amount | Donate | a whole number from 10 up to 1 000 000 |
+| Character lengths | Names (2 to 80, business 2 to 100), area (2 to 80), message (10 to 1000) | `minlength` and `maxlength` |
+| Choice from a list | Contact subject, Volunteer area, Partner frequency | cannot stay on the first "Select" line |
+
+- **How to test:** On Get Involved, in "Volunteer with us" leave the date empty and press the button: "This field is required." Type a past date: "Please choose today or a later date." Type a date in 2099: "Please choose a date within the next year."
+- **Tested:** 4 automated checks (empty, past, too far ahead, valid).
+
+### Part 3: HTML forms and their purposes (brief 4.1)
+
+- **Date implemented:** 2 November 2026
+- **What:** I checked all five forms against the brief and recorded how they differ. Two pages carry forms: the Contact page sends a general message, and the Get Involved page holds four enquiry forms.
+- **Why:** The brief asks for forms on the enquire and contact pages with different purposes, built with appropriate elements, with validation, and with an `action`.
+- **Files changed:** `contact.html` and `get-involved.html` (the changes are described in the entries above), `README.md`.
+- **The two kinds of form:**
+
+| | Contact (`contact.html`) | Enquiry (`get-involved.html`) |
+| --- | --- | --- |
+| Purpose | A general message to the organisation | Ask about a service or offer help: request a parcel, volunteer, donate or partner |
+| Collects | Name, email, topic (list) and a message (up to 1000 characters) | Depends on the form: name, WhatsApp number, area, amount, email, date, frequency |
+| Result | An email written for the visitor to send | A reply with times and availability |
+| `action` | `mailto:hello@greenleaffoodbank.org` | `#` (the page's script handles it) |
+
+- **Form elements used:** `<label for>` joined to each field by `id`, `input` types `text`, `email`, `tel`, `number`, `date` and `submit`, `<select>` with a "Select..." first option, and `<textarea>` for the message. Also `autocomplete` (so browsers can fill in names and emails), `inputmode` (number keyboards on phones), `maxlength` and `placeholder`.
+- **Tested:** the whole Contact and Get Involved flows are covered by the automated checks in the entries above.
 
 ### Part 3: Form validation (all five forms)
 
@@ -522,6 +638,7 @@ Newest changes first.
 | Volunteer | Name | required, 2 to 80 characters |
 | Volunteer | WhatsApp number | required, pattern `(\+27\|0)[0-9 ]{9,12}` (for example 082 000 0000, +27 82 000 0000 or 0820000000) |
 | Volunteer | Area | required (choose one) |
+| Volunteer | Earliest start date | required, a date from today up to one year ahead (added 2 November 2026) |
 | Partner | Business name | required, 2 to 100 characters |
 | Partner | Contact email | required, valid email |
 | Partner | Frequency | required (choose one) |
@@ -534,7 +651,7 @@ Newest changes first.
   - **When it checks.** When the visitor leaves a field (`blur`), again as they type once the field has an error (so the message disappears as soon as it is fixed), and for all fields on submit. On submit, the first wrong field gets the focus.
   - **Accessibility.** A wrong field gets `aria-invalid="true"` and `aria-describedby` pointing to its message, and the thank-you box has `role="status"` so screen readers announce it. The error colour is `--tomato` (#c1432e, about 5:1 contrast on white) and is paired with the message text, so colour is not the only signal.
   - **Safety.** Messages are written with `textContent`, never `innerHTML`.
-  - **No server.** The forms still have `action="#"`, so a valid form shows the thank-you message and clears; nothing is sent anywhere. Real sending needs a server, which this project does not have.
+  - **No server.** When this entry was written the forms only showed a thank-you message. On 2 November 2026 the Get Involved forms were changed to show a reply with live times and the Contact form to build an email (see the entries above). The site still has no server.
 - **How to test:** On Contact, press "Send message" with the form empty: four red messages appear and the cursor jumps to Name. Type `A` in Name and click away: "Please enter at least 2 characters." Type `abc` in Email: "Please enter a valid email address." Fill everything correctly and send: a green thank-you message appears and the form clears. On Get Involved, try `12345` in a WhatsApp number (rejected) and `082 000 0000` (accepted), and `5` as a donation amount ("The minimum is 10."). In the browser's settings turn JavaScript off: the browser's own validation bubbles appear instead.
 - **Tested:** 32 automated checks, including every phone format above, each form on Get Involved, the success messages and JavaScript switched off.
 

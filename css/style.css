@@ -736,6 +736,32 @@ textarea[aria-invalid="true"] {
   font-weight: 500;
 }
 
+/* Reply boxes built by enquiry.js and contact-email.js */
+.form-success p { margin: 0 0 var(--space-1); }
+.form-success .reply-title { font-weight: 700; }
+.form-success ul { margin: 0 0 var(--space-1); padding-left: var(--space-3); list-style: disc; }
+.form-success pre {
+  margin: var(--space-1) 0;
+  padding: var(--space-2);
+  background-color: #fff;
+  border-radius: var(--radius);
+  font: inherit;
+  white-space: pre-wrap; /* keep the line breaks but wrap long lines */
+  overflow-wrap: anywhere;
+}
+
+/* "Open in my email app" link styled like the submit button (also has the .btn class) */
+.email-button {
+  min-height: 44px;
+  margin: var(--space-1) 0;
+  padding: 0.75rem var(--space-3);
+  background-color: var(--green);
+  color: #fff;
+  border-radius: var(--radius);
+}
+
+.email-button:hover { background-color: var(--green-dark); }
+
 /* Submit button with hover and click effects */
 input[type="submit"] {
   margin-top: var(--space-2);
