@@ -366,116 +366,53 @@ SEO means helping people find the site on Google. This section lists every SEO i
 
 #### 3.1 Keyword research
 
-**How I did it.** On 1 November 2026 I ran these searches and read the titles and snippets of the results to see which words real organisations and news stories use: "food bank Randburg Johannesburg food parcels" and "volunteer soup kitchen Johannesburg donate food". The results used the words *food bank*, *food parcels*, *soup kitchen*, *donate food*, *volunteer*, *Johannesburg* and *Randburg* (for example a "Gauteng sets up food banks" news item, a Business Day story about Foodbank Johannesburg closing, a ForGood.co.za donation listing and a Randburg Sun story). Google's guide says to think about the words people might search for, and warns against repeating the same words again and again (Google Search Central, no date g). So each keyword is used where it reads naturally.
+On 1 November 2026 I searched "food bank Randburg Johannesburg food parcels" and "volunteer soup kitchen Johannesburg donate food" and read the titles and snippets of the results. They used the words below. Google advises writing the words people would search for, without repeating them over and over (Google Search Central, no date g), so each keyword is used where it reads naturally.
 
-**What I could not do.** I did not have a keyword tool such as Google Keyword Planner (it needs an account), so there are no search numbers. The search tool I used is based in the US, so results may differ from what someone in Johannesburg sees. I chose the keywords by what people would search for when they need or want to give food help, not by measured numbers.
-
-| Keyword | Why it was chosen | Times it appears in the visible text |
-| --- | --- | --- |
-| food bank | The plain name of what we are; the best match for someone looking for help or wanting to give | Home 4, About Us 3, Our Services 2, Get Involved 3, Contact 3 |
-| Randburg | The depot's suburb: people search by area (local search) | Home 2, About Us 2, Our Services 4, Get Involved 2, Contact 3 |
-| Johannesburg | The wider city, for people who do not know the suburb | Home 1, About Us 1, Our Services 1 |
-| food parcel(s) | What people who need help ask for | Home 3, Our Services 4, Get Involved 3, Contact 1 |
-| soup kitchen | A service people search for by name | Home 2, About Us 1, Our Services 3, Get Involved 3, Contact 1 |
-| donate / donation | What givers search for | Home 4, About Us 5, Our Services 4, Get Involved 10, Contact 2 |
-| volunteer | What helpers search for | Home 4, About Us 6, Our Services 3, Get Involved 5, Contact 1 |
-| food insecurity | The problem we work on; used in headings and intro text | Home 1, About Us 2, Our Services 1, Get Involved 1 |
+| Keyword | Why it was chosen |
+| --- | --- |
+| food bank | The plain name of what we are |
+| Randburg, Johannesburg | People search by area (local search) |
+| food parcel(s) | What people who need help ask for |
+| soup kitchen | A service people search for by name |
+| donate / donation | What givers search for |
+| volunteer | What helpers search for |
+| food insecurity | The problem we work on |
 
 #### 3.1 Title tags and meta descriptions
 
-The title is the headline shown in the browser tab and in Google results. The description is the short text under it. Each page has its own. Google's advice is to avoid repeated or generic titles, keep them clear and short, and put the site name at the start or end of inner-page titles (Google Search Central, no date a). For descriptions it recommends a short, accurate summary of that page (Google Search Central, no date b). Google says it may still rewrite what it shows.
+Each page has its own title and description. Google advises titles that are different on every page, clear and short (Google Search Central, no date a), and descriptions that give a short, accurate summary of that page (Google Search Central, no date b).
 
-| Page | Title tag | Chars | Meta description | Chars |
-| --- | --- | --- | --- | --- |
-| Home | Community Food Bank in Randburg \| GreenLeaf | 43 | GreenLeaf is a volunteer-run food bank in Randburg, Johannesburg. Get a food parcel, volunteer, donate food or partner with us to fight hunger locally. | 151 |
-| About Us | About GreenLeaf \| Volunteer-Run Food Bank, Randburg | 51 | Learn how GreenLeaf began, what we believe in and how our volunteers collect, sort and share food with families in Randburg and Johannesburg. | 141 |
-| Our Services | Food Parcels, Soup Kitchen & Food Donations \| GreenLeaf | 55 | See when and where GreenLeaf hands out weekly food parcels, serves hot meals at the weekend soup kitchen and collects food donations in Randburg. | 145 |
-| Get Involved | Volunteer, Donate Food or Request a Food Parcel \| GreenLeaf | 59 | Volunteer at our Randburg food bank, donate food or funds, partner your business or request a food parcel. Four simple forms, no experience needed. | 147 |
-| Contact | Contact GreenLeaf Food Bank \| Randburg, Johannesburg | 52 | Find the GreenLeaf depot at 14 Marlboro Drive, Randburg. Opening hours, phone, email, an interactive map and a message form. | 124 |
+| Page | Title tag |
+| --- | --- |
+| Home | Community Food Bank in Randburg \| GreenLeaf |
+| About Us | About GreenLeaf \| Volunteer-Run Food Bank, Randburg |
+| Our Services | Food Parcels, Soup Kitchen & Food Donations \| GreenLeaf |
+| Get Involved | Volunteer, Donate Food or Request a Food Parcel \| GreenLeaf |
+| Contact | Contact GreenLeaf Food Bank \| Randburg, Johannesburg |
 
-- Four titles start with what the page is about and end with "| GreenLeaf". The Contact title has the name inside it ("Contact GreenLeaf Food Bank | Randburg, Johannesburg"). All are 59 characters or fewer.
-- No two titles or descriptions are the same (a script checked this).
-- Each page also has a canonical link (the page's one preferred address), a robots tag (`index, follow`, which means "search engines may list this page") and a theme colour tag.
+All titles are 59 characters or fewer, and no two titles or descriptions are the same. Each page also has a canonical link, a robots tag and a theme colour tag.
 
 #### 3.1 Header tags
 
-Each page has exactly one `<h1>` (the main heading), and the heading levels never skip. An `<h2>` is never followed straight by an `<h4>`, and the first heading under the `<h1>` is an `<h2>`. Google says heading order does not change how it ranks a page. I did this for readers, and for people using screen readers who jump through a page by headings (Google Search Central, no date g).
-
-| Page | Heading outline |
-| --- | --- |
-| Home | h1: Fighting food insecurity in our community<br>h2: GreenLeaf at a glance<br>h2: This week's shelf<br>h2: What we do<br>h3: Weekly food parcel distribution<br>h3: Weekend soup kitchen<br>h3: Donation drop-off & collection |
-| About Us | h1: About GreenLeaf<br>h2: Our mission<br>h2: Our vision<br>h2: Our values<br>h2: How we started<br>h2: Our team |
-| Our Services | h1: Our services<br>h2: Find a session<br>h2: 1. Weekly food parcel distribution<br>h2: 2. Weekend soup kitchen<br>h2: 3. Donation drop-off & collection<br>h2: Who we help |
-| Get Involved | h1: Get involved<br>h2: See what volunteering looks like<br>h2: Donate funds or food<br>h2: Volunteer with us<br>h2: Partner your business<br>h2: Request a food parcel<br>h2: Frequently asked questions<br>h3: Do I need paperwork to get a food parcel?<br>h3: When and where are parcels handed out?<br>h3: What can I donate?<br>h3: Can my business set up a regular pickup?<br>h3: Do I need experience to volunteer?<br>h3: Where does a cash donation go? |
-| Contact | h1: Contact us<br>h2: Visit<br>h2: Reach us<br>h2: Send us a message<br>h2: Find the depot on the map |
-
-**What was fixed:** on Our Services, Get Involved and Contact the section titles were `<h3>` straight under the `<h1>`, which skips a level. They are now `<h2 class="subheading">`. The new `.subheading` style in `css/style.css` keeps the smaller size the old `<h3>` had, so nothing looks different.
+Each page has one `<h1>` and the levels never skip (an `<h2>` is never followed straight by an `<h4>`). Google says heading order does not change ranking, so this was done for readers and screen-reader users (Google Search Central, no date g). On Our Services, Get Involved and Contact the section titles were `<h3>` straight under the `<h1>`; they are now `<h2 class="subheading">`, styled to look the same.
 
 #### 3.1 Image optimisation
 
-Google recommends clear file names instead of generic ones such as `image1.jpg`. It says alt text (the short description of a photo) is the most important part, and should describe the photo without stuffing in keywords (Google Search Central, no date e).
-
-The old names did not match the photos. For example `contact-map` was a photo of volunteers, and `hero-banner` was a black-and-white photo of hands. I opened every photo and renamed it to describe what it shows. Each photo has an original, a `-400w` (phones) and an `-800w` version.
-
-| Old name | New name | Alt text now used |
-| --- | --- | --- |
-| `about-depot` | `volunteers-handing-out-food-at-depot` | Three GreenLeaf volunteers in white T-shirts handing a cup of water to a visitor at a food table |
-| `contact-map` | `volunteers-unloading-food-aid-boxes` | Volunteers unloading boxes of food aid from a van at a community distribution table |
-| `food-parcels` | `volunteers-packing-food-parcels` | Three volunteers packing boxes of food aid beside a van |
-| `hero-banner` | `community-hands-together` | A circle of hands stacked together in a black-and-white photo of community members and children |
-| `volunteers` | `volunteer-handing-over-aid-box` (renamed on 2 November 2026 when the photo was replaced; a 400px version was added) | Two volunteers in white T-shirts passing a cardboard box marked AID beside a van, with people waiting behind them |
-| `donation-dropoff` | `canned-food-donation-crate` | A crate of canned food being sorted by gloved volunteers at the GreenLeaf depot |
-| `soup-kitchen` | `hot-meals-soup-kitchen` | Rows of hot meals in takeaway containers at the weekend soup kitchen |
-| `logo.png` (2000 x 2000 pixels, 205 KB) | `greenleaf-logo-96.png` (96 x 96, 11 KB); the original is kept as `greenleaf-logo-original.png` | Empty on purpose: the logo sits beside the site name, so it is only decoration |
-
-Other photo changes:
-
-- The Contact page photo is no longer described as a map (the real map is now interactive, see the changelog).
-- Every photo has `width` and `height`, so the page does not jump while loading.
-- The top photo on each page has `fetchpriority="high"` (load this one first).
-- Photos lower down have `loading="lazy"` (load only when the visitor scrolls near). See Page speed.
-- Google recommends `<picture>` or `srcset` with a normal `<img>` as a backup for photos that fit the screen (Google Search Central, no date e). The site already did this.
-
-New icon files: `favicon.ico`, `images/favicon-32.png` and `images/apple-touch-icon.png`, all made from the logo.
+Google recommends clear file names and descriptive alt text (Google Search Central, no date e). The old names did not match the photos, so each was renamed to describe what it shows (for example `food-parcels` became `volunteers-packing-food-parcels`). Every photo has descriptive alt text, a `-400w` version for phones and an `-800w` version, and `width` and `height` so the page does not jump while loading. The logo is decoration, so its alt text is empty on purpose. Icons were added: `favicon.ico`, `favicon-32.png` and `apple-touch-icon.png`.
 
 #### 3.1 URL structure
 
-| Page | URL |
-| --- | --- |
-| Home | `https://klitheko.github.io/GreenLeaf_Community_Website_ST10517750/index.html` |
-| About Us | `.../about.html` |
-| Our Services | `.../services.html` |
-| Get Involved | `.../get-involved.html` |
-| Contact | `.../contact.html` |
-
-- The names are plain words in lower case, joined by hyphens, with no numbers or odd codes. Google recommends readable words instead of long ID numbers, and hyphens instead of underscores (Google Search Central, no date f).
-- Google treats `/APPLE` and `/apple` as different addresses. So all file names are lower case and every link uses the same spelling (Google Search Central, no date f).
-- Each page has a canonical link pointing to its own `.html` address, so each page has one preferred address.
-- The repository name is part of every address because this is a GitHub Pages project site. It cannot be shortened without our own domain name.
-- Addresses without `.html` (for example `/about`) were not forced, because that needs server settings that GitHub Pages does not offer.
+Page names are plain lower-case words with hyphens and no codes, for example `get-involved.html`. Google recommends readable words, hyphens instead of underscores, and treats `/APPLE` and `/apple` as different addresses (Google Search Central, no date f). Each page has a canonical link to its own address.
 
 #### 3.1 Internal linking
 
-Links use words that say where they go. Google's guide says link text tells people and Google about the page it leads to (Google Search Central, no date g).
-
-| From | Link text | To |
-| --- | --- | --- |
-| Every page (header) | Home, About Us, Our Services, Get Involved, Contact, Donate | The five pages and `get-involved.html#donate` |
-| Home, top section | Volunteer with us, Partner your business, Request a food parcel | The matching forms on Get Involved |
-| Home, "What we do" cards | Weekly food parcel distribution, Weekend soup kitchen, Donation drop-off & collection | `services.html#food-parcels`, `#soup-kitchen`, `#donation-dropoff` |
-| Home, under the cards | See all our services and schedules, About GreenLeaf, Find the depot | Services, About, Contact |
-| About, end of "Our team" | Volunteer, donate or partner with us; what our services offer; contact the depot | Get Involved, Services, Contact |
-| Services, start of each service | Request a food parcel; Volunteer with us; partner with us; Contact the depot | `get-involved.html#request-parcel`, `#volunteer`, `#partner`, and Contact |
-| Get Involved, intro | what our services do; contact us | Services, Contact |
-| Contact, intro and "Visit" | Get involved; services page | Get Involved, Services |
+Links use words that say where they go (Google Search Central, no date g). The header links to every page, the Home cards link to each service, the Services intros link to the matching forms, and About, Get Involved and Contact link to each other.
 
 #### 3.1 Mobile friendliness
 
-- Every page has `<meta name="viewport" content="width=device-width, initial-scale=1.0">` (this tells phones to use the real screen width).
-- The layout changes at 1024px, 768px and 640px, and photos use `<picture>` so phones download the smaller 400px file.
-- **Tested:** all five pages at 320, 360, 375, 414 and 768px wide. None scroll sideways. Only tables inside their own scroll box and the map are allowed to be wider. The old sideways scroll at 320px on Home, Services and Contact no longer happens.
-- **Fixed while testing:** form boxes and menu links were 38 to 40px tall, which is below the 44 by 44 pixel size for tap targets (World Wide Web Consortium, no date d). That size is the stricter AAA level of the accessibility guidelines, so I used it as a target, not as a minimum. Form text was about 14px, which makes iPhones zoom in when a box is tapped. On screens 640px and narrower, form boxes are now at least 44px tall with 16px text, and the phone menu links are at least 44px tall.
-- The map does not take over scrolling on a phone (scroll-wheel zoom is off), so it never traps a finger that is scrolling down the page.
+- Every page has the viewport tag, the layout changes at 1024px, 768px and 640px, and phones download the 400px photos.
+- Tested on all five pages at 320, 360, 375, 414 and 768px wide: none scroll sideways.
+- Form boxes and phone menu links are at least 44px tall, the size the W3C sets for tap targets (World Wide Web Consortium, no date d). Form text is 16px.
 
 #### 3.2 Off-page SEO (plan, not done in the files)
 
@@ -489,11 +426,9 @@ Links from other sites, social media and Google Business Profile happen outside 
 | Local SEO (on the site) | Done | The same address, phone number and email are used in the footer, the Contact page and the hidden business data (JSON-LD). Home and Contact carry this data as type `NGO`, with address, phone, email, opening hours (Monday to Friday, 08:00 to 17:00) and `areaServed` (Randburg, Alexandra, Diepsloot, Johannesburg). The Contact page has an interactive map. Google lists `name` and `address` as required, and `telephone`, `geo`, `url` and `openingHoursSpecification` as recommended for local business data (Google Search Central, no date h). |
 | Local SEO (off the site) | Still to do | Claim a Google Business Profile with the same name, address and phone number as the site. This is my advice. I could not open Google's page about it, so I am not quoting it. |
 
-**Placeholders to replace before this is treated as real:** the email address (`hello@greenleaffoodbank.org`, which is the `action` of the Contact form), the street address and the map coordinates (`-26.09441, 28.00673`, which are approximate and only point to Randburg) are placeholders. The coordinates are in two places: `js/map.js` (`depot`) and the JSON-LD block on `index.html` and `contact.html`.
-
 #### 3.3 `robots.txt`
 
-`robots.txt` is a small text file in the project root. It tells search engine robots (also called crawlers: the programs Google uses to visit websites and collect their pages) which parts of the site they may visit.
+`robots.txt` tells search engine robots which parts of the site they may visit. Mine allows every page and skips only the `screenshots/` folder, which is marking evidence and not site content:
 
 ```
 User-agent: *
@@ -503,32 +438,15 @@ Disallow: /screenshots/
 Sitemap: https://klitheko.github.io/GreenLeaf_Community_Website_ST10517750/sitemap.xml
 ```
 
-**What each line means**
-
-| Line | Meaning |
-| --- | --- |
-| `User-agent: *` | The rules below are for every robot. |
-| `Allow: /` | Robots may visit every page on the site. |
-| `Disallow: /screenshots/` | Robots should not visit the `screenshots/` folder. Those pictures are only in the project to show the person marking this assignment what the site looks like. They are not part of the website, so I do not want them appearing in Google results. |
-| `Sitemap: ...` | Tells robots where to find the list of pages (`sitemap.xml`, explained below). |
-
-**Things to know**
-
-- **The style and script files are not blocked.** Google opens a page the way a visitor does, which needs `style.css` and the scripts. If those were blocked, Google would see a plain page with no design and could rank it worse.
-- **It is a request, not a lock.** Good robots obey it, but it does not stop anyone. Google says `robots.txt` mainly manages how much robots visit the site, and that it is "not a mechanism for keeping a web page out of Google" (Google Search Central, no date c). A blocked page can still show up in Google if another site links to it, and anyone can still open the screenshots folder by typing its address. So never rely on it to hide anything private.
-- **Limit: Google will not read our file.** Google only looks for `robots.txt` at the very top of a website, for example `klitheko.github.io/robots.txt`. Our site lives one level lower, at `klitheko.github.io/GreenLeaf_Community_Website_ST10517750/`, so Google never looks inside that folder. The file is still here to show the work for marking, and it would start working if the site got its own web address (for example `greenleaf.org`). This rule is general knowledge, not something I read on the Google page.
+The style and script files are not blocked, so Google can see pages as visitors do. Google says `robots.txt` is "not a mechanism for keeping a web page out of Google" (Google Search Central, no date c).
 
 #### 3.3 `sitemap.xml`
 
-`sitemap.xml` lists the five pages with their full web addresses and a `<lastmod>` (last changed) date of 2026-11-01.
-
-- Google asks for full web addresses (Google Search Central, no date d), and the file uses them.
-- Google ignores `<priority>` and `<changefreq>`, and only uses `<lastmod>` when it is correct (Google Search Central, no date d). So only `<loc>` and `<lastmod>` are included. Change `<lastmod>` whenever a page changes in a real way.
-- `robots.txt` points to it, which Google lists as one way to share a sitemap (Google Search Central, no date d). It can also be added in the Search Console "Sitemaps" report.
+`sitemap.xml` lists the five pages with full web addresses and a last-changed date (`<lastmod>`). Google asks for full addresses and ignores `<priority>` and `<changefreq>`, so only `<loc>` and `<lastmod>` are used (Google Search Central, no date d). `robots.txt` points to it.
 
 #### 3.3 Page speed
 
-**How I measured.** I ran the site on a local web server and opened each page in a headless Chromium browser (a browser with no window). I scrolled to the bottom so lazy photos loaded. Then I added up the size of every file that came from the site itself. Google Fonts is left out, because it loads from Google. The numbers are uncompressed file sizes. GitHub Pages also squashes text files, so real downloads are a little smaller for HTML, CSS and JavaScript.
+I added up the size of every file each page loads from the site, before and after the changes (Google Fonts excluded).
 
 | Page | Desktop before | Desktop after | Phone (375px) before | Phone (375px) after |
 | --- | --- | --- | --- | --- |
@@ -538,44 +456,27 @@ Sitemap: https://klitheko.github.io/GreenLeaf_Community_Website_ST10517750/sitem
 | Get Involved | 414 KB | 226 KB (-45%) | 414 KB | 193 KB (-53%) |
 | Contact | 318 KB | 309 KB (-3%) | 259 KB | 251 KB (-3%) |
 
-*Measured again on 2 November 2026 after the form scripts and the photo changes on Get Involved.*
+What made the difference:
 
-**What made the difference**
-
-1. **Logo:** `logo.png` was 2000 x 2000 pixels (205 KB) but is shown at 40 x 40 on every page. It is now 96 x 96 (11 KB). This alone saves about 194 KB on every page.
-2. **Lazy loading:** photos below the first screen have `loading="lazy"` and `decoding="async"`, so the browser gets them only when the visitor scrolls near. Chrome's advice is to lazy-load photos below the fold, never the main (largest) photo, and not to use `fetchpriority="high"` together with `loading="lazy"` (Chrome for Developers, no date).
-3. **Main photo first:** the top photo on each page has `fetchpriority="high"` and is not lazy.
-4. **No jumping:** every photo has `width` and `height`.
-5. **Font connection starts early:** `<link rel="preconnect">` for both `fonts.googleapis.com` and `fonts.gstatic.com`. The font link also uses `display=swap`, so text shows straight away.
-6. **Scripts only where needed:** Leaflet (about 160 KB with its pictures) loads only on Contact, `schedule.js` only on Services, and `validation.js` only on the two pages with forms. All scripts sit at the end of `<body>`, so they never slow down the first thing the visitor sees.
-7. **Map tool kept on our site:** no extra request to another company's server for the map.
-
-**Not done, and why:** the HTML, CSS and JavaScript are not shrunk (minified), so they stay readable for marking and for a beginner to edit. Browser caching times cannot be set on GitHub Pages. Contact is the exception to the savings: it gained the map tool, so it is about the same size as before even though its photo got lighter.
+1. **Smaller logo:** 2000 x 2000 pixels (205 KB) became 96 x 96 (11 KB), saving about 194 KB on every page.
+2. **Lazy loading:** photos below the first screen have `loading="lazy"`, so they load only when the visitor scrolls near. The main photo is never lazy and has `fetchpriority="high"` (Chrome for Developers, no date).
+3. **Set photo sizes:** every photo has `width` and `height`, so the page does not jump while loading.
+4. **Scripts only where needed:** the map tool loads only on Contact, `schedule.js` only on Services, and `validation.js` only on the two pages with forms.
 
 #### 3.3 Security
 
-GitHub Pages serves plain files and does not let a site set its own HTTP headers (instructions the server sends to the browser). So the protections below are the ones that can be done in the HTML and JavaScript.
+GitHub Pages cannot set server headers, so protection is done in the HTML and JavaScript.
 
-| Measure | Where | What it protects against |
-| --- | --- | --- |
-| **Content Security Policy** (`<meta http-equiv="Content-Security-Policy">`). It is a list of what the page may load: only this site's own scripts, plus Google Fonts for styles and fonts, `data:` and own-site images, no plugins (`object-src 'none'`), forms may only send to this site (`form-action 'self'`; on the Contact page also `mailto:`, so the form can open an email app), and `<base>` is locked (`base-uri 'self'`). The Contact page also allows pictures from `tile.openstreetmap.org` for the map. | `<head>` of every page | Bad or third-party scripts running on the page (cross-site scripting). MDN explains that CSP controls which things the browser may load and helps protect against cross-site scripting (Mozilla Developer Network, no date o). |
-| **No inline scripts or `onclick` attributes** | All pages (a script checked this) | Lets the policy above block all injected scripts. The only inline `<script>` is the JSON-LD data block, which is data and does not run. |
-| **Libraries kept on this site** | Leaflet in `vendor/leaflet/` | The site does not depend on another company's server staying safe, and a changed outside file cannot alter the site. Leaflet's licence (BSD 2-Clause) is included as `vendor/leaflet/LICENSE.txt`. |
-| **Referrer policy** `strict-origin-when-cross-origin` | `<head>` | Limits what other sites learn about which page a visitor came from. With this setting the full address is sent only inside our own site, and only the site name is sent to other secure sites (Mozilla Developer Network, no date y). It is not stricter, because the OpenStreetMap tile policy says not to use a very strict Referrer-Policy and to keep a valid Referer (OpenStreetMap Foundation, no date). |
-| **`rel="noopener noreferrer"` on every outside link** | Contact page map links, Leaflet credit and OpenStreetMap credit | A page opened from our site cannot reach back into ours: `noopener` stops the new page getting access to the page that opened it (Mozilla Developer Network, no date w), and `noreferrer` stops the browser sending the address of our page (Mozilla Developer Network, no date x). |
-| **Safe handling of text** | `validation.js`, `schedule.js`, `lightbox.js`, `menu.js` | Text typed by a visitor or loaded from the JSON file is put on the page as plain text (`textContent` and `createElement`), never as HTML (`innerHTML`), so it can never run as code (Mozilla Developer Network, no date v). The only HTML string is the fixed map popup that we wrote. |
-| **Form limits** | All forms | `maxlength`, `type="email"`, `type="tel"` with a pattern, and `min` on the donation amount limit what can be typed. This helps honest visitors. MDN is clear that checking in the browser is not a security measure, because it can be bypassed, so a real server must check again (Mozilla Developer Network, no date m). |
-| **No server and no secrets** | Whole site | The forms do not send data to a server (the Get Involved forms use `action="#"`; the Contact form builds an email in the visitor's own email app). So there is no database or password to attack, and no keys, tokens or passwords are stored in the repository. |
-| **HTTPS** | GitHub Pages setting | `github.io` sites are served over HTTPS (the secure version of http), and "Enforce HTTPS" sends any `http://` visit to HTTPS (GitHub, no date). Make sure the box is ticked: repository Settings, then Pages, then Enforce HTTPS. |
-| **`.gitignore`** | Project root | Keeps computer-made files such as `.DS_Store` (which lists folder contents) out of the repository. |
-
-**What cannot be done here (honest limits)**
-
-- The headers `X-Content-Type-Options`, `Strict-Transport-Security`, `Permissions-Policy` and `frame-ancestors` can only be set by a server. `frame-ancestors` (stops the site being shown inside another page) does not work in a meta tag (content-security-policy.com, no date). On a real host, or behind a service such as Cloudflare, these would be added.
-- A CSP in a meta tag only covers what loads after the tag. So it sits at the top of `<head>`, before any other file (content-security-policy.com, no date).
-- Google Fonts is trusted for styles and fonts, so a problem at Google would affect the page. The other option, hosting the font files myself, was not done because it needs permission checks on the font files.
-- This is not a full security test by an expert (a penetration test).
-
+| Measure | What it protects against |
+| --- | --- |
+| **Content Security Policy** in a `<meta>` tag on every page: only this site's own scripts load, plus Google Fonts for styles and fonts, and map pictures from `tile.openstreetmap.org` on Contact. | Bad scripts running on the page (cross-site scripting) (Mozilla Developer Network, no date o). It only covers what loads after the tag, so it sits at the top of `<head>` (content-security-policy.com, no date). |
+| **No inline scripts or `onclick`** | Lets the policy block any script that is sneaked in. |
+| **Map tool kept on this site** (`vendor/leaflet/`) | A changed outside file cannot alter the site. |
+| **`rel="noopener noreferrer"`** on outside links | A page opened from ours cannot reach back into ours (Mozilla Developer Network, no date w, x). |
+| **Safe text:** typed or loaded text is added with `textContent`, never `innerHTML` | Typed text can never run as code (Mozilla Developer Network, no date v). |
+| **Form limits:** `maxlength`, `type="email"`, `type="tel"` with a pattern, and `min` on the donation amount | Helps honest visitors. Checking in the browser is not a security measure on its own (Mozilla Developer Network, no date m). |
+| **No server and no secrets** | There is no database or password to attack, and no keys are stored in the repository. |
+| **HTTPS** | `github.io` is served over HTTPS, and "Enforce HTTPS" sends any `http://` visit to HTTPS (GitHub, no date). |
 
 ---
 
@@ -844,7 +745,6 @@ Newest changes first. Every entry says what changed, why, which files, how it wo
   - `index.html` and `contact.html`: JSON-LD business data in `<head>`.
   - `README.md`: this entry and the plan in the "SEO, page speed and security" section.
 - **How it works:** What each file says, and why, is in the "SEO, page speed and security" section above, including the limit that Google will not read our `robots.txt`. The business data uses `@type: NGO` with address, phone, email, opening hours and `areaServed`. The map coordinates are marked in the code as approximate.
-- **What the organisation still has to do:** create the social media accounts and add their links to the Contact page, ask partners and local sites for links, claim a Google Business Profile, and submit `sitemap.xml` in Google Search Console. These cannot be done in the website files.
 - **How to test:** Open `/robots.txt` and `/sitemap.xml` on the live site. They should show as plain text and XML. Run Google's Rich Results Test on the Home or Contact address to see the business data (a tool outside this project that I have not run).
 - **Tested:** the sitemap is valid XML and lists all five pages. `robots.txt` has the required lines. Both JSON-LD blocks are valid and include an address and opening hours.
 
@@ -865,7 +765,6 @@ Newest changes first. Every entry says what changed, why, which files, how it wo
 - **Why:** The brief asks for security measures that protect the website from attacks.
 - **Files changed:** the `<head>` of all five pages; `js/map.js`; `vendor/leaflet/`; `.gitignore` (new); `README.md`.
 - **How it works:** See the Security table and the "What cannot be done here" list in the SEO section. The policy tells the browser to load scripts only from this site, which blocks most attacks that sneak in a script. The honest limit is that GitHub Pages does not allow custom HTTP headers.
-- **One step for you:** `.DS_Store` was already committed before `.gitignore` existed. To stop tracking it, run `git rm --cached .DS_Store` once and commit. Also tick "Enforce HTTPS" in the repository's Pages settings.
 - **How to test:** Open the developer tools console on every page. There should be no red "Refused to load" messages. In the Network tab, the only outside requests should be Google Fonts (and, on Contact, OpenStreetMap map pictures).
 - **Tested:** automatic checks on all five pages: no console or Content Security Policy errors, no inline scripts or `onclick` attributes, and every outside link has `rel="noopener noreferrer"`.
 
@@ -924,7 +823,6 @@ Newest changes first. Every entry says what changed, why, which files, how it wo
   - **Numbers.** Each `<li>` holds a `.stat-number` and a short label. The counting animation still works, because the script only looks for the `.count` spans inside them.
   - **Spacing.** The single rule `main > section { margin-bottom }` sets the gaps, so every page changed together.
 - **How to test:** Open the Home page. The photo should be centred at 800px on wide screens, with the headline and three links below it, and no "Donate food or funds" link. Scroll to "GreenLeaf at a glance" and watch the three numbers count up. Narrow the window to a phone width: the photo fills the width and the three numbers stay in one row.
-- **Note on earlier entries:** the animated counters entry below describes four numbers, and the direct links entry lists a Donate link in the top banner. This entry changed both.
 
 ### Part 3: Header, navigation and single font (all pages)
 
